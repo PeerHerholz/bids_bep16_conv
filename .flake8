@@ -7,6 +7,7 @@ exclude =
     versioneer.py,
     bids_bep16_conv/_version.py,
     docs/source/conf.py
+    setup.py
 max-line-length = 130
 ignore = E203, 
          W503,
