@@ -1,0 +1,6 @@
+﻿bids\_bep16\_conv.datasets.eval\_HBN\_qc
+========================================
+
+.. currentmodule:: bids_bep16_conv.datasets
+
+.. autofunction:: eval_HBN_qc

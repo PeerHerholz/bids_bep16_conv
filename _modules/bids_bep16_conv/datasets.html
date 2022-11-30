@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>bids_bep16_conv.datasets &#8212; bids_bep16_conv 0.post1+gab8e52b documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#_modules/bids_bep16_conv/datasets" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../index.html" title="bids_bep16_conv 0.post1+gab8e52b documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">bids_bep16_conv 0.post1+gab8e52b documentation</span>
+          <span class="md-header-nav__topic"> bids_bep16_conv.datasets </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../"versions.json"",
+        target_loc = "../../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+gab8e52b documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Module code</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../index.html" title="bids_bep16_conv 0.post1+gab8e52b documentation" class="md-nav__button md-logo">
+      
+        <img src="../../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../../index.html"
+       title="bids_bep16_conv 0.post1+gab8e52b documentation">bids_bep16_conv 0.post1+gab8e52b documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <h1 id="modules-bids-bep16-conv-datasets--page-root">Source code for bids_bep16_conv.datasets</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span><span class="p">,</span> <span class="n">PosixPath</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">ptitprince</span> <span class="k">as</span> <span class="nn">pt</span>
+
+
+<div class="viewcode-block" id="get_HBN_qc"><a class="viewcode-back" href="../../generated/bids_bep16_conv.datasets.get_HBN_qc.html#bids_bep16_conv.datasets.get_HBN_qc">[docs]</a><span class="k">def</span> <span class="nf">get_HBN_qc</span><span class="p">(</span><span class="n">dataset_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_df</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Download the QSIprep's participants.tsv file obtained for the HBN</span>
+<span class="sd">    dataset from S3. This file contains important QC measure that are</span>
+<span class="sd">    used to define example participants for BIDS BEP-16.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataset_path : string</span>
+<span class="sd">        Path where the file will be saved. If None, the file will be saved</span>
+<span class="sd">        in the current working directory. Default = None.</span>
+<span class="sd">    return_df : bool</span>
+<span class="sd">        Indicate if the function should return the path to the downloaded file</span>
+<span class="sd">        or a Pandas DataFrame containing the file's content. Default = False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    qsi_qc_file_local : PosixPath or Pandas DataFrame</span>
+<span class="sd">        Either a PosixPath indicating the path to the downloaded file or a</span>
+<span class="sd">        Pandas DataFrame. Dependent on the return_df argument.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Download the file without specifying a path and not loading it into a Pandas DataFrame.</span>
+
+<span class="sd">    &gt;&gt;&gt; get_HBN_qc(dataset_path=None, return_df=False)</span>
+
+<span class="sd">    Download the file, specifying a path and loading it into a Pandas DataFrame.</span>
+
+<span class="sd">    &gt;&gt;&gt; get_HBN_qc(dataset_path='/home/user/Desktop', return_df=True)</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># check if path where to save the file was provided, if not</span>
+    <span class="c1"># save it to the current directory</span>
+    <span class="k">if</span> <span class="n">dataset_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span> <span class="o">+</span> <span class="s1">'/bids_bep16_datasets'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dataset_path</span> <span class="o">+</span> <span class="s1">'/bids_bep16_datasets'</span><span class="p">)</span>
+
+    <span class="c1"># in either case: check if path exists and if not, create it</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+    <span class="c1"># define the full path by combining path and dedicated file name</span>
+    <span class="n">download_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="p">(</span><span class="s1">'source-HBN_desc-qsiprep_participants.tsv'</span><span class="p">)))</span>
+
+    <span class="c1"># if the file does not already exist, download it from s3</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">download_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+
+        <span class="c1"># provide a little update message</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Data will be downloaded to </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">download_path</span><span class="p">)</span>
+
+        <span class="c1"># specify url to file on S3 bucket</span>
+        <span class="n">qsi_qc_file_s3</span> <span class="o">=</span> <span class="s2">"https://fcp-indi.s3.amazonaws.com/data/Projects/HBN/BIDS_curated/derivatives/qsiprep/participants.tsv"</span>
+
+        <span class="c1"># download and save the file, updating the user on the download progress</span>
+        <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">qsi_qc_file_s3</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">participants_file</span><span class="p">:</span>
+
+            <span class="c1"># get total size of file for download updates</span>
+            <span class="n">participants_file_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">participants_file</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Content-Length'</span><span class="p">))</span>
+
+            <span class="c1"># implement progress bar via tqdm</span>
+            <span class="k">with</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">wrapattr</span><span class="p">(</span><span class="n">participants_file</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="s2">"read"</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="n">participants_file_size</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span><span class="k">as</span> <span class="n">raw</span><span class="p">:</span>
+
+                <span class="c1"># save the output to the file specified before</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">download_path</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span><span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">raw</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+        
+        <span class="n">qsi_qc_file_local</span> <span class="o">=</span> <span class="n">download_path</span>
+
+    <span class="c1"># if the file already exists, set the respective path</span>
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="c1"># provide a little update message</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Data already existing at </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">download_path</span><span class="p">)</span>
+
+        <span class="n">qsi_qc_file_local</span> <span class="o">=</span> <span class="n">download_path</span>
+
+    <span class="c1"># if a Pandas DataFrame should be returned, read the downloaded/existing file</span>
+    <span class="k">if</span> <span class="n">return_df</span><span class="p">:</span>
+        <span class="n">qsi_qc_file_local</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">qsi_qc_file_local</span><span class="p">)</span>
+
+    <span class="c1"># return either the path to the file or the corresponding Pandas DataFrame</span>
+    <span class="k">return</span> <span class="n">qsi_qc_file_local</span></div>
+
+
+<div class="viewcode-block" id="eval_HBN_qc"><a class="viewcode-back" href="../../generated/bids_bep16_conv.datasets.eval_HBN_qc.html#bids_bep16_conv.datasets.eval_HBN_qc">[docs]</a><span class="k">def</span> <span class="nf">eval_HBN_qc</span><span class="p">(</span><span class="n">HBN_qc_file_df</span><span class="p">,</span> <span class="n">n_high_participants</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_sorted_df</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Evaluate QSIprep's participants.tsv file obtained for the HBN</span>
+<span class="sd">    dataset regarding QC.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    HBN_qc_file_df : string or Pandas DataFrame</span>
+<span class="sd">        Either a string indicating the path of the file or</span>
+<span class="sd">        a corresponding Pandas DataFrame. will be saved.</span>
+<span class="sd">    n_high_participants : int</span>
+<span class="sd">        Integer indicating how many of the participants with</span>
+<span class="sd">        the best QC sure should be displayed.</span>
+<span class="sd">    visualize: bool</span>
+<span class="sd">        Indicate if the distribution of QC scores should be</span>
+<span class="sd">        displayed via a raincloud plot.</span>
+<span class="sd">    return_sorted_df: bool</span>
+<span class="sd">        Indicate if the DataFrame should be sorted by QC scores</span>
+<span class="sd">        in a descending manner and returned.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    HBN_qc_file_df_n_high : Pandas Series</span>
+<span class="sd">        A Pandas Series indicating the participants with the highest</span>
+<span class="sd">        QC scores with the amount being defined by n_high_participants.</span>
+<span class="sd">    HBN_qc_file_df: Pandas DataFrame</span>
+<span class="sd">        The DataFrame, sorted by QC scores. Returned only if</span>
+<span class="sd">        return_sorted_df is set to True.</span>
+<span class="sd">    fig : :class:`~matplotlib.figure.Figure`</span>
+<span class="sd">        A :class:`~matplotlib.figure.Figure` containing a</span>
+<span class="sd">        raincloud plot of the QC scores.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Get the participants with the 10 highest QC scores and do not show the plot nor return the sorted DataFrame.</span>
+
+<span class="sd">    &gt;&gt;&gt; eval_HBN_qc(HBN_qc_file_df, n_high_participants=10, visualize=False, return_sorted_df=False)</span>
+
+<span class="sd">    Get the participants with the 3 highest QC scores and do show the plot and return the sorted DataFrame.</span>
+
+<span class="sd">    &gt;&gt;&gt; eval_HBN_qc(HBN_qc_file_df, n_high_participants=3, visualize=True, return_sorted_df=True)</span>
+
+<span class="sd">    """</span>
+
+    <span class="c1"># if HBN_qc_file_df is a str or PosixPath, read it into a DataFrame via Pandas</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HBN_qc_file_df</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">HBN_qc_file_df</span><span class="p">,</span> <span class="n">PosixPath</span><span class="p">):</span>
+        <span class="n">HBN_qc_file_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_table</span><span class="p">(</span><span class="n">HBN_qc_file_df</span><span class="p">)</span>
+
+    <span class="c1"># sort the DataFrame based on QC scores</span>
+    <span class="n">HBN_qc_file_df</span> <span class="o">=</span> <span class="n">HBN_qc_file_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'dl_qc_score'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># get the participants with the n highest QC scores &amp; print the information</span>
+    <span class="n">HBN_qc_file_df_n_high</span> <span class="o">=</span> <span class="n">HBN_qc_file_df</span><span class="p">[</span><span class="s1">'subject_id'</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n_high_participants</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The </span><span class="si">%s</span><span class="s2"> participants with the highest QC score are: </span><span class="se">\n</span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n_high_participants</span><span class="p">),</span>
+                                                                       <span class="n">HBN_qc_file_df_n_high</span><span class="p">))</span>
+
+    <span class="c1"># if the data should be visualized, create a raincloud plot of the QC scores</span>
+    <span class="k">if</span> <span class="n">visualize</span><span class="p">:</span>
+
+        <span class="c1"># initialize the figure</span>
+        <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+        <span class="c1"># create a raincloud plot &amp; set plot details</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">RainCloud</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">HBN_qc_file_df</span><span class="p">[</span><span class="s1">'dl_qc_score'</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">HBN_qc_file_df</span><span class="p">[</span><span class="s1">'subject_id'</span><span class="p">],</span>
+                          <span class="n">scale</span><span class="o">=</span><span class="s2">"area"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">HBN_qc_file_df</span><span class="p">[</span><span class="s1">'dl_qc_score'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">HBN_qc_file_df</span><span class="p">[</span><span class="s1">'dl_qc_score'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"HBN"</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"QSIPREP - DL QC Score"</span><span class="p">)</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">offset</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">return_sorted_df</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">HBN_qc_file_df</span></div>
+</pre></div>
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2022, Brain Imaging Data Structure.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>
