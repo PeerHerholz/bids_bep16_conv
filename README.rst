@@ -1,5 +1,5 @@
 ===============
-bids_bep16_conv
+BIDS BEP-16 Conversion tools
 ===============
 
 .. image:: https://img.shields.io/travis/peerherholz/bids_bep16_conv.svg
@@ -8,13 +8,17 @@ bids_bep16_conv
 .. image:: https://img.shields.io/pypi/v/bids_bep16_conv.svg
         :target: https://pypi.python.org/pypi/bids_bep16_conv
 
+.. image:: https://img.shields.io/github/repo-size/PeerHerholz/bids_bep16_conv.svg
+        :target: https://img.shields.io/github/repo-size/PeerHerholz/bids_bep16_conv.zip
+
+.. image:: https://img.shields.io/github/issues/PeerHerholz/bids_bep16_conv.svg
+        :target: https://img.shields.io/github/issues/PeerHerholz/bids_bep16_conv/issues
+
+.. image:: https://img.shields.io/github/issues-pr/PeerHerholz/bids_bep16_conv.svg
+        :target: https://img.shields.io/github/issues-pr/PeerHerholz/bids_bep16_conv/pulls
+
+.. image:: https://img.shields.io/github/license/PeerHerholz/bids_bep16_conv.svg
+        :target: https://github.com/PeerHerholz/bids_bep16_conv
+
 
 A small package to implement conversions between BEP-16 (Diffusion Derivatives) compliant datasets and other/existing software outputs.
-
-* Free software: 3-clause BSD license
-* Documentation: (COMING SOON!) https://peerherholz.github.io/bids_bep16_conv.
-
-Features
---------
-
-* TODO
