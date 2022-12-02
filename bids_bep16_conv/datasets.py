@@ -174,7 +174,7 @@ def eval_HBN_qc(HBN_qc_file_df, n_high_participants=5, visualize=True, return_so
 def download_HBN(dataset_path=None):
     """
     Download the QSIprep outcomes obtained for the HBN dataset subset
-    provided on OSF.
+    provided on OSF. Currently this entails sub-NDAREK918EC2.
 
     Parameters
     ----------
@@ -210,9 +210,9 @@ def download_HBN(dataset_path=None):
         os.makedirs(path)
 
     # define list of HBN files that should be downloaded
-    HBN_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
+    HBN_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval',
                  'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
-                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval']
+                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz']
 
     # define list of HBN files URLs
     HBN_file_urls = ['https://osf.io/9dfx3/download', 'https://osf.io/vq46r/download', 'https://osf.io/hjvub/download']
