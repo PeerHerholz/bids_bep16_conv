@@ -1,7 +1,8 @@
 
 
 from pathlib import Path
-from ..datasets import get_HBN_qc, eval_HBN_qc
+import os
+from ..datasets import get_HBN_qc, eval_HBN_qc, download_HBN
 import pandas as pd
 
 
@@ -44,4 +45,15 @@ def test_evaluate_HBN_qc():
     actual_qc_scores = HBN_qc_file_eval['dl_qc_score'].head(n=5).to_list()
     expected_qc_scores = [1.0, 1.0, 1.0, 0.999, 0.999]
     assert actual_qc_scores == expected_qc_scores
-    
+
+
+def test_download_HBN():
+
+    # test if all files are downloaded
+
+    HBN_qsiprep_dwi_files = download_HBN()
+    actual_files = os.listdir(HBN_qsiprep_dwi_files)
+    expected_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
+                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval',
+                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec']
+    assert actual_files == expected_files

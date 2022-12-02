@@ -2,9 +2,9 @@ import os
 import requests
 from tqdm.auto import tqdm
 from pathlib import Path, PosixPath
+import seedir as sd
 import shutil
 import pandas as pd
-
 import matplotlib.pyplot as plt
 import seaborn as sns
 import ptitprince as pt
@@ -45,9 +45,9 @@ def get_HBN_qc(dataset_path=None, return_df=False):
     # check if path where to save the file was provided, if not
     # save it to the current directory
     if dataset_path is None:
-        path = Path(os.curdir + '/bids_bep16_datasets')
+        path = Path(os.curdir + '/bids_bep16_datasets/HBN')
     else:
-        path = Path(dataset_path + '/bids_bep16_datasets')
+        path = Path(dataset_path + '/bids_bep16_datasets/HBN')
 
     # in either case: check if path exists and if not, create it
     if not path.exists():
@@ -169,3 +169,86 @@ def eval_HBN_qc(HBN_qc_file_df, n_high_participants=5, visualize=True, return_so
 
     if return_sorted_df:
         return HBN_qc_file_df
+
+
+def download_HBN(dataset_path=None):
+    """
+    Download the QSIprep outcomes obtained for the HBN dataset subset
+    provided on OSF.
+
+    Parameters
+    ----------
+    dataset_path : string
+        Path where the file will be saved. If None, the file will be saved
+        in the current working directory. Default = None.
+
+    Returns
+    -------
+    path : PosixPath
+        A PosixPath indicating the path to the downloaded dataset.
+
+    Examples
+    --------
+    Download the HBN dataset to the current directory.
+
+    >>> download_HBN(dataset_path=None)
+
+    Download the dataset to a specific path, e.g. the user's Desktop.
+
+    >>> download_HBN(dataset_path='/home/user/Desktop')
+    """
+
+    # check if path where to save the file was provided, if not
+    # save it to the current directory
+    if dataset_path is None:
+        path = Path(os.curdir + '/bids_bep16_datasets/HBN/derivatives/QSIprep/ses-HBNsiteSI/dwi')
+    else:
+        path = Path(dataset_path + '/bids_bep16_datasets/HBN/derivatives/QSIprep/ses-HBNsiteSI/dwi')
+
+    # in either case: check if path exists and if not, create it
+    if not path.exists():
+        os.makedirs(path)
+
+    # define list of HBN files that should be downloaded
+    HBN_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
+                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
+                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval']
+
+    # define list of HBN files URLs
+    HBN_file_urls = ['https://osf.io/9dfx3/download', 'https://osf.io/vq46r/download', 'https://osf.io/hjvub/download']
+
+    # loop over files and download them if not already existing
+    for file, url in zip(HBN_files, HBN_file_urls):
+
+        # define the file-specific download path
+        download_path = Path(os.path.join(path, file))
+
+        # if the file does not already exist, download it from OSF
+        if not download_path.exists():
+
+            # provide a little update
+            print('Downloading %s' % file)
+
+            # download and save the file, updating the user on the download progress
+            with requests.get(url, stream=True) as HBN_file:
+
+                # get total size of file for download updates
+                participants_file_size = int(HBN_file.headers.get('Content-Length'))
+
+                # implement progress bar via tqdm
+                with tqdm.wrapattr(HBN_file.raw, "read", total=participants_file_size, desc="") as raw:
+
+                    # save the output to the file specified before
+                    with open(f"{download_path}", 'wb') as output:
+                        shutil.copyfileobj(raw, output)
+        
+        else:
+
+            # provide a little update message that the file already exists at the defined path
+            print('%s already existing at %s' % (file, dataset_path))
+
+    # provide a little update message showing the existing files
+    print('The following HBN files are available:')
+    sd.seedir(path.parents[4])
+
+    return path
