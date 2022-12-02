@@ -52,8 +52,8 @@ def test_download_HBN():
     # test if all files are downloaded
 
     HBN_qsiprep_dwi_files = download_HBN()
-    actual_files = os.listdir(HBN_qsiprep_dwi_files)
-    expected_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
-                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval',
-                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec']
+    actual_files = sorted(os.listdir(HBN_qsiprep_dwi_files))
+    expected_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval',
+                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
+                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz']
     assert actual_files == expected_files
