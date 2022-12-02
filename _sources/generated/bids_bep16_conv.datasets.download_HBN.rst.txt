@@ -1,0 +1,6 @@
+﻿bids\_bep16\_conv.datasets.download\_HBN
+========================================
+
+.. currentmodule:: bids_bep16_conv.datasets
+
+.. autofunction:: download_HBN

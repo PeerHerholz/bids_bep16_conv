@@ -24,3 +24,4 @@ Reference API
 
    bids_bep16_conv.datasets.get_HBN_qc
    bids_bep16_conv.datasets.eval_HBN_qc
+   bids_bep16_conv.datasets.download_HBN
