@@ -8,6 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import ptitprince as pt
+from json import load, dump
 
 
 def get_HBN_qc(dataset_path=None, return_df=False):
@@ -212,16 +213,24 @@ def download_HBN(dataset_path=None):
     # define list of HBN files that should be downloaded
     HBN_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval',
                  'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
-                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz']
+                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
+                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json',
+                 'dataset_description.json']
 
     # define list of HBN files URLs
-    HBN_file_urls = ['https://osf.io/9dfx3/download', 'https://osf.io/vq46r/download', 'https://osf.io/hjvub/download']
+    HBN_file_urls = ['https://osf.io/9dfx3/download', 'https://osf.io/vq46r/download',
+                     'https://osf.io/hjvub/download', 'https://osf.io/fz968/download',
+                     'https://osf.io/4mx5v/download']
 
     # loop over files and download them if not already existing
     for file, url in zip(HBN_files, HBN_file_urls):
 
         # define the file-specific download path
-        download_path = Path(os.path.join(path, file))
+        # if dataset descriptor, change path
+        if file == 'dataset_description.json':
+            download_path = Path(os.path.join(path.parents[1], file))
+        else:
+            download_path = Path(os.path.join(path, file))
 
         # if the file does not already exist, download it from OSF
         if not download_path.exists():
@@ -241,11 +250,42 @@ def download_HBN(dataset_path=None):
                     # save the output to the file specified before
                     with open(f"{download_path}", 'wb') as output:
                         shutil.copyfileobj(raw, output)
-        
+
+            # HBN QSIprep misses json files, thus they need to be created in a two-step approach
+            # 1. get the raw data json file and rename it to be BIDS conform
+            # 2. add provenance information
+            if file == 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json':
+
+                # define provenance information, right now hard coded, will be adapted later after there are
+                # more example datasets
+                prov_info = {
+                    "Sources": ["bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/dwi/sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_dwi.nii.gz",
+                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/dwi/sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_dwi.bval",
+                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/dwi/sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_dwi.bvec",
+                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/anat/sub-NDAREK918EC2_ses-HBNsiteSI_T1w.nii.gz",
+                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/fmap/sub-NDAREK918EC2_ses-HBNsiteSI_magnitude1.nii.gz",
+                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/fmap/sub-NDAREK918EC2_ses-HBNsiteSI_magnitude2.nii.gz",
+                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/fmap/sub-NDAREK918EC2_ses-HBNsiteSI_phasediff.nii.gz"
+                                ],
+                    "SpatialReference": "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/anat/sub-NDAREK918EC2_ses-HBNsiteSI_T1w.nii.gz"
+                }
+
+                # open & load the downloaded raw data json file
+                f = open(str(download_path), 'r', encoding='utf-8')
+
+                meta_json = load(f)
+
+                # add the provenance information
+                meta_json.update(prov_info)
+
+                # save the udpated json file
+                with open('/Users/peerherholz/Desktop/why.json', 'w') as outfile:
+                    dump(meta_json, outfile, indent=4, sort_keys=True)
+
         else:
 
             # provide a little update message that the file already exists at the defined path
-            print('%s already existing at %s' % (file, dataset_path))
+            print('%s already existing at %s' % (file, path))
 
     # provide a little update message showing the existing files
     print('The following HBN files are available:')
