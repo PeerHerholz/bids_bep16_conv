@@ -279,7 +279,7 @@ def download_HBN(dataset_path=None):
                 meta_json.update(prov_info)
 
                 # save the udpated json file
-                with open('/Users/peerherholz/Desktop/why.json', 'w') as outfile:
+                with open(str(dataset_path), 'w') as outfile:
                     dump(meta_json, outfile, indent=4, sort_keys=True)
 
         else:
