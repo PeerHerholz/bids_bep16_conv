@@ -17,8 +17,8 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
+import os
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon',
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'IPython.sphinxext.ipython_directive',
@@ -43,6 +44,7 @@ extensions = [
     'matplotlib.sphinxext.plot_directive',
     'numpydoc',
     'sphinx_copybutton',
+    'sphinx_gallery.gen_gallery'
 ]
 
 # Configuration options for plot_directive. See:
@@ -201,4 +203,26 @@ intersphinx_mapping = {
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
     'pandas': ('https://pandas.pydata.org/pandas-docs/stable', None),
     'matplotlib': ('https://matplotlib.org/stable', None),
+}
+
+sphinx_gallery_conf = {
+    'examples_dirs': '../../examples',   # path to your example scripts
+    'gallery_dirs': 'auto_examples',  # path to where to save gallery generated output
+    'doc_module': 'bids_bep16_conv',
+    'backreferences_dir': os.path.join('generated', 'modules'),
+    'reference_url': {
+        'bids_bep16_conv': None
+    },
+    'thumbnail_size': (250, 250),
+    'ignore_pattern': r'/wip.*\.py',
+    # path to your example scripts
+    'examples_dirs': ['../../examples'],
+    # path to where to save gallery generated output
+    'gallery_dirs': ['auto_examples'],
+    # specify that examples should be ordered according to filename
+    # directory where function granular galleries are stored
+    'backreferences_dir': 'gen_modules/backreferences',
+    # Modules for which function level galleries are created.  In
+    # this case sphinx_gallery and numpy in a tuple of strings.
+    'doc_module': ('bids_bep16_conv'),
 }
