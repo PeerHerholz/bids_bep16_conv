@@ -23,20 +23,7 @@ Fetching the HBN example dataset
 This example demonstrates how to use :mod:`bids_bep16_conv.datasets` to fetch
 the HBN example dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 8-10
-
-.. code-block:: default
-
-    # flake8: noqa
-
-
-
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 11-28
+.. GENERATED FROM PYTHON SOURCE LINES 10-27
 
 Much of the functionality of the ``bids_bep16_conv`` toolbox relies on downloading
 candidate example datasets. Each dataset has its own functions to check and evaluate QC
@@ -56,7 +43,7 @@ At first, we need to find a suitable ``participant``, in terms of overall data q
 provides a respective file that includes a ``quality control score`` for each ``participant``.
 Using the :func:`datasets.get_HBN_qc` function we can obtain and check this file:
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-34
+.. GENERATED FROM PYTHON SOURCE LINES 27-33
 
 .. code-block:: default
 
@@ -75,7 +62,7 @@ Using the :func:`datasets.get_HBN_qc` function we can obtain and check this file
  .. code-block:: none
 
     Data will be downloaded to bids_bep16_datasets/HBN/source-HBN_desc-qsiprep_participants.tsv
-      0%|          | 0/210607 [00:00<?, ?it/s]     31%|###1      | 64.0k/206k [00:00<00:00, 514kB/s]    100%|##########| 206k/206k [00:00<00:00, 1.06MB/s]
+      0%|          | 0/210607 [00:00<?, ?it/s]     31%|###1      | 64.0k/206k [00:00<00:00, 486kB/s]    100%|##########| 206k/206k [00:00<00:00, 1.02MB/s]
                 subject_id scan_site_id  ... dl_qc_score            site_variant
     0     sub-NDARAA306NT2           RU  ...       0.470    RU_64dir_Most_Common
     1     sub-NDARAA536PTU           SI  ...       0.701      SI_64dir_Obliquity
@@ -94,7 +81,7 @@ Using the :func:`datasets.get_HBN_qc` function we can obtain and check this file
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-43
+.. GENERATED FROM PYTHON SOURCE LINES 34-42
 
 What we get is a :class:`~pandas.DataFrame` entailing the content of ``QSIprep``'s ``participant.tsv`` file.
 In contains various ``demographic variables`` but also the ``Quality Control scores`` we are interested in.
@@ -105,7 +92,7 @@ and a ``raincloud plot`` of the ``dl_qc_score`` variable across the ``dataset`` 
 
 Here, we going to get the ``participants`` that have the ``3`` highest scores, the sorted :class:`~pandas.DataFrame` and the ``raincloud plot``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-48
+.. GENERATED FROM PYTHON SOURCE LINES 42-47
 
 .. code-block:: default
 
@@ -142,7 +129,7 @@ Here, we going to get the ``participants`` that have the ``3`` highest scores, t
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-58
+.. GENERATED FROM PYTHON SOURCE LINES 48-57
 
 As you can see in the ``raincloud plot``, the score has a rather interesting distribution but the
 above obtained :class:`~pandas.Series` indicates that ``participant`` ``sub-NDAREK918EC2`` has the
@@ -154,7 +141,7 @@ for access and management.
 That being said, we can use :func:`datasets.download_HBN` ``function`` to download the respective ``data``, for example
 to our ``Desktop``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-61
+.. GENERATED FROM PYTHON SOURCE LINES 57-60
 
 .. code-block:: default
 
@@ -170,15 +157,15 @@ to our ``Desktop``.
  .. code-block:: none
 
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval
-      0%|          | 0/71288313 [00:00<?, ?it/s]      4%|4         | 2.88M/68.0M [00:00<00:02, 30.1MB/s]     11%|#         | 7.44M/68.0M [00:00<00:01, 39.0MB/s]     20%|#9        | 13.4M/68.0M [00:00<00:01, 49.5MB/s]     27%|##7       | 18.4M/68.0M [00:00<00:01, 48.8MB/s]     36%|###5      | 24.4M/68.0M [00:00<00:00, 53.8MB/s]     44%|####3     | 29.6M/68.0M [00:00<00:00, 51.6MB/s]     52%|#####2    | 35.7M/68.0M [00:00<00:00, 55.3MB/s]     60%|######    | 41.0M/68.0M [00:00<00:00, 53.0MB/s]     69%|######8   | 46.9M/68.0M [00:00<00:00, 55.3MB/s]     77%|#######6  | 52.2M/68.0M [00:01<00:00, 53.8MB/s]     86%|########5 | 58.3M/68.0M [00:01<00:00, 52.8MB/s]     95%|#########4| 64.2M/68.0M [00:01<00:00, 55.4MB/s]    100%|##########| 68.0M/68.0M [00:01<00:00, 52.6MB/s]
+      0%|          | 0/71288313 [00:00<?, ?it/s]      0%|          | 192k/68.0M [00:00<00:41, 1.72MB/s]      1%|          | 576k/68.0M [00:00<00:24, 2.93MB/s]      2%|2         | 1.62M/68.0M [00:00<00:10, 6.52MB/s]      7%|6         | 4.44M/68.0M [00:00<00:04, 15.4MB/s]     14%|#4        | 9.56M/68.0M [00:00<00:02, 28.9MB/s]     22%|##1       | 14.9M/68.0M [00:00<00:01, 38.0MB/s]     29%|##9       | 20.0M/68.0M [00:00<00:01, 42.8MB/s]     37%|###7      | 25.4M/68.0M [00:00<00:00, 46.9MB/s]     45%|####4     | 30.5M/68.0M [00:00<00:00, 49.0MB/s]     52%|#####2    | 35.6M/68.0M [00:01<00:00, 50.2MB/s]     60%|#####9    | 40.6M/68.0M [00:01<00:00, 50.6MB/s]     67%|######7   | 45.8M/68.0M [00:01<00:00, 52.0MB/s]     75%|#######4  | 50.8M/68.0M [00:01<00:00, 51.3MB/s]     82%|########2 | 55.8M/68.0M [00:01<00:00, 48.1MB/s]     89%|########9 | 60.8M/68.0M [00:01<00:00, 48.9MB/s]     97%|#########6| 65.9M/68.0M [00:01<00:00, 49.9MB/s]    100%|##########| 68.0M/68.0M [00:01<00:00, 41.8MB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec
-      0%|          | 0/757 [00:00<?, ?it/s]    100%|##########| 757/757 [00:00<00:00, 557kB/s]
+      0%|          | 0/757 [00:00<?, ?it/s]    100%|##########| 757/757 [00:00<00:00, 185kB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
-      0%|          | 0/107 [00:00<?, ?it/s]    100%|##########| 107/107 [00:00<00:00, 50.5kB/s]
+      0%|          | 0/107 [00:00<?, ?it/s]    100%|##########| 107/107 [00:00<00:00, 86.1kB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json
-      0%|          | 0/3057 [00:00<?, ?it/s]    100%|##########| 2.99k/2.99k [00:00<00:00, 1.69MB/s]
+      0%|          | 0/3057 [00:00<?, ?it/s]    100%|##########| 2.99k/2.99k [00:00<00:00, 2.21MB/s]
     Downloading dataset_description.json
-      0%|          | 0/499 [00:00<?, ?it/s]    100%|##########| 499/499 [00:00<00:00, 172kB/s]
+      0%|          | 0/499 [00:00<?, ?it/s]    100%|##########| 499/499 [00:00<00:00, 313kB/s]
     The following HBN files are available:
     bids_bep16_datasets/
     └─HBN/
@@ -196,7 +183,7 @@ to our ``Desktop``.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-72
+.. GENERATED FROM PYTHON SOURCE LINES 61-71
 
 Importantly, this ``function`` does not only obtain the ``participant``'s ``QSIprep`` output, but
 also obtains the ``dataset_description.json`` and generates the ``data json sidecar`` ``file`` required by
@@ -212,7 +199,7 @@ as well as
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  9.196 seconds)
+   **Total running time of the script:** ( 0 minutes  8.799 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_HBN_download.py:

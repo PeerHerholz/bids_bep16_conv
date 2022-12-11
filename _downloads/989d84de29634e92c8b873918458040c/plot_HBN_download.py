@@ -5,7 +5,6 @@ Fetching the HBN example dataset
 This example demonstrates how to use :mod:`bids_bep16_conv.datasets` to fetch
 the HBN example dataset.
 """
-# flake8: noqa
 
 ###############################################################################
 # Much of the functionality of the ``bids_bep16_conv`` toolbox relies on downloading
