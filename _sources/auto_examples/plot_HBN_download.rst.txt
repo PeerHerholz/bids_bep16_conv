@@ -75,7 +75,7 @@ Using the :func:`datasets.get_HBN_qc` function we can obtain and check this file
  .. code-block:: none
 
     Data will be downloaded to bids_bep16_datasets/HBN/source-HBN_desc-qsiprep_participants.tsv
-      0%|          | 0/210607 [00:00<?, ?it/s]     93%|#########3| 192k/206k [00:00<00:00, 1.48MB/s]    100%|##########| 206k/206k [00:00<00:00, 1.56MB/s]
+      0%|          | 0/210607 [00:00<?, ?it/s]     31%|###1      | 64.0k/206k [00:00<00:00, 514kB/s]    100%|##########| 206k/206k [00:00<00:00, 1.06MB/s]
                 subject_id scan_site_id  ... dl_qc_score            site_variant
     0     sub-NDARAA306NT2           RU  ...       0.470    RU_64dir_Most_Common
     1     sub-NDARAA536PTU           SI  ...       0.701      SI_64dir_Obliquity
@@ -170,15 +170,15 @@ to our ``Desktop``.
  .. code-block:: none
 
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval
-      0%|          | 0/71288313 [00:00<?, ?it/s]      2%|2         | 1.38M/68.0M [00:00<00:04, 14.3MB/s]     17%|#6        | 11.3M/68.0M [00:00<00:00, 66.3MB/s]     35%|###4      | 23.8M/68.0M [00:00<00:00, 95.0MB/s]     53%|#####3    | 36.1M/68.0M [00:00<00:00, 108MB/s]      72%|#######1  | 48.8M/68.0M [00:00<00:00, 117MB/s]     89%|########9 | 60.8M/68.0M [00:00<00:00, 120MB/s]    100%|##########| 68.0M/68.0M [00:00<00:00, 101MB/s]
+      0%|          | 0/71288313 [00:00<?, ?it/s]      4%|4         | 2.88M/68.0M [00:00<00:02, 30.1MB/s]     11%|#         | 7.44M/68.0M [00:00<00:01, 39.0MB/s]     20%|#9        | 13.4M/68.0M [00:00<00:01, 49.5MB/s]     27%|##7       | 18.4M/68.0M [00:00<00:01, 48.8MB/s]     36%|###5      | 24.4M/68.0M [00:00<00:00, 53.8MB/s]     44%|####3     | 29.6M/68.0M [00:00<00:00, 51.6MB/s]     52%|#####2    | 35.7M/68.0M [00:00<00:00, 55.3MB/s]     60%|######    | 41.0M/68.0M [00:00<00:00, 53.0MB/s]     69%|######8   | 46.9M/68.0M [00:00<00:00, 55.3MB/s]     77%|#######6  | 52.2M/68.0M [00:01<00:00, 53.8MB/s]     86%|########5 | 58.3M/68.0M [00:01<00:00, 52.8MB/s]     95%|#########4| 64.2M/68.0M [00:01<00:00, 55.4MB/s]    100%|##########| 68.0M/68.0M [00:01<00:00, 52.6MB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec
-      0%|          | 0/757 [00:00<?, ?it/s]    100%|##########| 757/757 [00:00<00:00, 875kB/s]
+      0%|          | 0/757 [00:00<?, ?it/s]    100%|##########| 757/757 [00:00<00:00, 557kB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
-      0%|          | 0/107 [00:00<?, ?it/s]    100%|##########| 107/107 [00:00<00:00, 121kB/s]
+      0%|          | 0/107 [00:00<?, ?it/s]    100%|##########| 107/107 [00:00<00:00, 50.5kB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json
-      0%|          | 0/3057 [00:00<?, ?it/s]    100%|##########| 2.99k/2.99k [00:00<00:00, 3.29MB/s]
+      0%|          | 0/3057 [00:00<?, ?it/s]    100%|##########| 2.99k/2.99k [00:00<00:00, 1.69MB/s]
     Downloading dataset_description.json
-      0%|          | 0/499 [00:00<?, ?it/s]    100%|##########| 499/499 [00:00<00:00, 555kB/s]
+      0%|          | 0/499 [00:00<?, ?it/s]    100%|##########| 499/499 [00:00<00:00, 172kB/s]
     The following HBN files are available:
     bids_bep16_datasets/
     └─HBN/
@@ -212,7 +212,7 @@ as well as
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.917 seconds)
+   **Total running time of the script:** ( 0 minutes  9.196 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_HBN_download.py:
