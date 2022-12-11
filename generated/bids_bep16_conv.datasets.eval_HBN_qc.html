@@ -47,11 +47,15 @@
   
   
   
-    <title>bids_bep16_conv.datasets.eval_HBN_qc &#8212; bids_bep16_conv 0.post1+g0154c44 documentation</title>
+    <title>bids_bep16_conv.datasets.eval_HBN_qc &#8212; bids_bep16_conv 0.post1+g65dca75 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -87,7 +91,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="bids_bep16_conv 0.post1+g0154c44 documentation"
+        <a href="../index.html" title="bids_bep16_conv 0.post1+g65dca75 documentation"
            class="md-header-nav__button md-logo">
           
             &nbsp;
@@ -99,7 +103,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">bids_bep16_conv 0.post1+g0154c44 documentation</span>
+          <span class="md-header-nav__topic">bids_bep16_conv 0.post1+g65dca75 documentation</span>
           <span class="md-header-nav__topic"> bids_bep16_conv.datasets.eval_HBN_qc </span>
         </div>
       </div>
@@ -156,7 +160,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g0154c44 documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g65dca75 documentation</a></li>
           <li class="md-tabs__item"><a href="../api_ref.html" class="md-tabs__link">Reference API</a></li>
       </ul>
     </div>
@@ -169,13 +173,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="bids_bep16_conv 0.post1+g0154c44 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="bids_bep16_conv 0.post1+g65dca75 documentation" class="md-nav__button md-logo">
       
         <img src="../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../index.html"
-       title="bids_bep16_conv 0.post1+g0154c44 documentation">bids_bep16_conv 0.post1+g0154c44 documentation</a>
+       title="bids_bep16_conv 0.post1+g65dca75 documentation">bids_bep16_conv 0.post1+g65dca75 documentation</a>
   </label>
   
 
@@ -210,35 +214,29 @@
 <span class="sig-prename descclassname"><span class="pre">bids_bep16_conv.datasets.</span></span><span class="sig-name descname"><span class="pre">eval_HBN_qc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">HBN_qc_file_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_high_participants</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visualize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_sorted_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bids_bep16_conv/datasets.html#eval_HBN_qc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bids_bep16_conv.datasets.eval_HBN_qc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate QSIprep’s participants.tsv file obtained for the HBN
 dataset regarding QC.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>HBN_qc_file_df</strong><span class="classifier">string or Pandas DataFrame</span></dt><dd><p>Either a string indicating the path of the file or
-a corresponding Pandas DataFrame. will be saved.</p>
-</dd>
-<dt><strong>n_high_participants</strong><span class="classifier">int</span></dt><dd><p>Integer indicating how many of the participants with
-the best QC sure should be displayed.</p>
-</dd>
-<dt><strong>visualize: bool</strong></dt><dd><p>Indicate if the distribution of QC scores should be
-displayed via a raincloud plot.</p>
-</dd>
-<dt><strong>return_sorted_df: bool</strong></dt><dd><p>Indicate if the DataFrame should be sorted by QC scores
-in a descending manner and returned.</p>
-</dd>
-</dl>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>HBN_qc_file_df</strong> (<em>string</em><em> or </em><em>Pandas DataFrame</em>) – Either a string indicating the path of the file or
+a corresponding Pandas DataFrame. will be saved.</p></li>
+<li><p><strong>n_high_participants</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – Integer indicating how many of the participants with
+the best QC sure should be displayed.</p></li>
+<li><p><strong>visualize</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Indicate if the distribution of QC scores should be
+displayed via a raincloud plot.</p></li>
+<li><p><strong>return_sorted_df</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Indicate if the DataFrame should be sorted by QC scores
+in a descending manner and returned.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><dl>
-<dt><strong>HBN_qc_file_df_n_high</strong><span class="classifier">Pandas Series</span></dt><dd><p>A Pandas Series indicating the participants with the highest
-QC scores with the amount being defined by n_high_participants.</p>
-</dd>
-<dt>HBN_qc_file_df: Pandas DataFrame</dt><dd><p>The DataFrame, sorted by QC scores. Returned only if
-return_sorted_df is set to True.</p>
-</dd>
-<dt><strong>fig</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></a></span></dt><dd><p>A <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></a> containing a
-raincloud plot of the QC scores.</p>
-</dd>
-</dl>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>HBN_qc_file_df_n_high</strong> (<em>Pandas Series</em>) – A Pandas Series indicating the participants with the highest
+QC scores with the amount being defined by n_high_participants.</p></li>
+<li><p><strong>HBN_qc_file_df</strong> (<em>Pandas DataFrame</em>) – The DataFrame, sorted by QC scores. Returned only if
+return_sorted_df is set to True.</p></li>
+<li><p><strong>fig</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></a>) – A <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="(in Matplotlib v3.6.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></a> containing a
+raincloud plot of the QC scores.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>

@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#3f51b5">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+  
+  
+    <title>Fetching the HBN example dataset &#8212; bids_bep16_conv 0.post1+g65dca75 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reference API" href="../api_ref.html" />
+    <link rel="prev" title="Examples" href="index.html" />
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=blue-grey data-md-color-accent=blue>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#auto_examples/plot_HBN_download" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="bids_bep16_conv 0.post1+g65dca75 documentation"
+           class="md-header-nav__button md-logo">
+          
+            &nbsp;
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">bids_bep16_conv 0.post1+g65dca75 documentation</span>
+          <span class="md-header-nav__topic"> Fetching the HBN example dataset </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g65dca75 documentation</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Examples</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="bids_bep16_conv 0.post1+g65dca75 documentation" class="md-nav__button md-logo">
+      
+        <img src="../_static/" alt=" logo" width="48" height="48">
+      
+    </a>
+    <a href="../index.html"
+       title="bids_bep16_conv 0.post1+g65dca75 documentation">bids_bep16_conv 0.post1+g65dca75 documentation</a>
+  </label>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+<li class="md-nav__item"><a class="md-nav__extra_link" href="../_sources/auto_examples/plot_HBN_download.rst.txt">Show Source</a> </li>
+
+<li id="searchbox" class="md-nav__item"></li>
+
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-plot-hbn-download-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="fetching-the-hbn-example-dataset">
+<span id="sphx-glr-auto-examples-plot-hbn-download-py"></span><h1 id="auto-examples-plot-hbn-download--page-root">Fetching the HBN example dataset<a class="headerlink" href="#auto-examples-plot-hbn-download--page-root" title="Permalink to this heading">¶</a></h1>
+<p>This example demonstrates how to use <a class="reference internal" href="../api_ref.html#module-bids_bep16_conv.datasets" title="bids_bep16_conv.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bids_bep16_conv.datasets</span></code></a> to fetch
+the HBN example dataset.</p>
+<p>Much of the functionality of the <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> toolbox relies on downloading
+candidate example datasets. Each dataset has its own functions to check and evaluate QC
+files to find suitable participants, as well as dedicated download functions that will obtain
+the data from the BIDS connectivity OSF project. The respective files differ between example datasets
+and respectively utilized pipeline/workflow but are obtained in a way that they confirm
+to BIDS common derivatives, specifically as input for tools that generate BEP16-related output.</p>
+<p>Here we show how the HBN example dataset was generated and can be assessed, via describing the respective
+workflow and utilized <code class="docutils literal notranslate"><span class="pre">functions</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">HBN</span> <span class="pre">dataset</span></code> and its derivatives are provided openly via the <a class="reference external" href="https://fcp-indi.s3.amazonaws.com/index.html#data/Projects/HBN/">FCP-INDI AWS bucket</a>, entailing various
+pipeline/workflow outputs. Here, we are going to focus on the preprocessing conducted via <code class="docutils literal notranslate"><span class="pre">QSIprep</span></code>.</p>
+<p>At first, we need to find a suitable <code class="docutils literal notranslate"><span class="pre">participant</span></code>, in terms of overall data quality, Luckily, <code class="docutils literal notranslate"><span class="pre">QSIprep</span></code>
+provides a respective file that includes a <code class="docutils literal notranslate"><span class="pre">quality</span> <span class="pre">control</span> <span class="pre">score</span></code> for each <code class="docutils literal notranslate"><span class="pre">participant</span></code>.
+Using the <code class="xref py py-func docutils literal notranslate"><span class="pre">datasets.get_HBN_qc()</span></code> function we can obtain and check this file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bids_bep16_conv</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">HBN_qc_file</span></a> <span class="o">=</span> <a href="../generated/bids_bep16_conv.datasets.get_HBN_qc.html#bids_bep16_conv.datasets.get_HBN_qc" title="bids_bep16_conv.datasets.get_HBN_qc" class="sphx-glr-backref-module-bids_bep16_conv-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">get_HBN_qc</span></a><span class="p">(</span><span class="n">return_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">HBN_qc_file</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Data will be downloaded to bids_bep16_datasets/HBN/source-HBN_desc-qsiprep_participants.tsv
+
+  0%|          | 0/210607 [00:00&lt;?, ?it/s]
+ 62%|######2   | 128k/206k [00:00&lt;00:00, 1.17MB/s]
+100%|##########| 206k/206k [00:00&lt;00:00, 1.84MB/s]
+            subject_id scan_site_id  ... dl_qc_score            site_variant
+0     sub-NDARAA306NT2           RU  ...       0.470    RU_64dir_Most_Common
+1     sub-NDARAA536PTU           SI  ...       0.701      SI_64dir_Obliquity
+2     sub-NDARAA947ZG5         CBIC  ...       0.509  CBIC_64dir_Most_Common
+3     sub-NDARAA948VFH           RU  ...       0.979    RU_64dir_Most_Common
+4     sub-NDARAB055BPR           RU  ...       0.035    RU_64dir_Most_Common
+...                ...          ...  ...         ...                     ...
+2129  sub-NDARZW873DN3         CBIC  ...       0.982  CBIC_64dir_Most_Common
+2130  sub-NDARZX163EWC         CBIC  ...       0.993  CBIC_64dir_Most_Common
+2131  sub-NDARZY101JNB         CBIC  ...       0.992  CBIC_64dir_Most_Common
+2132  sub-NDARZZ740MLM           RU  ...       0.014    RU_64dir_Most_Common
+2133  sub-NDARZZ810LVF         CBIC  ...       0.861  CBIC_64dir_Most_Common
+
+[2134 rows x 12 columns]
+</pre></div>
+</div>
+<p>What we get is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> entailing the content of <code class="docutils literal notranslate"><span class="pre">QSIprep</span></code>’s <code class="docutils literal notranslate"><span class="pre">participant.tsv</span></code> file.
+In contains various <code class="docutils literal notranslate"><span class="pre">demographic</span> <span class="pre">variables</span></code> but also the <code class="docutils literal notranslate"><span class="pre">Quality</span> <span class="pre">Control</span> <span class="pre">scores</span></code> we are interested in.
+In order to make the respective evaluation more straightforward, we can use the <code class="xref py py-func docutils literal notranslate"><span class="pre">datasets.get_HBN_qc()</span></code> function,
+which will sort the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> based on the <code class="docutils literal notranslate"><span class="pre">dl_qc_score</span></code> variable. We can furthermore indicate how
+many <code class="docutils literal notranslate"><span class="pre">participants</span></code> with the highest score, as well as if the sorted <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a>
+and a <code class="docutils literal notranslate"><span class="pre">raincloud</span> <span class="pre">plot</span></code> of the <code class="docutils literal notranslate"><span class="pre">dl_qc_score</span></code> variable across the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> should be returned.</p>
+<p>Here, we going to get the <code class="docutils literal notranslate"><span class="pre">participants</span></code> that have the <code class="docutils literal notranslate"><span class="pre">3</span></code> highest scores, the sorted <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> and the <code class="docutils literal notranslate"><span class="pre">raincloud</span> <span class="pre">plot</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">HBN_qc_participants_df_sorted</span></a> <span class="o">=</span> <a href="../generated/bids_bep16_conv.datasets.eval_HBN_qc.html#bids_bep16_conv.datasets.eval_HBN_qc" title="bids_bep16_conv.datasets.eval_HBN_qc" class="sphx-glr-backref-module-bids_bep16_conv-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">eval_HBN_qc</span></a><span class="p">(</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">HBN_qc_file</span></a><span class="p">,</span>
+                                                     <span class="n">n_high_participants</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                                     <span class="n">visualize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_sorted_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="plot HBN download" class="sphx-glr-single-img" src="../_images/sphx_glr_plot_HBN_download_001.png" srcset="../_images/sphx_glr_plot_HBN_download_001.png"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>The 3 participants with the highest QC score are:
+418     sub-NDAREK918EC2
+2002    sub-NDARYM277DEA
+1151    sub-NDARMV189NXG
+Name: subject_id, dtype: object
+/opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+  warnings.warn(single_var_warning.format("Vertical", "x"))
+/opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+  warnings.warn(single_var_warning.format("Vertical", "x"))
+/opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+  warnings.warn(single_var_warning.format("Vertical", "x"))
+</pre></div>
+</div>
+<p>As you can see in the <code class="docutils literal notranslate"><span class="pre">raincloud</span> <span class="pre">plot</span></code>, the score has a rather interesting distribution but the
+above obtained <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a> indicates that <code class="docutils literal notranslate"><span class="pre">participant</span></code> <code class="docutils literal notranslate"><span class="pre">sub-NDAREK918EC2</span></code> has the
+highest <code class="docutils literal notranslate"><span class="pre">dl_qc_score</span></code>. Thus, this <a class="reference external" href="https://fcp-indi.s3.amazonaws.com/index.html#data/Projects/HBN/BIDS_curated/derivatives/qsiprep/sub-NDAREK918EC2/">participant’s QSIprep outputs</a>
+were downloaded from the <a class="reference external" href="https://fcp-indi.s3.amazonaws.com/index.html#data/Projects/HBN/">FCP-INDI AWS bucket</a> and subsequently
+uploaded to the <a class="reference external" href="https://osf.io/bz2vj/">dataset component</a> of the <a class="reference external" href="https://pestillilab.github.io/bids-connectivity/">BIDS connectivity project</a> <a class="reference external" href="https://osf.io/u4g5p/#!">OSF project</a>
+for access and management.</p>
+<p>That being said, we can use <code class="xref py py-func docutils literal notranslate"><span class="pre">datasets.download_HBN()</span></code> <code class="docutils literal notranslate"><span class="pre">function</span></code> to download the respective <code class="docutils literal notranslate"><span class="pre">data</span></code>, for example
+to our <code class="docutils literal notranslate"><span class="pre">Desktop</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">HBN_dataset_path</span></a> <span class="o">=</span> <a href="../generated/bids_bep16_conv.datasets.download_HBN.html#bids_bep16_conv.datasets.download_HBN" title="bids_bep16_conv.datasets.download_HBN" class="sphx-glr-backref-module-bids_bep16_conv-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">download_HBN</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval
+
+  0%|          | 0/71288313 [00:00&lt;?, ?it/s]
+  2%|1         | 1.19M/68.0M [00:00&lt;00:05, 12.3MB/s]
+ 15%|#4        | 10.1M/68.0M [00:00&lt;00:01, 59.7MB/s]
+ 33%|###3      | 22.7M/68.0M [00:00&lt;00:00, 92.4MB/s]
+ 51%|#####1    | 34.8M/68.0M [00:00&lt;00:00, 106MB/s]
+ 69%|######9   | 47.2M/68.0M [00:00&lt;00:00, 115MB/s]
+ 87%|########7 | 59.4M/68.0M [00:00&lt;00:00, 119MB/s]
+100%|##########| 68.0M/68.0M [00:00&lt;00:00, 106MB/s]
+Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec
+
+  0%|          | 0/757 [00:00&lt;?, ?it/s]
+100%|##########| 757/757 [00:00&lt;00:00, 282kB/s]
+Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
+
+  0%|          | 0/107 [00:00&lt;?, ?it/s]
+100%|##########| 107/107 [00:00&lt;00:00, 87.0kB/s]
+Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json
+
+  0%|          | 0/3057 [00:00&lt;?, ?it/s]
+100%|##########| 2.99k/2.99k [00:00&lt;00:00, 2.49MB/s]
+Downloading dataset_description.json
+
+  0%|          | 0/499 [00:00&lt;?, ?it/s]
+100%|##########| 499/499 [00:00&lt;00:00, 414kB/s]
+The following HBN files are available:
+bids_bep16_datasets/
+└─HBN/
+  ├─source-HBN_desc-qsiprep_participants.tsv
+  └─derivatives/
+    └─QSIprep/
+      ├─dataset_description.json
+      └─ses-HBNsiteSI/
+        └─dwi/
+          ├─sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
+          ├─sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec
+          ├─sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval
+          └─sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json
+</pre></div>
+</div>
+<p>Importantly, this <code class="docutils literal notranslate"><span class="pre">function</span></code> does not only obtain the <code class="docutils literal notranslate"><span class="pre">participant</span></code>’s <code class="docutils literal notranslate"><span class="pre">QSIprep</span></code> output, but
+also obtains the <code class="docutils literal notranslate"><span class="pre">dataset_description.json</span></code> and generates the <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">json</span> <span class="pre">sidecar</span></code> <code class="docutils literal notranslate"><span class="pre">file</span></code> required by <a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/05-derivatives/02-common-data-types.html">BIDS common derivatives</a>.
+The latter is achieved by downloading the <a class="reference external" href="https://fcp-indi.s3.amazonaws.com/index.html#data/Projects/HBN/BIDS_curated/sub-NDAREK918EC2/ses-HBNsiteSI/dwi/">respective raw data json sidecar file</a> and appending the needed <code class="docutils literal notranslate"><span class="pre">inheritance-related</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">spatial</span> <span class="pre">reference-related</span></code> information.</p>
+<p>With that, we have a feasible <code class="docutils literal notranslate"><span class="pre">HBN</span> <span class="pre">sub-dataset</span></code>, confirming to <a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/05-derivatives/02-common-data-types.html">BIDS common derivatives</a>, as well as
+<a class="reference external" href="https://github.com/bids-standard/bids-bep016/pull/24/files">inputs required by BEP16</a> and respective further processing.</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.175 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-hbn-download-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/989d84de29634e92c8b873918458040c/plot_HBN_download.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_HBN_download.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/f83a84b382748c91943f30c195032862/plot_HBN_download.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_HBN_download.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="index.html" title="Examples"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> Examples </span>
+              </div>
+            </a>
+          
+          
+            <a href="../api_ref.html" title="Reference API"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> Reference API </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2022, Brain Imaging Data Structure.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

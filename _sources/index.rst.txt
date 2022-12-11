@@ -24,9 +24,11 @@ A small package to implement conversions between `BIDS <https://bids.neuroimagin
 
 .. toctree::
    :maxdepth: 2
+   :caption: Contents:
 
    installation
    usage
+   auto_examples/index
    api_ref
    release-history
    min_versions
