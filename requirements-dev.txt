@@ -25,3 +25,4 @@ matplotlib
 seaborn
 ptitprince
 seedir
+numpy==1.23
