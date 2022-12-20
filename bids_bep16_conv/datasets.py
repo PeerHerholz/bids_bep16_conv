@@ -202,9 +202,9 @@ def download_HBN(dataset_path=None):
     # check if path where to save the file was provided, if not
     # save it to the current directory
     if dataset_path is None:
-        path = Path(os.curdir + '/bids_bep16_datasets/HBN/derivatives/QSIprep/ses-HBNsiteSI/dwi')
+        path = Path(os.curdir + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDAREK918EC2/ses-HBNsiteSI/dwi')
     else:
-        path = Path(dataset_path + '/bids_bep16_datasets/HBN/derivatives/QSIprep/ses-HBNsiteSI/dwi')
+        path = Path(dataset_path + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDAREK918EC2/ses-HBNsiteSI/dwi')
 
     # in either case: check if path exists and if not, create it
     if not path.exists():
@@ -230,7 +230,7 @@ def download_HBN(dataset_path=None):
         # define the file-specific download path
         # if dataset descriptor, change path
         if file == 'dataset_description.json':
-            download_path = Path(os.path.join(path.parents[1], file))
+            download_path = Path(os.path.join(path.parents[2], file))
         else:
             download_path = Path(os.path.join(path, file))
 
