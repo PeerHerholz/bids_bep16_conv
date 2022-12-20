@@ -215,12 +215,14 @@ def download_HBN(dataset_path=None):
                  'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
                  'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
                  'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json',
-                 'dataset_description.json']
+                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-brain_mask.nii.gz',
+                 'dataset_description.json'
+                 ]
 
     # define list of HBN files URLs
     HBN_file_urls = ['https://osf.io/9dfx3/download', 'https://osf.io/vq46r/download',
-                     'https://osf.io/hjvub/download', 'https://osf.io/fz968/download',
-                     'https://osf.io/4mx5v/download']
+                     'https://osf.io/hjvub/download', 'https://osf.io/2h7db/download',
+                     'https://osf.io/y5xr6/download', 'https://osf.io/4mx5v/download']
 
     # loop over files and download them if not already existing
     for file, url in zip(HBN_files, HBN_file_urls):
