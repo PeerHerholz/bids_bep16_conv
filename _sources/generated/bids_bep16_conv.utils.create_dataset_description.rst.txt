@@ -1,0 +1,6 @@
+﻿bids\_bep16\_conv.utils.create\_dataset\_description
+====================================================
+
+.. currentmodule:: bids_bep16_conv.utils
+
+.. autofunction:: create_dataset_description

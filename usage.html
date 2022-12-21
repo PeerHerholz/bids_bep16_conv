@@ -47,7 +47,7 @@
   
   
   
-    <title>User guide &#8212; bids_bep16_conv 0.post1+g0e70489 documentation</title>
+    <title>Usage &#8212; bids_bep16_conv 0.post1+gae23740 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/material.css" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
@@ -91,7 +91,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="index.html" title="bids_bep16_conv 0.post1+g0e70489 documentation"
+        <a href="index.html" title="bids_bep16_conv 0.post1+gae23740 documentation"
            class="md-header-nav__button md-logo">
           
             &nbsp;
@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">BIDS BEP16 Conversions</span>
-          <span class="md-header-nav__topic"> User guide </span>
+          <span class="md-header-nav__topic"> Usage </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -177,7 +177,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g0e70489 documentation</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">bids_bep16_conv 0.post1+gae23740 documentation</a></li>
       </ul>
     </div>
   </nav>
@@ -189,13 +189,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="index.html" title="bids_bep16_conv 0.post1+g0e70489 documentation" class="md-nav__button md-logo">
+    <a href="index.html" title="bids_bep16_conv 0.post1+gae23740 documentation" class="md-nav__button md-logo">
       
         <img src="_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="index.html"
-       title="bids_bep16_conv 0.post1+g0e70489 documentation">BIDS BEP16 Conversions</a>
+       title="bids_bep16_conv 0.post1+gae23740 documentation">BIDS BEP16 Conversions</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/PeerHerholz/bids_bep16_conv" title="Go to repository" class="md-source" data-md-source="github">
@@ -218,11 +218,6 @@
   <ul class="md-nav__list">
     <li class="md-nav__item">
     
-      <span class="md-nav__link caption"><span class="caption-text">Contents:</span></span>
-    
-    </li>
-    <li class="md-nav__item">
-    
     
       <a href="installation.html" class="md-nav__link">Installation</a>
       
@@ -232,13 +227,40 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> User guide </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Usage </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">User guide</a>
+      <a href="#" class="md-nav__link md-nav__link--active">Usage</a>
       
         
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#usage--page-root" class="md-nav__link">Usage</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#execution-and-the-bids-format" class="md-nav__link">Execution and the BIDS format</a>
+        </li>
+        <li class="md-nav__item"><a href="#command-line-arguments" class="md-nav__link">Command-Line Arguments</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#positional-arguments" class="md-nav__link">Positional Arguments</a>
+        </li>
+        <li class="md-nav__item"><a href="#named-arguments" class="md-nav__link">Named Arguments</a>
+        </li>
+        <li class="md-nav__item"><a href="#example-call-s" class="md-nav__link">Example Call(s)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#example-1" class="md-nav__link">Example 1</a>
+        </li>
+        <li class="md-nav__item"><a href="#example-2" class="md-nav__link">Example 2</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#support-and-communication" class="md-nav__link">Support and communication</a>
+        </li>
+        <li class="md-nav__item"><a href="#not-running-on-a-local-machine-data-transfer" class="md-nav__link">Not running on a local machine? - Data transfer</a>
+        </li></ul>
+            </nav>
+        </li>
     
 <li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/usage.rst.txt">Show Source</a> </li>
 
@@ -258,28 +280,14 @@
     
     
       <a href="api_ref.html" class="md-nav__link">Reference API</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="api_ref.html#module-bids_bep16_conv.datasets" class="md-nav__link"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bids_bep16_conv.datasets</span></code> - Dataset tools</a>
       
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
       <a href="release-history.html" class="md-nav__link">Release History</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="release-history.html#initial-release-yyyy-mm-dd" class="md-nav__link">Initial Release (YYYY-MM-DD)</a>
       
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -301,7 +309,34 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#usage--page-root" class="md-nav__link">Usage</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#execution-and-the-bids-format" class="md-nav__link">Execution and the BIDS format</a>
+        </li>
+        <li class="md-nav__item"><a href="#command-line-arguments" class="md-nav__link">Command-Line Arguments</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#positional-arguments" class="md-nav__link">Positional Arguments</a>
+        </li>
+        <li class="md-nav__item"><a href="#named-arguments" class="md-nav__link">Named Arguments</a>
+        </li>
+        <li class="md-nav__item"><a href="#example-call-s" class="md-nav__link">Example Call(s)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#example-1" class="md-nav__link">Example 1</a>
+        </li>
+        <li class="md-nav__item"><a href="#example-2" class="md-nav__link">Example 2</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#support-and-communication" class="md-nav__link">Support and communication</a>
+        </li>
+        <li class="md-nav__item"><a href="#not-running-on-a-local-machine-data-transfer" class="md-nav__link">Not running on a local machine? - Data transfer</a>
+        </li></ul>
+            </nav>
+        </li>
     
 <li class="md-nav__item"><a class="md-nav__extra_link" href="_sources/usage.rst.txt">Show Source</a> </li>
 
@@ -316,17 +351,156 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="user-guide">
-<span id="usage"></span><h1 id="usage--page-root">User guide<a class="headerlink" href="#usage--page-root" title="Permalink to this heading">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> aims to provide a set of tools for working with
-<cite>BIDS BEP-16</cite>, specifically example datasets. In more detail, it includes
-functionality to <cite>access</cite> and <cite>convert</cite> <cite>example datasets</cite>, as well as <cite>convert</cite>
-outputs from different software libraries to and from <cite>BEP-16</cite> compliant data.</p>
-<p>This user guide steps through the basics of the respective functionality.
-If you still have questions after going through this guide you can refer to
-the <a class="reference internal" href="api_ref.html#api-ref"><span class="std std-ref">Reference API</span></a> or ask a question on <a class="reference external" href="https://github.com/PeerHerholz/bids_bep16_conv/issues">GitHub</a>.</p>
-<div class="toctree-wrapper compound">
+  <section id="usage">
+<span id="id1"></span><h1 id="usage--page-root">Usage<a class="headerlink" href="#usage--page-root" title="Permalink to this heading">¶</a></h1>
+<section id="execution-and-the-bids-format">
+<h2 id="execution-and-the-bids-format">Execution and the BIDS format<a class="headerlink" href="#execution-and-the-bids-format" title="Permalink to this heading">¶</a></h2>
+<p>The general input of <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> is a path to the <code class="docutils literal notranslate"><span class="pre">derivative</span></code> <code class="docutils literal notranslate"><span class="pre">DWI</span> <span class="pre">dataset</span></code> that should
+be further processed and its outputs subsequently structured according to BEP16.
+The input (<code class="docutils literal notranslate"><span class="pre">derivative</span></code>) <code class="docutils literal notranslate"><span class="pre">dataset</span></code> is required to be in valid <abbr title="Brain Imaging Data Structure">BIDS</abbr> format.
+We highly recommend that you validate your dataset before you run <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code>
+with the free, online <a class="reference external" href="http://bids-standard.github.io/bids-validator/">BIDS Validator</a>.
+However, the <cite>BIDS Validator</cite> is also run at the beginning of <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> and will
+you make you aware of possible problems and/or inconsistencies.
+The exact command to run <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> depends on the Installation method.
+The common parts of the command follow the <a class="reference external" href="https://github.com/BIDS-Apps">BIDS-Apps</a> definition.
+Here’s a very conceptual example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bids_bep16_conv</span> <span class="n">bids_root</span><span class="o">/</span> <span class="n">analysis_level</span> <span class="n">optional_arguments</span>
+</pre></div>
 </div>
+<p>However, it is important to note that <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> is a special case of a <code class="docutils literal notranslate"><span class="pre">BIDS-App</span></code>
+in that it aims to fascilitate the development of BEP16 and potential adjacent software packges.
+As <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> focuses on <code class="docutils literal notranslate"><span class="pre">BEP16</span></code> and is intended to be run after the initial <code class="docutils literal notranslate"><span class="pre">DWI</span></code> <code class="docutils literal notranslate"><span class="pre">preprocessing</span></code>
+(e.g. via <code class="docutils literal notranslate"><span class="pre">QSIprep</span></code>) it entails a <code class="docutils literal notranslate"><span class="pre">derivative</span></code> of <code class="docutils literal notranslate"><span class="pre">derivatives</span></code> application, it generates <code class="docutils literal notranslate"><span class="pre">intermediate</span> <span class="pre">files</span></code>, ie
+files that will be further <code class="docutils literal notranslate"><span class="pre">processed</span></code>.</p>
+</section>
+<section id="command-line-arguments">
+<h2 id="command-line-arguments">Command-Line Arguments<a class="headerlink" href="#command-line-arguments" title="Permalink to this heading">¶</a></h2>
+<p><p>a BIDS app for converting DWI pipeline outputs to BEP16-conform derivative datasets</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">bids_bep16_conv</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">participant_label</span> <span class="n">PARTICIPANT_LABEL</span> <span class="p">[</span><span class="n">PARTICIPANT_LABEL</span> <span class="o">...</span><span class="p">]]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">software</span> <span class="p">{</span><span class="n">dipy</span><span class="p">,</span><span class="n">mrtrix</span><span class="p">}]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis</span> <span class="p">{</span><span class="n">DTI</span><span class="p">}]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">skip_bids_validation</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+                       <span class="n">bids_dir</span> <span class="p">{</span><span class="n">participant</span><span class="p">,</span><span class="n">group</span><span class="p">}</span>
+</pre></div>
+</div>
+<section id="positional-arguments">
+<h3 id="positional-arguments">Positional Arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this heading">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>bids_dir</kbd></dt>
+<dd><p>The directory with the input dataset formatted according to the BIDS standard.</p>
+</dd>
+<dt><kbd>analysis_level</kbd></dt>
+<dd><p>Possible choices: participant, group</p>
+<p>Level of the analysis that will be performed. Multiple participant level analyses can be run independently (in parallel) using the same output_dir.</p>
+</dd>
+</dl>
+</section>
+<section id="named-arguments">
+<h3 id="named-arguments">Named Arguments<a class="headerlink" href="#named-arguments" title="Permalink to this heading">¶</a></h3>
+<dl class="option-list">
+<dt><kbd>--participant_label</kbd></dt>
+<dd><p>The label(s) of the participant(s) that should be analyzed. The label corresponds to sub-&lt;participant_label&gt; from the BIDS spec (so it does not include “sub-“). If this parameter is not provided all subjects should be analyzed. Multiple participants can be specified with a space separated list.</p>
+</dd>
+<dt><kbd>--software</kbd></dt>
+<dd><p>Possible choices: dipy, mrtrix</p>
+<p>Software package to use.</p>
+</dd>
+<dt><kbd>--analysis</kbd></dt>
+<dd><p>Possible choices: DTI</p>
+<p>Analaysis to run.</p>
+</dd>
+<dt><kbd>--skip_bids_validation</kbd></dt>
+<dd><p>Assume the input dataset is BIDS compliant and skip the validation                              (default: True).</p>
+</dd>
+<dt><kbd>-v, --version</kbd></dt>
+<dd><p>show program’s version number and exit</p>
+</dd>
+</dl>
+</section>
+<section id="example-call-s">
+<h3 id="example-call-s">Example Call(s)<a class="headerlink" href="#example-call-s" title="Permalink to this heading">¶</a></h3>
+<p>Below you’ll find two examples calls that hopefully help
+you to familiarize yourself with <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> and its options.</p>
+<section id="example-1">
+<h4 id="example-1">Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bids_bep16_conv <span class="se">\</span>
+/home/user/bids/ <span class="se">\</span>
+participant <span class="se">\</span>
+--participant_label <span class="m">01</span> <span class="se">\</span>
+--software dipy <span class="se">\</span>
+--analysis DTI <span class="se">\</span>
+</pre></div>
+</div>
+<p>Here’s what’s in this call:</p>
+<ul class="simple">
+<li><p>The 1st positional argument is the BIDS directory (<code class="docutils literal notranslate"><span class="pre">/home/user/bids</span></code>)</p></li>
+<li><p>The 2nd positional argument specifies whether we are running participant-
+or group-level mode. In more detail, if only a certain or all participants
+should be de-identified. You can choose between <code class="docutils literal notranslate"><span class="pre">participant</span></code> and <code class="docutils literal notranslate"><span class="pre">group</span></code>.
+Here we choose <code class="docutils literal notranslate"><span class="pre">participant</span></code>.</p></li>
+<li><p>The 3rd positional argument defines the <code class="docutils literal notranslate"><span class="pre">subject</span> <span class="pre">id</span></code>, thus which specific
+participant should be de-identified. In this case, we choose <code class="docutils literal notranslate"><span class="pre">01</span></code>.</p></li>
+<li><p>The 4th positional argument specifies which software should be used to run the subsequently
+specified analysis. You can choose between <code class="docutils literal notranslate"><span class="pre">dipy</span></code> and <code class="docutils literal notranslate"><span class="pre">mrtrix</span></code>.
+In this example we choose <code class="docutils literal notranslate"><span class="pre">dipy</span></code>.</p></li>
+<li><p>The 5th positional argument specifies the analysis that should be run and generate the outputs that
+will be restructured to be <code class="docutils literal notranslate"><span class="pre">BEP16</span></code>-conform.
+You have the options <code class="docutils literal notranslate"><span class="pre">DTI</span></code> or <code class="docutils literal notranslate"><span class="pre">not_sure_yet</span></code>.
+Here we chose <code class="docutils literal notranslate"><span class="pre">DTI</span></code>.</p></li>
+</ul>
+</section>
+<section id="example-2">
+<h4 id="example-2">Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bids_bep16_conv <span class="se">\</span>
+/home/peer/bids/ <span class="se">\</span>
+group <span class="se">\</span>
+--software mrtrix <span class="se">\</span>
+--analysis DTI <span class="se">\</span>
+</pre></div>
+</div>
+<p>Here’s what’s in this call:</p>
+<ul class="simple">
+<li><p>The 1st positional argument again is the BIDS directory (<code class="docutils literal notranslate"><span class="pre">/home/user/bids</span></code>)</p></li>
+<li><p>The 2nd positional argument once more specifies whether we are running participant-
+or group-level mode. In more detail, if only a certain or all participants
+should be de-identified. You can choose between <code class="docutils literal notranslate"><span class="pre">participant</span></code> and <code class="docutils literal notranslate"><span class="pre">group</span></code>.
+Here we choose <code class="docutils literal notranslate"><span class="pre">group</span></code>. Hence, all participants will be de-identified and
+we don’t need to specific a <code class="docutils literal notranslate"><span class="pre">--participant_label</span></code> as in Example 1.</p></li>
+<li><p>The 4th positional argument specifies which software should be used to run the subsequently
+specified analysis. You can choose between <code class="docutils literal notranslate"><span class="pre">dipy</span></code> and <code class="docutils literal notranslate"><span class="pre">mrtrix</span></code>.
+This time we choose <code class="docutils literal notranslate"><span class="pre">mrtrix</span></code>.</p></li>
+<li><p>The 5th positional argument specifies the analysis that should be run and generate the outputs that
+will be restructured to be <code class="docutils literal notranslate"><span class="pre">BEP16</span></code>-conform.
+You have the options <code class="docutils literal notranslate"><span class="pre">DTI</span></code> or <code class="docutils literal notranslate"><span class="pre">not_sure_yet</span></code>.
+Here we chose <code class="docutils literal notranslate"><span class="pre">DTI</span></code>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="support-and-communication">
+<h2 id="support-and-communication">Support and communication<a class="headerlink" href="#support-and-communication" title="Permalink to this heading">¶</a></h2>
+<p>The documentation of this project is found here: <a class="reference external" href="https://peerherholz.github.io/bids_bep16_conv">https://peerherholz.github.io/bids_bep16_conv</a>.</p>
+<p>All bugs, concerns and enhancement requests for this software can be submitted here:
+<a class="reference external" href="https://github.com/peerherholz/bids_bep16_conv/issues">https://github.com/peerherholz/bids_bep16_conv/issues</a>.</p>
+<p>If you have a problem or would like to ask a question about how to use <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code>,
+please submit a question to <a class="reference external" href="http://neurostars.org/tags/bids_bep16_conv">NeuroStars.org</a> with an <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> tag.
+NeuroStars.org is a platform similar to StackOverflow but dedicated to neuroinformatics.</p>
+<p>All previous <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> questions are available here:
+<a class="reference external" href="http://neurostars.org/tags/bids_bep16_conv/">http://neurostars.org/tags/bids_bep16_conv/</a></p>
+</section>
+<section id="not-running-on-a-local-machine-data-transfer">
+<h2 id="not-running-on-a-local-machine-data-transfer">Not running on a local machine? - Data transfer<a class="headerlink" href="#not-running-on-a-local-machine-data-transfer" title="Permalink to this heading">¶</a></h2>
+<p>If you intend to run <code class="docutils literal notranslate"><span class="pre">bids_bep16_conv</span></code> on a remote system, you will need to
+make your data available within that system first.</p>
+<p>Please contact you local system administrator regarding
+possible and favourable transfer options (e.g., <a class="reference external" href="https://rsync.samba.org/">rsync</a>
+or <a class="reference external" href="https://filezilla-project.org/">FileZilla</a>).</p>
+<p>A very comprehensive approach would be <a class="reference external" href="http://www.datalad.org/">Datalad</a>, which will handle data transfers with the
+appropriate settings and commands.
+Datalad also performs version control over your data.</p>
+</section>
 </section>
 
 
