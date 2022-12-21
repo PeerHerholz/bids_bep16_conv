@@ -216,21 +216,27 @@ def download_HBN(dataset_path=None):
                  'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
                  'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-brain_mask.nii.gz',
                  'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json',
-                 'dataset_description.json'
+                 'QSIprep/dataset_description.json',
+                 'HBN/dataset_description.json'
                  ]
 
     # define list of HBN files URLs
     HBN_file_urls = ['https://osf.io/hjvub/download', 'https://osf.io/vq46r/download',
                      'https://osf.io/9dfx3/download', 'https://osf.io/y5xr6/download',
-                     'https://osf.io/2h7db/download', 'https://osf.io/4mx5v/download']
+                     'https://osf.io/2h7db/download', 'https://osf.io/4mx5v/download',
+                     'https://osf.io/n73ke/download']
 
     # loop over files and download them if not already existing
     for file, url in zip(HBN_files, HBN_file_urls):
 
         # define the file-specific download path
-        # if dataset descriptor, change path
-        if file == 'dataset_description.json':
-            download_path = Path(os.path.join(path.parents[2], file))
+
+        # if QSIprep dataset descriptor, change path
+        if file == 'QSIprep/dataset_description.json':
+            download_path = Path(os.path.join(path.parents[2], file.split('/')[1]))
+        # if HBN dataset descriptor, change path
+        elif file == 'HBN/dataset_description.json':
+            download_path = Path(os.path.join(path.parents[4], file.split('/')[1]))
         else:
             download_path = Path(os.path.join(path, file))
 
