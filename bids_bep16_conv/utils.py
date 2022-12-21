@@ -123,7 +123,7 @@ def create_dataset_description(software, bids_dir):
 
     Examples
     --------
-    Run DIPY.
+    Create dataset_description.json for DIPY.
 
     >>> create_dataset_description('dipy','/home/user/BIDS_dataset')
     """
