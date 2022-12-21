@@ -8,6 +8,10 @@ BIDS BEP-16 Conversion tools
 .. image:: https://img.shields.io/pypi/v/bids_bep16_conv.svg
         :target: https://pypi.python.org/pypi/bids_bep16_conv
 
+.. image:: https://img.shields.io/docker/pulls/peerherholz/bids_bep16_conv
+    :alt: Dockerpulls
+    :target: https://cloud.docker.com/u/peerherholz/repository/docker/peerherholz/bids_bep16_conv
+
 .. image:: https://img.shields.io/github/repo-size/PeerHerholz/bids_bep16_conv.svg
         :target: https://img.shields.io/github/repo-size/PeerHerholz/bids_bep16_conv.zip
 
