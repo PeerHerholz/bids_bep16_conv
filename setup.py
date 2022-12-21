@@ -46,7 +46,7 @@ setup(
     packages=find_packages(exclude=['docs', 'tests']),
     entry_points={
         'console_scripts': [
-            # 'command = some.module:some_function',
+            'bids_bep16_conv = bids_bep16_conv.run_bids_bep16_conv:run_bids_bep16_conv',
         ],
     },
     include_package_data=True,
