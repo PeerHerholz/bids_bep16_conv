@@ -44,7 +44,8 @@ extensions = [
     'matplotlib.sphinxext.plot_directive',
     'numpydoc',
     'sphinx_copybutton',
-    'sphinx_gallery.gen_gallery'
+    'sphinx_gallery.gen_gallery',
+    'sphinxarg.ext'
 ]
 
 # Configuration options for plot_directive. See:
@@ -245,7 +246,7 @@ html_theme_options = {
     'repo_name': 'BIDS BEP16 Conversions',
 
     # Visible levels of the global TOC; -1 means unlimited
-    'globaltoc_depth': 2,
+    'globaltoc_depth': 1,
     # If False, expand all TOC entries
     'globaltoc_collapse': False,
     # If True, show hidden TOC entries
