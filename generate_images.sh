@@ -5,7 +5,7 @@
  set -e
 
 generate_docker() {
-  docker run --rm kaczmarj/neurodocker:0.6.0 generate docker \
+  docker run --rm kaczmarj/neurodocker:0.7.0 generate docker \
              --base neurodebian:stretch-non-free \
              --pkg-manager apt \
              --arg DEBIAN_FRONTEND=noninteractive \
@@ -15,6 +15,7 @@ generate_docker() {
                pip_install="dipy" \
                create_env='bids_bep16_conv' \
                activate=true \
+            --run-bash "source activate bids_bep16_conv && conda install -c mrtrix3 mrtrix3" \
             --copy . /home/bids_bep16_conv \
             --run-bash "source activate bids_bep16_conv && cd /home/bids_bep16_conv && pip install -e ." \
             --env IS_DOCKER=1 \

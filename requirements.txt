@@ -8,3 +8,4 @@ seedir
 numpy==1.23
 pybids
 dipy
+mrtrix3
