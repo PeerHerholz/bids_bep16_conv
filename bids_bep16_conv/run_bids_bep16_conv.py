@@ -1,7 +1,7 @@
 import argparse
 import os
 from pathlib import Path
-from bids_bep16_conv.converters import dipy_dti
+from bids_bep16_conv.converters import dipy_dti, dipy_csd
 from bids_bep16_conv.utils import validate_input_dir, create_dataset_description
 from bids import BIDSLayout
 
@@ -135,9 +135,13 @@ def run_bids_bep16_conv():
                 outpath = str(args.bids_dir) + '/derivatives/dipy/sub-' + subject_label
                 if sessions_to_analyze:
                     outpath += '/ses-' + dwi_nii_gz.split('/')[-1].split('_')[1].split('-')[1] + '/'
-                # if DIT analysis should be run, setup and run dipy_DTI function
+                # if DTI analysis should be run, setup and run dipy_dti function
                 if args.analysis == "DTI":
                     dipy_dti(dwi_nii_gz, bval, bvec,
+                             mask, outpath)
+                # if CSD analysis should be run, setup and run dipy_csd function
+                elif args.analysis == "CSD":
+                    dipy_csd(dwi_nii_gz, bval, bvec,
                              mask, outpath)
                 # create the respective dataset_description.json file for the run analysis
                 create_dataset_description("dipy", args.bids_dir)
