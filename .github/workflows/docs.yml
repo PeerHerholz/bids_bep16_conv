@@ -19,6 +19,9 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements-dev.txt
+    - name: Install mrtrix
+      run: |
+        conda install -c mrtrix3 mrtrix3
     - name: Install bids_bep16_conv
       run: |
         pip install ./
