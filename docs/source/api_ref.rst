@@ -41,6 +41,7 @@ Reference API
    :toctree: generated/
 
    bids_bep16_conv.converters.dipy_dti
+   bids_bep16_conv.converters.dipy_csd
    bids_bep16_conv.converters.dipy_bep16
 
 .. _ref_utils:
