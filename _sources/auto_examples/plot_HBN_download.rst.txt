@@ -62,7 +62,7 @@ Using the :func:`datasets.get_HBN_qc` function we can obtain and check this file
  .. code-block:: none
 
     Data will be downloaded to bids_bep16_datasets/HBN/source-HBN_desc-qsiprep_participants.tsv
-      0%|          | 0/210607 [00:00<?, ?it/s]    100%|##########| 206k/206k [00:00<00:00, 16.6MB/s]
+      0%|          | 0/210607 [00:00<?, ?it/s]     31%|###1      | 64.0k/206k [00:00<00:00, 617kB/s]    100%|##########| 206k/206k [00:00<00:00, 1.28MB/s]
                 subject_id scan_site_id  ... dl_qc_score            site_variant
     0     sub-NDARAA306NT2           RU  ...       0.470    RU_64dir_Most_Common
     1     sub-NDARAA536PTU           SI  ...       0.701      SI_64dir_Obliquity
@@ -157,19 +157,19 @@ to our ``Desktop``.
  .. code-block:: none
 
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval
-      0%|          | 0/107 [00:00<?, ?it/s]    100%|##########| 107/107 [00:00<00:00, 120kB/s]
+      0%|          | 0/107 [00:00<?, ?it/s]    100%|##########| 107/107 [00:00<00:00, 122kB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec
-      0%|          | 0/757 [00:00<?, ?it/s]    100%|##########| 757/757 [00:00<00:00, 879kB/s]
+      0%|          | 0/757 [00:00<?, ?it/s]    100%|##########| 757/757 [00:00<00:00, 821kB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
-      0%|          | 0/71288313 [00:00<?, ?it/s]      8%|7         | 5.12M/68.0M [00:00<00:01, 51.8MB/s]     19%|#8        | 12.8M/68.0M [00:00<00:00, 68.3MB/s]     30%|###       | 20.6M/68.0M [00:00<00:00, 73.9MB/s]     41%|####      | 27.7M/68.0M [00:00<00:00, 61.2MB/s]     50%|####9     | 33.8M/68.0M [00:00<00:00, 61.1MB/s]     59%|#####8    | 39.8M/68.0M [00:00<00:00, 55.0MB/s]     67%|######7   | 45.6M/68.0M [00:00<00:00, 56.2MB/s]     79%|#######8  | 53.7M/68.0M [00:00<00:00, 64.2MB/s]     90%|########9 | 61.1M/68.0M [00:01<00:00, 68.1MB/s]    100%|##########| 68.0M/68.0M [00:01<00:00, 65.4MB/s]
+      0%|          | 0/71288313 [00:00<?, ?it/s]      2%|2         | 1.56M/68.0M [00:00<00:04, 16.4MB/s]     13%|#2        | 8.56M/68.0M [00:00<00:01, 49.9MB/s]     22%|##1       | 14.6M/68.0M [00:00<00:01, 54.1MB/s]     31%|###1      | 21.2M/68.0M [00:00<00:00, 59.8MB/s]     40%|###9      | 26.9M/68.0M [00:00<00:00, 58.7MB/s]     48%|####8     | 32.9M/68.0M [00:00<00:00, 59.3MB/s]     57%|#####6    | 38.6M/68.0M [00:00<00:00, 50.3MB/s]     64%|######4   | 43.6M/68.0M [00:01<00:01, 25.5MB/s]     70%|######9   | 47.4M/68.0M [00:01<00:00, 27.6MB/s]     78%|#######7  | 52.8M/68.0M [00:01<00:00, 32.8MB/s]     87%|########6 | 58.8M/68.0M [00:01<00:00, 39.3MB/s]     95%|#########5| 64.6M/68.0M [00:01<00:00, 44.2MB/s]    100%|##########| 68.0M/68.0M [00:01<00:00, 41.9MB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-brain_mask.nii.gz
-      0%|          | 0/12727 [00:00<?, ?it/s]    100%|##########| 12.4k/12.4k [00:00<00:00, 4.57MB/s]
+      0%|          | 0/12727 [00:00<?, ?it/s]    100%|##########| 12.4k/12.4k [00:00<00:00, 12.6MB/s]
     Downloading sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json
-      0%|          | 0/3057 [00:00<?, ?it/s]    100%|##########| 2.99k/2.99k [00:00<00:00, 3.27MB/s]
+      0%|          | 0/3057 [00:00<?, ?it/s]    100%|##########| 2.99k/2.99k [00:00<00:00, 3.41MB/s]
     Downloading QSIprep/dataset_description.json
-      0%|          | 0/499 [00:00<?, ?it/s]    100%|##########| 499/499 [00:00<00:00, 551kB/s]
+      0%|          | 0/499 [00:00<?, ?it/s]    100%|##########| 499/499 [00:00<00:00, 195kB/s]
     Downloading HBN/dataset_description.json
-      0%|          | 0/60 [00:00<?, ?it/s]    100%|##########| 60.0/60.0 [00:00<00:00, 65.2kB/s]
+      0%|          | 0/60 [00:00<?, ?it/s]    100%|##########| 60.0/60.0 [00:00<00:00, 66.3kB/s]
     The following HBN files are available:
     HBN/
     ├─derivatives/
@@ -205,7 +205,7 @@ as well as
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.667 seconds)
+   **Total running time of the script:** ( 0 minutes  13.551 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_HBN_download.py:
