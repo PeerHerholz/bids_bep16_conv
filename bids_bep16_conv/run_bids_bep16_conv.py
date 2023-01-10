@@ -29,7 +29,7 @@ def get_parser():
     parser.add_argument('--software', help='Software package to use.',
                         choices=['dipy', 'mrtrix'])
     parser.add_argument('--analysis', help='Analaysis to run.',
-                        choices=['DTI'])
+                        choices=['DTI', 'CSD'])
     parser.add_argument('--skip_bids_validation', default=True,
                         help='Assume the input dataset is BIDS compliant and skip the validation \
                              (default: True).',
