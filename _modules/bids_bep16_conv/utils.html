@@ -46,7 +46,7 @@
   
   
   
-    <title>bids_bep16_conv.utils &#8212; bids_bep16_conv 0.post1+gf3f24ee documentation</title>
+    <title>bids_bep16_conv.utils &#8212; bids_bep16_conv 0.post1+g3d093f6 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -85,7 +85,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="bids_bep16_conv 0.post1+gf3f24ee documentation"
+        <a href="../../index.html" title="bids_bep16_conv 0.post1+g3d093f6 documentation"
            class="md-header-nav__button md-logo">
           
             &nbsp;
@@ -171,7 +171,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+gf3f24ee documentation</a></li>
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g3d093f6 documentation</a></li>
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Module code</a></li>
       </ul>
     </div>
@@ -184,13 +184,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="bids_bep16_conv 0.post1+gf3f24ee documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="bids_bep16_conv 0.post1+g3d093f6 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="bids_bep16_conv 0.post1+gf3f24ee documentation">BIDS BEP16 Conversions</a>
+       title="bids_bep16_conv 0.post1+g3d093f6 documentation">BIDS BEP16 Conversions</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/PeerHerholz/bids_bep16_conv" title="Go to repository" class="md-source" data-md-source="github">
@@ -284,6 +284,8 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">importlib_resources</span>
+<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copy</span>
 
 
 <div class="viewcode-block" id="validate_input_dir"><a class="viewcode-back" href="../../generated/bids_bep16_conv.utils.validate_input_dir.html#bids_bep16_conv.utils.validate_input_dir">[docs]</a><span class="k">def</span> <span class="nf">validate_input_dir</span><span class="p">(</span><span class="n">exec_env</span><span class="p">,</span> <span class="n">bids_dir</span><span class="p">,</span> <span class="n">participant_label</span><span class="p">):</span>
@@ -387,7 +389,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="s2">"bids-validator does not appear to be installed"</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="create_dataset_description"><a class="viewcode-back" href="../../generated/bids_bep16_conv.utils.create_dataset_description.html#bids_bep16_conv.utils.create_dataset_description">[docs]</a><span class="k">def</span> <span class="nf">create_dataset_description</span><span class="p">(</span><span class="n">software</span><span class="p">,</span> <span class="n">bids_dir</span><span class="p">):</span>
+<div class="viewcode-block" id="create_dataset_description"><a class="viewcode-back" href="../../generated/bids_bep16_conv.utils.create_dataset_description.html#bids_bep16_conv.utils.create_dataset_description">[docs]</a><span class="k">def</span> <span class="nf">create_dataset_description</span><span class="p">(</span><span class="n">software</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Create dataset_description.json file for applied software/pipeline.</span>
 
@@ -407,11 +409,11 @@
 <span class="sd">    --------</span>
 <span class="sd">    Create dataset_description.json for DIPY.</span>
 
-<span class="sd">    &gt;&gt;&gt; create_dataset_description('dipy','/home/user/BIDS_dataset')</span>
+<span class="sd">    &gt;&gt;&gt; create_dataset_description('dipy','/home/user/BIDS_dataset/derivatives')</span>
 <span class="sd">    """</span>
 
     <span class="c1"># define the output path under derivatives within BIDS root</span>
-    <span class="n">dataset_description_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bids_dir</span><span class="p">,</span> <span class="s1">'derivatives'</span><span class="p">,</span> <span class="n">software</span><span class="p">))</span>
+    <span class="n">dataset_description_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">software</span><span class="p">))</span>
 
     <span class="c1"># check if output path exists, if not create it</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">dataset_description_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -436,6 +438,36 @@
     <span class="c1"># save the created dictionary as json file in specified output path</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dataset_description_path</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'/dataset_description.json'</span><span class="p">),</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
         <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dataset_description</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">copy_BEP16_metadata_json_template</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Copy the BEP16 metadata template to a dedicated location.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str</span>
+<span class="sd">        Path to where the template should be copied.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    A message indicating from where the template will be copied to which path.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Copy the template to the `Desktop` located under `/home/user/Desktop`.</span>
+
+<span class="sd">    &gt;&gt;&gt; copy_BEP16_metadata_json_template('/home/user/Desktop')</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># get the path of the BEP16 metadata template</span>
+    <span class="n">json_metadata</span> <span class="o">=</span> <span class="n">importlib_resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">'data/metadata_templates/BEP16_metadata_template.json'</span><span class="p">)</span>
+
+    <span class="c1"># print a little informative message</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'JSON metadata template is located: </span><span class="si">%s</span><span class="s1"> &amp; will be copied to: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">json_metadata</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
+
+    <span class="c1"># copy the BEP16 metadata template to the desired path</span>
+    <span class="n">copy</span><span class="p">(</span><span class="n">json_metadata</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
 </pre></div>
 
           </article>
