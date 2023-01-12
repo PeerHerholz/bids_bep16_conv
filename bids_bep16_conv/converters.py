@@ -1,4 +1,8 @@
 from subprocess import check_call
+import os
+import json
+import warnings
+import importlib_resources
 
 
 def dipy_dti(input_files, bval, bvec, mask, outdir):
@@ -81,17 +85,107 @@ def dipy_csd(input_files, bval, bvec, mask, outdir):
     return
 
 
-def dipy_bep16(bids_dir, subject_label, session=None):
+def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
     """
     Restructure DIPY outcomes following BIDS BEP16 conventions.
 
     Parameters
     ----------
-    bids_dir : str
-        Path to BIDS root directory.
-    subject_label : str
-        Label of subject to move (without 'sub-').
-    session : str, optional
-        If multiple sessions exist, create session specific
-        structure.
+    dwi_nii_gz : str
+        The `_dwi.nii(.gz)` file of the preprocessed DWI used as input for DIPY.
+    bval : str
+        The `_dwi.bval` file of the preprocessed DWI used as input for DIPY.
+    bvec : str
+        The `_dwi.bvec` file of the preprocessed DWI used as input for DIPY.
+    mask : str
+        The `_mask.nii.gz` file of the preprocessed DWI used as input for DIPY.
+    out_path : str
+        Path to the files processed by DIPY, starting at the BIDS root directory.
+    json_metadata : str, optional
+        Path to JSON metadata file containing metadata information required for BEP16.
+        If no file is provided, the resulting json sidecar metadata files will only contain
+        placeholders and need to be filled out manually.
     """
+
+    # get the file naming pattern (ie subject, session, etc.) based on the input data
+    file_name_pattern = dwi_nii_gz.split('/')[-1].split('_desc')[0]
+
+    # change the working directory to the location of the files obtained via DIPY
+    os.chdir(out_path)
+
+    # get a list of all files and sort it
+    file_list = os.listdir('.')
+    file_list.sort
+
+    # loop over all files to conduct the respectively required conversion
+    for file in file_list:
+
+        # the tensor file needs to be treated differently, so we need to check
+        # when it appears and when it does, run the dedicated conversion
+        if file == 'tensors.nii.gz':
+
+            # renaming the tensor file following BEP16
+            os.rename(file, '%s_param-tensor_model.nii.gz' % file_name_pattern)
+
+            # check if json_metadata was provided by the user
+            # if not, issue a warning and get the template with placeholders
+            if json_metadata is None:
+                warnings.warn('You did not provide a json file containing the metadata '
+                              'for your analysis. Thus, the json files produced '
+                              'during the conversion will only contain placeholders '
+                              'and you should remember to fill them out respectively!')
+                json_metadata = importlib_resources.files(__name__).joinpath('data/metadata_templates/BEP16_metadata_template.json')
+
+            # load the json_metadata file, either provided by the user or the template one
+            with open(json_metadata, 'r') as user_metadata:
+                user_metadata = json.load(user_metadata)
+
+            # initialize an empty dictionary for the tensor file's JSON sidecar file
+            tensor_model_json = {}
+
+            # add required keys and respectively needed information
+            tensor_model_json["Name"] = user_metadata["Name"]
+            tensor_model_json["BIDSVersion"] = "PLEASE ADD"
+            tensor_model_json["PipelineDescription"] = user_metadata["PipelineDescription"]
+            tensor_model_json["HowToAcknowledge"] = "PLEASE ADD"
+            tensor_model_json["SourceDatasetsURLs"] = "PLEASE ADD"
+            tensor_model_json["License"] = "PLEASE ADD"
+            tensor_model_json["ModelDescription"] = user_metadata["ModelDescription"]
+            tensor_model_json["OrientationRepresentation"] = user_metadata["OrientationRepresentation"]
+            tensor_model_json["ReferenceAxes"] = user_metadata["ReferenceAxes"]
+            tensor_model_json["Parameters"] = user_metadata["Parameters"]
+
+            # get and add the sources of the files, for now automatically based on DIPY input
+            if 'derivatives' in dwi_nii_gz:
+                source_pattern_start = 'bids:derivatives:'
+                source_pattern_start += dwi_nii_gz.split('derivatives/')[1].split('/')[0]
+
+                source_pattern_dwi = source_pattern_start + ':' + \
+                    dwi_nii_gz.split('derivatives/')[1][dwi_nii_gz.split('derivatives/')[1].find('/') + 1:]
+
+                source_pattern_bval = source_pattern_start + ':' + \
+                    bval.split('derivatives/')[1][bval.split('derivatives/')[1].find('/') + 1:]
+
+                source_pattern_bvec = source_pattern_start + ':' + \
+                    bvec.split('derivatives/')[1][bvec.split('derivatives/')[1].find('/') + 1:]
+
+                source_pattern_mask = source_pattern_start + ':' + \
+                    mask.split('derivatives/')[1][mask.split('derivatives/')[1].find('/') + 1:]
+
+                tensor_model_json["sources"] = [source_pattern_dwi, source_pattern_bval,
+                                                source_pattern_bvec, source_pattern_mask]
+            else: 
+                warnings.warn('The files do not seem to be stored under "derivatives" and thus'
+                              'the sources can not be automatically derived. Please make sure '
+                              'to add them manually.')
+                tensor_model_json["sources"] = []
+
+            # save the dictionary to the required JSON sidecar file for the tensor file
+            with open(str(str(out_path) + '/%s_param-tensor_model.json' % file_name_pattern), 'w') as outfile:
+                json.dump(tensor_model_json, outfile, indent=4)
+
+        # if files other than the tensor image are processed, the same conversion routines can be applied
+        else:
+
+            # rename the file according to BEP16
+            os.rename(file, '%s_param-%s_mdp.nii.gz' % (file_name_pattern, file.split('.')[0]))
