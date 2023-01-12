@@ -1,7 +1,7 @@
 import argparse
 import os
 from pathlib import Path
-from bids_bep16_conv.converters import dipy_dti, dipy_csd
+from bids_bep16_conv.converters import dipy_dti, dipy_bep16, dipy_csd
 from bids_bep16_conv.utils import validate_input_dir, create_dataset_description
 from bids import BIDSLayout
 
@@ -15,6 +15,8 @@ def get_parser():
     parser = argparse.ArgumentParser(description='a BIDS app for converting DWI pipeline outputs to BEP16-conform derivative datasets')
     parser.add_argument('bids_dir', action='store', type=Path, help='The directory with the input dataset '
                         'formatted according to the BIDS standard.')
+    parser.add_argument('out_dir', action='store', type=Path, help='The directory to save the output to,'
+                        'formatted according to the BIDS standard.')                        
     parser.add_argument('analysis_level', help='Level of the analysis that will be performed. '
                         'Multiple participant level analyses can be run independently '
                         '(in parallel) using the same output_dir.',
@@ -30,6 +32,10 @@ def get_parser():
                         choices=['dipy', 'mrtrix'])
     parser.add_argument('--analysis', help='Analaysis to run.',
                         choices=['DTI', 'CSD'])
+    parser.add_argument('--metadata', help='Analysis-corresponding JSON metdata file.'
+                        'If this parameter is not provided, the resulting json metadata files'
+                        'will contain only placeholder information and need to be further adapted.',
+                        nargs="+")
     parser.add_argument('--skip_bids_validation', default=True,
                         help='Assume the input dataset is BIDS compliant and skip the validation \
                              (default: True).',
@@ -132,19 +138,23 @@ def run_bids_bep16_conv():
 
             # if dipy was selected, run DIPY and define output path in derivatives folder respectively
             if args.software == "dipy":
-                outpath = str(args.bids_dir) + '/derivatives/dipy/sub-' + subject_label
+                outpath = str(args.out_dir) + '/dipy/sub-' + subject_label + '/dwi/'
                 if sessions_to_analyze:
-                    outpath += '/ses-' + dwi_nii_gz.split('/')[-1].split('_')[1].split('-')[1] + '/'
+                    ses_label = dwi_nii_gz.split('/')[-1].split('_')[1].split('-')[1]
+                    outpath = str(args.out_dir) + '/dipy/sub-' + subject_label + '/ses-' + ses_label + '/dwi/'
                 # if DTI analysis should be run, setup and run dipy_dti function
                 if args.analysis == "DTI":
                     dipy_dti(dwi_nii_gz, bval, bvec,
                              mask, outpath)
+                    dipy_bep16(dwi_nii_gz, bval, bvec, 
+                               mask, outpath, json_metadata=args.metadata)
+
                 # if CSD analysis should be run, setup and run dipy_csd function
                 elif args.analysis == "CSD":
                     dipy_csd(dwi_nii_gz, bval, bvec,
                              mask, outpath)
                 # create the respective dataset_description.json file for the run analysis
-                create_dataset_description("dipy", args.bids_dir)
+                create_dataset_description("dipy", args.out_dir)
 
 
 # run the CLI
