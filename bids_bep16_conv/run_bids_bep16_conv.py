@@ -16,7 +16,7 @@ def get_parser():
     parser.add_argument('bids_dir', action='store', type=Path, help='The directory with the input dataset '
                         'formatted according to the BIDS standard.')
     parser.add_argument('out_dir', action='store', type=Path, help='The directory to save the output to,'
-                        'formatted according to the BIDS standard.')                        
+                        'formatted according to the BIDS standard.')
     parser.add_argument('analysis_level', help='Level of the analysis that will be performed. '
                         'Multiple participant level analyses can be run independently '
                         '(in parallel) using the same output_dir.',
@@ -145,7 +145,7 @@ def run_bids_bep16_conv():
                 if args.analysis == "DTI":
                     dipy_dti(dwi_nii_gz, bval, bvec,
                              mask, outpath)
-                    dipy_bep16(dwi_nii_gz, bval, bvec, 
+                    dipy_bep16(dwi_nii_gz, bval, bvec,
                                mask, outpath, json_metadata=args.metadata)
 
                 # if CSD analysis should be run, setup and run dipy_csd function

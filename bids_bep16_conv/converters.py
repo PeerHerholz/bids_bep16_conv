@@ -198,7 +198,7 @@ def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
 
                 tensor_model_json["sources"] = [source_pattern_dwi, source_pattern_bval,
                                                 source_pattern_bvec, source_pattern_mask]
-            else: 
+            else:
                 warnings.warn('The files do not seem to be stored under "derivatives" and thus'
                               'the sources can not be automatically derived. Please make sure '
                               'to add them manually.')
