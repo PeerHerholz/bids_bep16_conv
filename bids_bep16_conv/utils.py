@@ -2,7 +2,8 @@ import os
 import sys
 from pathlib import Path
 import json
-
+import importlib_resources
+from shutil import copy
 
 def validate_input_dir(exec_env, bids_dir, participant_label):
     """
@@ -105,7 +106,7 @@ def validate_input_dir(exec_env, bids_dir, participant_label):
             print("bids-validator does not appear to be installed", file=sys.stderr)
 
 
-def create_dataset_description(software, bids_dir):
+def create_dataset_description(software, out_dir):
     """
     Create dataset_description.json file for applied software/pipeline.
 
@@ -125,11 +126,11 @@ def create_dataset_description(software, bids_dir):
     --------
     Create dataset_description.json for DIPY.
 
-    >>> create_dataset_description('dipy','/home/user/BIDS_dataset')
+    >>> create_dataset_description('dipy','/home/user/BIDS_dataset/derivatives')
     """
 
     # define the output path under derivatives within BIDS root
-    dataset_description_path = Path(os.path.join(bids_dir, 'derivatives', software))
+    dataset_description_path = Path(os.path.join(out_dir, software))
 
     # check if output path exists, if not create it
     if not dataset_description_path.exists():
@@ -154,3 +155,33 @@ def create_dataset_description(software, bids_dir):
     # save the created dictionary as json file in specified output path
     with open(str(str(dataset_description_path) + '/dataset_description.json'), 'w') as outfile:
         json.dump(dataset_description, outfile, indent=4)
+
+
+def copy_BEP16_metadata_json_template(path):
+    """
+    Copy the BEP16 metadata template to a dedicated location.
+
+    Parameters
+    ----------
+    path : str
+        Path to where the template should be copied.
+
+    Returns
+    -------
+    A message indicating from where the template will be copied to which path.
+
+    Examples
+    --------
+    Copy the template to the `Desktop` located under `/home/user/Desktop`.
+
+    >>> copy_BEP16_metadata_json_template('/home/user/Desktop')
+    """
+
+    # get the path of the BEP16 metadata template
+    json_metadata = importlib_resources.files(__name__).joinpath('data/metadata_templates/BEP16_metadata_template.json')
+
+    # print a little informative message
+    print('JSON metadata template is located: %s & will be copied to: %s' % (json_metadata, path))
+
+    # copy the BEP16 metadata template to the desired path
+    copy(json_metadata, path)
