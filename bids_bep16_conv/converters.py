@@ -105,6 +105,30 @@ def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
         Path to JSON metadata file containing metadata information required for BEP16.
         If no file is provided, the resulting json sidecar metadata files will only contain
         placeholders and need to be filled out manually.
+
+    Examples
+    --------
+    Apply the conversion to data processed by DIPY's DTI CLI and previously preprocessed by
+    QSIprep, both located in a respective derivatives directory. Here, no json metadata file
+    is provided by the user and thus, the resulting json metadata sidecar files will only
+    contain placeholders and need to be filled out manually.
+
+    >>> dipy_bep16('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',
+                   'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bval',
+                   'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bvec',
+                   'bids_root/derivatives/dipy/sub-01/dwi/')
+
+    Apply the conversion to data processed by DIPY's DTI CLI and previously preprocessed by
+    QSIprep, both located in a respective derivatives directory. Here, a json metadata file
+    is provided by the user and thus, the resulting json metadata sidecar files will be
+    based on the respectively provided information. It's stored at the top of the respective
+    derivative directory, ie "dipy".
+
+    >>> dipy_bep16('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',
+                   'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bval',
+                   'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bvec',
+                   'bids_root/derivatives/dipy/sub-01/dwi/'
+                   'bids_root/derivatives/dipy/analysis_metadata.json')
     """
 
     # get the file naming pattern (ie subject, session, etc.) based on the input data
