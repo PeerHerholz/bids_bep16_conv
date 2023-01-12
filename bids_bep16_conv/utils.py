@@ -5,6 +5,7 @@ import json
 import importlib_resources
 from shutil import copy
 
+
 def validate_input_dir(exec_env, bids_dir, participant_label):
     """
     Validate BIDS directory and structure via the BIDS-validator.
