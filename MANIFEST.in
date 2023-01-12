@@ -14,3 +14,5 @@ include bids_bep16_conv/_version.py
 
 # If including data files in the package, add them like:
 # include path/to/data_file
+
+recursive-include bids_bep16_conv/data/metadata_templates/*

@@ -50,8 +50,9 @@ setup(
         ],
     },
     include_package_data=True,
+    #package_dir={"": 'data'},
     package_data={
-        'bids_bep16_conv': [
+        '': [ 'data/metadata_templates/*.json'
             # When adding files here, remember to update MANIFEST.in as well,
             # or else they will not be included in the distribution on PyPI!
             # 'path/to/data_file',

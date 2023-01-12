@@ -1,0 +1,15 @@
+{
+    "Name": "PLEASE ADD NAME OF SOFTWARE PACKAGE HERE",
+    "PipelineDescription": {
+        "Name": "PLEASE ADD NAME OF SOFTWARE PACKAGE HERE",
+        "Version": "PLEASE ADD THE VERSION OF SOFTWARE PACKAGE HERE",
+        "CodeURL": "PLEASE ADD A LINK TO THE SOFTWARE PACKAGE HERE"
+    },
+    "ModelDescription": "PLEASE ADD NAME OF MODEL HERE",
+    "ReferenceAxes": "PLEASE ADD REFERENCE AXES HERE",
+    "OrientationRepresentation": "PLEASE ADD ORIENTATION REPRESENTATION", 
+    "Parameters": {
+        "FitMethod": "PLEASE ADD FIT METHOD HERE",
+        "OutlierRejection": "PLEASE INDICATE IF OUTLIER REJECTION WAS APPLIED"
+    }
+}
