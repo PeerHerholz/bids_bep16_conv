@@ -1,0 +1,6 @@
+﻿bids\_bep16\_conv.utils.copy\_BEP16\_metadata\_json\_template
+=============================================================
+
+.. currentmodule:: bids_bep16_conv.utils
+
+.. autofunction:: copy_BEP16_metadata_json_template
