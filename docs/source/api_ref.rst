@@ -60,3 +60,4 @@ Reference API
 
    bids_bep16_conv.utils.validate_input_dir
    bids_bep16_conv.utils.create_dataset_description
+   bids_bep16_conv.utils.copy_BEP16_metadata_json_template
