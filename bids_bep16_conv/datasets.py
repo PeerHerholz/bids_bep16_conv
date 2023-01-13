@@ -204,7 +204,7 @@ def download_HBN(dataset_path=None):
     if dataset_path is None:
         path = Path(os.curdir + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDAREK918EC2/ses-HBNsiteSI/dwi')
     else:
-        path = Path(dataset_path + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDAREK918EC2/ses-HBNsiteSI/dwi')
+        path = Path(str(dataset_path) + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDAREK918EC2/ses-HBNsiteSI/dwi')
 
     # in either case: check if path exists and if not, create it
     if not path.exists():
