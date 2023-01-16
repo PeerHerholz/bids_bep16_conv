@@ -55,6 +55,7 @@ Example 1
     --participant_label 01 \
     --software dipy \
     --analysis DTI \ 
+    --metadata /bids_dataset/code/dipy/DTI/analysis_metadata.json
 
 Here's what's in this call:
 
@@ -70,8 +71,11 @@ Here's what's in this call:
   In this example we choose ``dipy``.
 - The 5th positional argument specifies the analysis that should be run and generate the outputs that
   will be restructured to be ``BEP16``-conform.
-  You have the options ``DTI`` or ``not_sure_yet``.
+  You have the options ``DTI`` or ``CSD``.
   Here we chose ``DTI``.
+- The 6th positional argument indicates the path to the JSON file that contains metadata information
+  concerning the analysis. It will be used to generate and fill the JSON sidecar files of the 
+  images obtained through the analysis.    
 
 Example 2
 ~~~~~~~~~
@@ -97,8 +101,28 @@ Here's what's in this call:
   This time we choose ``mrtrix``.
 - The 5th positional argument specifies the analysis that should be run and generate the outputs that
   will be restructured to be ``BEP16``-conform.
-  You have the options ``DTI`` or ``not_sure_yet``.
+  You have the options ``DTI`` or ``CSD``.
   Here we chose ``DTI``.
+
+In contrast to Example 1, we didn't indicate a JSON metadata file concerning the analysis parameters.
+Thus, the resulting JSON sidecar files will only contain placeholders that need to be filled out
+manually. 
+
+Example 3
+~~~~~~~~~
+
+.. code-block:: bash
+
+    bids_bep16_conv \
+    --download_dataset HBN \
+    --download_path /user/home \ 
+
+Here's what's in this call:
+
+- The 1st positional argument indicates that we would like to download one of the example datasets. 
+  You currently only have the option ``HBN``.
+- The 2nd positional argument specifies the path the example dataset should be downloaded to.
+  Here, for example, ``/user/home``.
 
 Support and communication
 =========================
