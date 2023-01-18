@@ -1,5 +1,3 @@
-
-
 from pathlib import Path
 import os
 from ..datasets import get_HBN_qc, eval_HBN_qc, download_HBN
@@ -56,11 +54,11 @@ def test_download_HBN():
     dataset_file = [f for f in dataset_file_dir if os.path.isfile(str(HBN_qsiprep_dwi_files.parents[2]) + '/' + f)]
     dataset_file_HBN = [f for f in dataset_file_dir if os.path.isfile(str(HBN_qsiprep_dwi_files.parents[4]) + '/' + f)]
     actual_files = sorted(os.listdir(HBN_qsiprep_dwi_files)) + dataset_file + dataset_file_HBN
-    expected_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-brain_mask.nii.gz',
-                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval',
-                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
-                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json',
-                      'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
+    expected_files = ['sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-brain_mask.nii.gz',
+                      'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bval',
+                      'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
+                      'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.json',
+                      'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
                       'dataset_description.json',
                       'dataset_description.json']
     assert actual_files == expected_files

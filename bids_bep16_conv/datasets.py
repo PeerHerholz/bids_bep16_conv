@@ -171,11 +171,12 @@ def eval_HBN_qc(HBN_qc_file_df, n_high_participants=5, visualize=True, return_so
     if return_sorted_df:
         return HBN_qc_file_df
 
+# change to different subject, ie second of QC rating
 
 def download_HBN(dataset_path=None):
     """
     Download the QSIprep outcomes obtained for the HBN dataset subset
-    provided on OSF. Currently this entails sub-NDAREK918EC2.
+    provided on OSF. Currently this entails sub-NDARYM277DEA.
 
     Parameters
     ----------
@@ -202,28 +203,28 @@ def download_HBN(dataset_path=None):
     # check if path where to save the file was provided, if not
     # save it to the current directory
     if dataset_path is None:
-        path = Path(os.curdir + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDAREK918EC2/ses-HBNsiteSI/dwi')
+        path = Path(os.curdir + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDARYM277DEA/ses-HBNsiteCBIC/dwi')
     else:
-        path = Path(str(dataset_path) + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDAREK918EC2/ses-HBNsiteSI/dwi')
+        path = Path(str(dataset_path) + '/bids_bep16_datasets/HBN/derivatives/QSIprep/sub-NDARYM277DEA/ses-HBNsiteCBIC/dwi')
 
     # in either case: check if path exists and if not, create it
     if not path.exists():
         os.makedirs(path)
 
     # define list of HBN files that should be downloaded
-    HBN_files = ['sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bval',
-                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
-                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
-                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-brain_mask.nii.gz',
-                 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json',
+    HBN_files = ['sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bval',
+                 'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bvec',
+                 'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz',
+                 'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-brain_mask.nii.gz',
+                 'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.json',
                  'QSIprep/dataset_description.json',
                  'HBN/dataset_description.json'
                  ]
 
     # define list of HBN files URLs
-    HBN_file_urls = ['https://osf.io/hjvub/download', 'https://osf.io/vq46r/download',
-                     'https://osf.io/9dfx3/download', 'https://osf.io/y5xr6/download',
-                     'https://osf.io/2h7db/download', 'https://osf.io/4mx5v/download',
+    HBN_file_urls = ['https://osf.io/68f5w/download', 'https://osf.io/eunfs/download',
+                     'https://osf.io/sejcp/download', 'https://osf.io/xpw6e/download',
+                     'https://osf.io/9sa6f/download', 'https://osf.io/4mx5v/download',
                      'https://osf.io/n73ke/download']
 
     # loop over files and download them if not already existing
@@ -262,20 +263,20 @@ def download_HBN(dataset_path=None):
             # HBN QSIprep misses json files, thus they need to be created in a two-step approach
             # 1. get the raw data json file and rename it to be BIDS conform
             # 2. add provenance information
-            if file == 'sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_space-T1w_desc-preproc_dwi.json':
+            if file == 'sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.json':
 
                 # define provenance information, right now hard coded, will be adapted later after there are
                 # more example datasets
                 prov_info = {
-                    "Sources": ["bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/dwi/sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_dwi.nii.gz",
-                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/dwi/sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_dwi.bval",
-                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/dwi/sub-NDAREK918EC2_ses-HBNsiteSI_acq-64dir_dwi.bvec",
-                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/anat/sub-NDAREK918EC2_ses-HBNsiteSI_T1w.nii.gz",
-                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/fmap/sub-NDAREK918EC2_ses-HBNsiteSI_magnitude1.nii.gz",
-                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/fmap/sub-NDAREK918EC2_ses-HBNsiteSI_magnitude2.nii.gz",
-                                "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/fmap/sub-NDAREK918EC2_ses-HBNsiteSI_phasediff.nii.gz"
+                    "Sources": ["bids:raw:sub-NDARYM277DEA/ses-HBNsiteCBIC/dwi/sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_dwi.nii.gz",
+                                "bids:raw:sub-NDARYM277DEA/ses-HBNsiteCBIC/dwi/sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_dwi.bval",
+                                "bids:raw:sub-NDARYM277DEA/ses-HBNsiteCBIC/dwi/sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_dwi.bvec",
+                                "bids:raw:sub-NDARYM277DEA/ses-HBNsiteCBIC/anat/sub-NDARYM277DEA_ses-HBNsiteCBIC_T1w.nii.gz",
+                                "bids:raw:sub-NDARYM277DEA/ses-HBNsiteCBIC/fmap/sub-NDARYM277DEA_ses-HBNsiteCBIC_magnitude1.nii.gz",
+                                "bids:raw:sub-NDARYM277DEA/ses-HBNsiteCBIC/fmap/sub-NDARYM277DEA_ses-HBNsiteCBIC_magnitude2.nii.gz",
+                                "bids:raw:sub-NDARYM277DEA/ses-HBNsiteCBIC/fmap/sub-NDARYM277DEA_ses-HBNsiteCBIC_phasediff.nii.gz"
                                 ],
-                    "SpatialReference": "bids:raw:sub-NDAREK918EC2/ses-HBNsiteSI/anat/sub-NDAREK918EC2_ses-HBNsiteSI_T1w.nii.gz"
+                    "SpatialReference": "bids:raw:sub-NDARYM277DEA/ses-HBNsiteCBIC/anat/sub-NDARYM277DEA_ses-HBNsiteCBIC_T1w.nii.gz"
                 }
 
                 # open & load the downloaded raw data json file
