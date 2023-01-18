@@ -33,8 +33,8 @@ def get_parser():
                         choices=['dipy', 'mrtrix'])
     parser.add_argument('--analysis', help='Analaysis to run.',
                         choices=['DTI', 'CSD'])
-    parser.add_argument('--metadata', help='Analysis-corresponding JSON metadata file.'
-                        'If this parameter is not provided, the resulting json metadata files'
+    parser.add_argument('--metadata', help='Analysis-corresponding JSON metadata file. '
+                        'If this parameter is not provided, the resulting json metadata files '
                         'will contain only placeholder information and need to be further adapted.')
     parser.add_argument('--skip_bids_validation', default=True,
                         help='Assume the input dataset is BIDS compliant and skip the validation \
@@ -155,16 +155,16 @@ def run_bids_bep16_conv():
                     # if DTI analysis should be run, setup and run dipy_dti function
                     if args.analysis == "DTI":
                         dipy_dti(dwi_nii_gz, bval, bvec,
-                                 mask, outpath)
+                                 mask, outpath.replace('dipy', 'dipy_dti'))
                         dipy_bep16(dwi_nii_gz, bval, bvec,
-                                   mask, outpath, json_metadata=args.metadata)
-
+                                   mask, outpath.replace('dipy', 'dipy_dti'), json_metadata=args.metadata)
+                        # create the respective dataset_description.json file for the run analysis
+                        create_dataset_description("dipy", "DTI", args.out_dir)
                     # if CSD analysis should be run, setup and run dipy_csd function
                     elif args.analysis == "CSD":
                         dipy_csd(dwi_nii_gz, bval, bvec,
-                                 mask, outpath)
-                    # create the respective dataset_description.json file for the run analysis
-                    create_dataset_description("dipy", args.out_dir)
+                                 mask, outpath.replace('dipy', 'dipy_csd'))
+
 
     else:
 

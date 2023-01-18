@@ -107,7 +107,7 @@ def validate_input_dir(exec_env, bids_dir, participant_label):
             print("bids-validator does not appear to be installed", file=sys.stderr)
 
 
-def create_dataset_description(software, out_dir):
+def create_dataset_description(software, analysis, out_dir):
     """
     Create dataset_description.json file for applied software/pipeline.
 
@@ -115,6 +115,8 @@ def create_dataset_description(software, out_dir):
     ----------
     software : str
         The applied software.
+    analysis : str
+        The applied analysis.
     bids_dir : str
         Path to BIDS root directory.
 
@@ -125,13 +127,13 @@ def create_dataset_description(software, out_dir):
 
     Examples
     --------
-    Create dataset_description.json for DIPY.
+    Create dataset_description.json for a DTI analysis run via DIPY.
 
-    >>> create_dataset_description('dipy','/home/user/BIDS_dataset/derivatives')
+    >>> create_dataset_description('dipy', 'DTI', '/home/user/BIDS_dataset/derivatives')
     """
 
     # define the output path under derivatives within BIDS root
-    dataset_description_path = Path(os.path.join(out_dir, software))
+    dataset_description_path = Path(os.path.join(out_dir, software + "_dti"))
 
     # check if output path exists, if not create it
     if not dataset_description_path.exists():
@@ -146,12 +148,17 @@ def create_dataset_description(software, out_dir):
         
         dataset_description["Name"] = "Dipy output"
         dataset_description["BIDSVersion"] = "PLEASE ADD"
-        dataset_description["PipelineDescription"] = {"Name" : "Dipy",
+        dataset_description["PipelineDescription"] = {"Name" : "Dipy DTI",
                                                       "Version": dipy.__version__,
                                                       "CodeURL": "https://github.com/dipy/dipy"}
         dataset_description["HowToAcknowledge"] = "PLEASE ADD"
         dataset_description["SourceDatasetsURLs"] = "PLEASE ADD"
         dataset_description["License"] = "PLEASE ADD"
+
+        if analysis == 'DTI':
+            dataset_description["PipelineDescription"]["Name"] = "Dipy DTI"
+        elif analysis == 'CSD':
+            dataset_description["PipelineDescription"]["Name"] = "Dipy CSD"
         
     # save the created dictionary as json file in specified output path
     with open(str(str(dataset_description_path) + '/dataset_description.json'), 'w') as outfile:
