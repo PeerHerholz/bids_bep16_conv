@@ -171,7 +171,6 @@ def eval_HBN_qc(HBN_qc_file_df, n_high_participants=5, visualize=True, return_so
     if return_sorted_df:
         return HBN_qc_file_df
 
-# change to different subject, ie second of QC rating
 
 def download_HBN(dataset_path=None):
     """

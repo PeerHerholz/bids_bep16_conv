@@ -165,9 +165,7 @@ def run_bids_bep16_conv():
                         dipy_csd(dwi_nii_gz, bval, bvec,
                                  mask, outpath.replace('dipy', 'dipy_csd'))
 
-
     else:
-
         if args.download_path is None:
             raise Exception("Please indicate a path where the dataset should be downloaded to.")
         elif os.path.exists(args.download_path) is False:
