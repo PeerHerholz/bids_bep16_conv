@@ -47,7 +47,7 @@
   
   
   
-    <title>bids_bep16_conv.utils.create_dataset_description &#8212; bids_bep16_conv 0.post1+g7a9de46 documentation</title>
+    <title>bids_bep16_conv.utils.create_dataset_description &#8212; bids_bep16_conv 0.post1+g8169379 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="bids_bep16_conv 0.post1+g7a9de46 documentation"
+        <a href="../index.html" title="bids_bep16_conv 0.post1+g8169379 documentation"
            class="md-header-nav__button md-logo">
           
             &nbsp;
@@ -174,7 +174,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g7a9de46 documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g8169379 documentation</a></li>
           <li class="md-tabs__item"><a href="../api_ref.html" class="md-tabs__link">Reference API</a></li>
       </ul>
     </div>
@@ -187,13 +187,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="bids_bep16_conv 0.post1+g7a9de46 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="bids_bep16_conv 0.post1+g8169379 documentation" class="md-nav__button md-logo">
       
         <img src="../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../index.html"
-       title="bids_bep16_conv 0.post1+g7a9de46 documentation">BIDS BEP16 Conversions</a>
+       title="bids_bep16_conv 0.post1+g8169379 documentation">BIDS BEP16 Conversions</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/PeerHerholz/bids_bep16_conv" title="Go to repository" class="md-source" data-md-source="github">
@@ -294,12 +294,13 @@
 <h1 id="generated-bids-bep16-conv-utils-create-dataset-description--page-root">bids_bep16_conv.utils.create_dataset_description<a class="headerlink" href="#generated-bids-bep16-conv-utils-create-dataset-description--page-root" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="bids_bep16_conv.utils.create_dataset_description">
-<span class="sig-prename descclassname"><span class="pre">bids_bep16_conv.utils.</span></span><span class="sig-name descname"><span class="pre">create_dataset_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">software</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bids_bep16_conv/utils.html#create_dataset_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bids_bep16_conv.utils.create_dataset_description" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">bids_bep16_conv.utils.</span></span><span class="sig-name descname"><span class="pre">create_dataset_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">software</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analysis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bids_bep16_conv/utils.html#create_dataset_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bids_bep16_conv.utils.create_dataset_description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create dataset_description.json file for applied software/pipeline.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>software</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The applied software.</p></li>
+<li><p><strong>analysis</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The applied analysis.</p></li>
 <li><p><strong>bids_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – Path to BIDS root directory.</p></li>
 </ul>
 </dd>
@@ -312,8 +313,8 @@
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p>Create dataset_description.json for DIPY.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_dataset_description</span><span class="p">(</span><span class="s1">'dipy'</span><span class="p">,</span><span class="s1">'/home/user/BIDS_dataset/derivatives'</span><span class="p">)</span>
+<p>Create dataset_description.json for a DTI analysis run via DIPY.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_dataset_description</span><span class="p">(</span><span class="s1">'dipy'</span><span class="p">,</span> <span class="s1">'DTI'</span><span class="p">,</span> <span class="s1">'/home/user/BIDS_dataset/derivatives'</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
