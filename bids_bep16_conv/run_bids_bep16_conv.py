@@ -1,7 +1,7 @@
 import argparse
 import os
 from pathlib import Path
-from bids_bep16_conv.converters import dipy_dti, dipy_bep16, dipy_csd
+from bids_bep16_conv.converters import dipy_dti, dipy_bep16_dti, dipy_csd
 from bids_bep16_conv.utils import validate_input_dir, create_dataset_description
 from bids_bep16_conv.datasets import download_HBN
 from bids import BIDSLayout
@@ -156,8 +156,8 @@ def run_bids_bep16_conv():
                     if args.analysis == "DTI":
                         dipy_dti(dwi_nii_gz, bval, bvec,
                                  mask, outpath.replace('dipy', 'dipy_dti'))
-                        dipy_bep16(dwi_nii_gz, bval, bvec,
-                                   mask, outpath.replace('dipy', 'dipy_dti'), json_metadata=args.metadata)
+                        dipy_bep16_dti(dwi_nii_gz, bval, bvec,
+                                       mask, outpath.replace('dipy', 'dipy_dti'), json_metadata=args.metadata)
                         # create the respective dataset_description.json file for the run analysis
                         create_dataset_description("dipy", "DTI", args.out_dir)
                     # if CSD analysis should be run, setup and run dipy_csd function

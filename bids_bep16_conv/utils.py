@@ -150,7 +150,7 @@ def create_dataset_description(software, analysis, out_dir):
         dataset_description["BIDSVersion"] = "PLEASE ADD"
         dataset_description["PipelineDescription"] = {"Name" : "Dipy DTI",
                                                       "Version": dipy.__version__,
-                                                      "CodeURL": "https://github.com/dipy/dipy"}
+                                                      "CodeURL": "https://dipy.org/documentation/1.6.0./interfaces/reconstruction_flow/#diffusion-tensor-imaging-dti"}
         dataset_description["HowToAcknowledge"] = "PLEASE ADD"
         dataset_description["SourceDatasetsURLs"] = "PLEASE ADD"
         dataset_description["License"] = "PLEASE ADD"

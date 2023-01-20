@@ -3,6 +3,7 @@ import os
 import json
 import warnings
 import importlib_resources
+import dipy
 
 
 def dipy_dti(input_files, bval, bvec, mask, outdir):
@@ -85,9 +86,9 @@ def dipy_csd(input_files, bval, bvec, mask, outdir):
     return
 
 
-def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
+def dipy_bep16_dti(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
     """
-    Restructure DIPY outcomes following BIDS BEP16 conventions.
+    Restructure DIPY DTI outcomes following BIDS BEP16 conventions.
 
     Parameters
     ----------
@@ -113,7 +114,7 @@ def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
     is provided by the user and thus, the resulting json metadata sidecar files will only
     contain placeholders and need to be filled out manually.
 
-    >>> dipy_bep16('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',
+    >>> dipy_bep16_dti('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',
                    'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bval',
                    'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bvec',
                    'bids_root/derivatives/dipy/sub-01/dwi/')
@@ -124,7 +125,7 @@ def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
     based on the respectively provided information. It's stored at the top of the respective
     derivative directory, ie "dipy".
 
-    >>> dipy_bep16('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',
+    >>> dipy_bep16_dti('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',
                    'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bval',
                    'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bvec',
                    'bids_root/derivatives/dipy/sub-01/dwi/'
@@ -156,9 +157,9 @@ def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
             if json_metadata is None:
                 warnings.warn('You did not provide a json file containing the metadata '
                               'for your analysis. Thus, the json files produced '
-                              'during the conversion will only contain placeholders '
-                              'and you should remember to fill them out respectively!')
-                json_metadata = importlib_resources.files(__name__).joinpath('data/metadata_templates/BEP16_metadata_template.json')
+                              'during the conversion will contain based on the DIPY docs '
+                              'and you should remember to check them out respectively!')
+                json_metadata = importlib_resources.files(__name__).joinpath('data/metadata_templates/BEP16_metadata_template_DIPY_DTI.json')
 
             # load the json_metadata file, either provided by the user or the template one
             with open(json_metadata, 'r') as user_metadata:
@@ -171,10 +172,12 @@ def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
             tensor_model_json["Name"] = user_metadata["Name"]
             tensor_model_json["BIDSVersion"] = "PLEASE ADD"
             tensor_model_json["PipelineDescription"] = user_metadata["PipelineDescription"]
+            tensor_model_json["PipelineDescription"]["Version"] = dipy.__version__
             tensor_model_json["HowToAcknowledge"] = "PLEASE ADD"
             tensor_model_json["SourceDatasetsURLs"] = "PLEASE ADD"
             tensor_model_json["License"] = "PLEASE ADD"
             tensor_model_json["ModelDescription"] = user_metadata["ModelDescription"]
+            tensor_model_json["ModelURL"] = user_metadata["ModelURL"]
             tensor_model_json["OrientationRepresentation"] = user_metadata["OrientationRepresentation"]
             tensor_model_json["ReferenceAxes"] = user_metadata["ReferenceAxes"]
             tensor_model_json["Parameters"] = user_metadata["Parameters"]
@@ -213,3 +216,7 @@ def dipy_bep16(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
 
             # rename the file according to BEP16
             os.rename(file, '%s_param-%s_mdp.nii.gz' % (file_name_pattern, file.split('.')[0]))
+
+        # antipodalsymmetry for all is true
+        # directionorientation for rgb is dec
+        # referenceaxes for all files is ijk
