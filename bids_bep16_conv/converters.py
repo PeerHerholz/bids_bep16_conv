@@ -145,25 +145,25 @@ def dipy_bep16_dti(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
     # loop over all files to conduct the respectively required conversion
     for file in file_list:
 
+        # check if json_metadata was provided by the user
+        # if not, issue a warning and get the template with placeholders
+        if json_metadata is None:
+            warnings.warn('You did not provide a json file containing the metadata '
+                          'for your analysis. Thus, the json files produced '
+                          'during the conversion will contain based on the DIPY docs '
+                          'and you should remember to check them out respectively!')
+            json_metadata = importlib_resources.files(__name__).joinpath('data/metadata_templates/BEP16_metadata_template_DIPY_DTI.json')
+
+        # load the json_metadata file, either provided by the user or the template one
+        with open(json_metadata, 'r') as user_metadata:
+            user_metadata = json.load(user_metadata)
+
         # the tensor file needs to be treated differently, so we need to check
         # when it appears and when it does, run the dedicated conversion
         if file == 'tensors.nii.gz':
 
             # renaming the tensor file following BEP16
             os.rename(file, '%s_param-tensor_model.nii.gz' % file_name_pattern)
-
-            # check if json_metadata was provided by the user
-            # if not, issue a warning and get the template with placeholders
-            if json_metadata is None:
-                warnings.warn('You did not provide a json file containing the metadata '
-                              'for your analysis. Thus, the json files produced '
-                              'during the conversion will contain based on the DIPY docs '
-                              'and you should remember to check them out respectively!')
-                json_metadata = importlib_resources.files(__name__).joinpath('data/metadata_templates/BEP16_metadata_template_DIPY_DTI.json')
-
-            # load the json_metadata file, either provided by the user or the template one
-            with open(json_metadata, 'r') as user_metadata:
-                user_metadata = json.load(user_metadata)
 
             # initialize an empty dictionary for the tensor file's JSON sidecar file
             tensor_model_json = {}
@@ -217,6 +217,50 @@ def dipy_bep16_dti(dwi_nii_gz, bval, bvec, mask, out_path, json_metadata=None):
             # rename the file according to BEP16
             os.rename(file, '%s_param-%s_mdp.nii.gz' % (file_name_pattern, file.split('.')[0]))
 
-        # antipodalsymmetry for all is true
-        # directionorientation for rgb is dec
-        # referenceaxes for all files is ijk
+            # initialize an empty dictionary for the param file's JSON sidecar file
+            param_model_json = {}
+
+            # add required keys and respectively needed information
+            param_model_json["Name"] = user_metadata["Name"]
+            param_model_json["BIDSVersion"] = "PLEASE ADD"
+            param_model_json["PipelineDescription"] = user_metadata["PipelineDescription"]
+            param_model_json["PipelineDescription"]["Version"] = dipy.__version__
+            param_model_json["HowToAcknowledge"] = "PLEASE ADD"
+            param_model_json["SourceDatasetsURLs"] = "PLEASE ADD"
+            param_model_json["License"] = "PLEASE ADD"
+            param_model_json["OrientationRepresentation"] = user_metadata["OrientationRepresentation"]
+            param_model_json["ReferenceAxes"] = user_metadata["ReferenceAxes"]
+            param_model_json["AntipodalSymmetry"] = user_metadata["AntipodalSymmetry"]
+
+            if file == 'rgb.nii.gz':
+                param_model_json["OrientationRepresentation"] = "dec"
+
+            # get and add the sources of the files, for now automatically based on DIPY input
+            if 'derivatives' in dwi_nii_gz:
+                source_pattern_start = 'bids:derivatives:'
+                source_pattern_start += dwi_nii_gz.split('derivatives/')[1].split('/')[0]
+
+                source_pattern_dwi = source_pattern_start + ':' + \
+                    dwi_nii_gz.split('derivatives/')[1][dwi_nii_gz.split('derivatives/')[1].find('/') + 1:]
+
+                source_pattern_bval = source_pattern_start + ':' + \
+                    bval.split('derivatives/')[1][bval.split('derivatives/')[1].find('/') + 1:]
+
+                source_pattern_bvec = source_pattern_start + ':' + \
+                    bvec.split('derivatives/')[1][bvec.split('derivatives/')[1].find('/') + 1:]
+
+                source_pattern_mask = source_pattern_start + ':' + \
+                    mask.split('derivatives/')[1][mask.split('derivatives/')[1].find('/') + 1:]
+
+                param_model_json["sources"] = [source_pattern_dwi, source_pattern_bval,
+                                               source_pattern_bvec, source_pattern_mask]
+            else:
+                warnings.warn('The files do not seem to be stored under "derivatives" and thus'
+                              'the sources can not be automatically derived. Please make sure '
+                              'to add them manually.')
+                param_model_json["sources"] = []
+
+            # save the dictionary to the required JSON sidecar file for the tensor file
+            param_name = file.split('.')[0]
+            with open(str(str(out_path) + '/%s_param-%s_mdp.json' % (file_name_pattern, param_name)), 'w') as outfile:
+                json.dump(param_model_json, outfile, indent=4)
