@@ -50,7 +50,7 @@ HBN_qc_participants_df_sorted = datasets.eval_HBN_qc(HBN_qc_file,
 # highest ``dl_qc_score``. However, upon closer inspection it was noticed that this participant doesn't 
 # have all files necessary to test multiple analysis pipelines and the respective conversion to BEP16.
 # Thus, the ``participant``'s data with the second highest ``dl_qc_score`` was utilized. This refers to
-# ``sub-NDARYM277DEA``'s QSIprep outputs <https://fcp-indi.s3.amazonaws.com/index.html#data/Projects/HBN/BIDS_curated/derivatives/qsiprep/sub-NDAREK918EC2/>`_
+# ``sub-NDARYM277DEA``'s `QSIprep outputs <https://fcp-indi.s3.amazonaws.com/index.html#data/Projects/HBN/BIDS_curated/derivatives/qsiprep/sub-NDARYM277DEA/>`_
 # which were downloaded from the `FCP-INDI AWS bucket <https://fcp-indi.s3.amazonaws.com/index.html#data/Projects/HBN/>`_ and subsequently
 # uploaded to the `dataset component <https://osf.io/bz2vj/>`_ of the `BIDS connectivity project <https://pestillilab.github.io/bids-connectivity/>`_ `OSF project <https://osf.io/u4g5p/#!>`_
 # for access and management.
