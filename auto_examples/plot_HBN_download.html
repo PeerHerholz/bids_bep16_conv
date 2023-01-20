@@ -47,7 +47,7 @@
   
   
   
-    <title>Fetching the HBN example dataset &#8212; bids_bep16_conv 0.post1+gd779ea4 documentation</title>
+    <title>Fetching the HBN example dataset &#8212; bids_bep16_conv 0.post1+g87913b1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="bids_bep16_conv 0.post1+gd779ea4 documentation"
+        <a href="../index.html" title="bids_bep16_conv 0.post1+g87913b1 documentation"
            class="md-header-nav__button md-logo">
           
             &nbsp;
@@ -174,7 +174,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+gd779ea4 documentation</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g87913b1 documentation</a></li>
           <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Examples</a></li>
       </ul>
     </div>
@@ -187,13 +187,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="bids_bep16_conv 0.post1+gd779ea4 documentation" class="md-nav__button md-logo">
+    <a href="../index.html" title="bids_bep16_conv 0.post1+g87913b1 documentation" class="md-nav__button md-logo">
       
         <img src="../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../index.html"
-       title="bids_bep16_conv 0.post1+gd779ea4 documentation">BIDS BEP16 Conversions</a>
+       title="bids_bep16_conv 0.post1+g87913b1 documentation">BIDS BEP16 Conversions</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/PeerHerholz/bids_bep16_conv" title="Go to repository" class="md-source" data-md-source="github">
@@ -315,7 +315,7 @@ Using the <code class="xref py py-func docutils literal notranslate"><span class
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Data will be downloaded to bids_bep16_datasets/HBN/source-HBN_desc-qsiprep_participants.tsv
 
   0%|          | 0/210607 [00:00&lt;?, ?it/s]
-100%|##########| 206k/206k [00:00&lt;00:00, 11.6MB/s]
+100%|##########| 206k/206k [00:00&lt;00:00, 10.5MB/s]
             subject_id scan_site_id  ... dl_qc_score            site_variant
 0     sub-NDARAA306NT2           RU  ...       0.470    RU_64dir_Most_Common
 1     sub-NDARAA536PTU           SI  ...       0.701      SI_64dir_Obliquity
@@ -332,13 +332,13 @@ Using the <code class="xref py py-func docutils literal notranslate"><span class
 [2134 rows x 12 columns]
 </pre></div>
 </div>
-<p>What we get is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> entailing the content of <code class="docutils literal notranslate"><span class="pre">QSIprep</span></code>’s <code class="docutils literal notranslate"><span class="pre">participant.tsv</span></code> file.
+<p>What we get is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> entailing the content of <code class="docutils literal notranslate"><span class="pre">QSIprep</span></code>’s <code class="docutils literal notranslate"><span class="pre">participant.tsv</span></code> file.
 In contains various <code class="docutils literal notranslate"><span class="pre">demographic</span> <span class="pre">variables</span></code> but also the <code class="docutils literal notranslate"><span class="pre">Quality</span> <span class="pre">Control</span> <span class="pre">scores</span></code> we are interested in.
 In order to make the respective evaluation more straightforward, we can use the <code class="xref py py-func docutils literal notranslate"><span class="pre">datasets.get_HBN_qc()</span></code> function,
-which will sort the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> based on the <code class="docutils literal notranslate"><span class="pre">dl_qc_score</span></code> variable. We can furthermore indicate how
-many <code class="docutils literal notranslate"><span class="pre">participants</span></code> with the highest score, as well as if the sorted <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a>
+which will sort the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> based on the <code class="docutils literal notranslate"><span class="pre">dl_qc_score</span></code> variable. We can furthermore indicate how
+many <code class="docutils literal notranslate"><span class="pre">participants</span></code> with the highest score, as well as if the sorted <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a>
 and a <code class="docutils literal notranslate"><span class="pre">raincloud</span> <span class="pre">plot</span></code> of the <code class="docutils literal notranslate"><span class="pre">dl_qc_score</span></code> variable across the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> should be returned.</p>
-<p>Here, we going to get the <code class="docutils literal notranslate"><span class="pre">participants</span></code> that have the <code class="docutils literal notranslate"><span class="pre">3</span></code> highest scores, the sorted <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> and the <code class="docutils literal notranslate"><span class="pre">raincloud</span> <span class="pre">plot</span></code>.</p>
+<p>Here, we going to get the <code class="docutils literal notranslate"><span class="pre">participants</span></code> that have the <code class="docutils literal notranslate"><span class="pre">3</span></code> highest scores, the sorted <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> and the <code class="docutils literal notranslate"><span class="pre">raincloud</span> <span class="pre">plot</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">HBN_qc_participants_df_sorted</span></a> <span class="o">=</span> <a href="../generated/bids_bep16_conv.datasets.eval_HBN_qc.html#bids_bep16_conv.datasets.eval_HBN_qc" title="bids_bep16_conv.datasets.eval_HBN_qc" class="sphx-glr-backref-module-bids_bep16_conv-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">eval_HBN_qc</span></a><span class="p">(</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">HBN_qc_file</span></a><span class="p">,</span>
                                                      <span class="n">n_high_participants</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                                                      <span class="n">visualize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_sorted_df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -349,16 +349,16 @@ and a <code class="docutils literal notranslate"><span class="pre">raincloud</sp
 2002    sub-NDARYM277DEA
 1151    sub-NDARMV189NXG
 Name: subject_id, dtype: object
-/opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
   warnings.warn(single_var_warning.format("Vertical", "x"))
-/opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
   warnings.warn(single_var_warning.format("Vertical", "x"))
-/opt/hostedtoolcache/Python/3.8.15/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
   warnings.warn(single_var_warning.format("Vertical", "x"))
 </pre></div>
 </div>
 <p>As you can see in the <code class="docutils literal notranslate"><span class="pre">raincloud</span> <span class="pre">plot</span></code>, the score has a rather interesting distribution but the
-above obtained <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a> indicates that <code class="docutils literal notranslate"><span class="pre">participant</span></code> <code class="docutils literal notranslate"><span class="pre">sub-NDAREK918EC2</span></code> has the
+above obtained <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="(in pandas v1.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code></a> indicates that <code class="docutils literal notranslate"><span class="pre">participant</span></code> <code class="docutils literal notranslate"><span class="pre">sub-NDAREK918EC2</span></code> has the
 highest <code class="docutils literal notranslate"><span class="pre">dl_qc_score</span></code>. However, upon closer inspection it was noticed that this participant doesn’t
 have all files necessary to test multiple analysis pipelines and the respective conversion to BEP16.
 Thus, the <code class="docutils literal notranslate"><span class="pre">participant</span></code>’s data with the second highest <code class="docutils literal notranslate"><span class="pre">dl_qc_score</span></code> was utilized. This refers to
@@ -374,82 +374,115 @@ to our <code class="docutils literal notranslate"><span class="pre">Desktop</spa
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bval
 
   0%|          | 0/642 [00:00&lt;?, ?it/s]
-100%|##########| 642/642 [00:00&lt;00:00, 707kB/s]
+100%|##########| 642/642 [00:00&lt;00:00, 497kB/s]
 Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bvec
 
   0%|          | 0/4457 [00:00&lt;?, ?it/s]
-100%|##########| 4.35k/4.35k [00:00&lt;00:00, 4.85MB/s]
+100%|##########| 4.35k/4.35k [00:00&lt;00:00, 3.52MB/s]
 Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
 
   0%|          | 0/359208318 [00:00&lt;?, ?it/s]
-  2%|1         | 6.19M/343M [00:00&lt;00:05, 64.5MB/s]
-  4%|3         | 12.8M/343M [00:00&lt;00:05, 67.4MB/s]
-  6%|5         | 20.2M/343M [00:00&lt;00:04, 71.5MB/s]
-  9%|8         | 29.2M/343M [00:00&lt;00:04, 80.1MB/s]
- 11%|#1        | 38.3M/343M [00:00&lt;00:03, 85.5MB/s]
- 14%|#4        | 48.4M/343M [00:00&lt;00:03, 92.5MB/s]
- 17%|#7        | 58.4M/343M [00:00&lt;00:03, 96.2MB/s]
- 20%|#9        | 67.6M/343M [00:00&lt;00:03, 93.9MB/s]
- 22%|##2       | 76.6M/343M [00:00&lt;00:02, 93.6MB/s]
- 25%|##5       | 86.7M/343M [00:01&lt;00:02, 97.2MB/s]
- 29%|##8       | 97.9M/343M [00:01&lt;00:02, 103MB/s]
- 32%|###1      | 109M/343M [00:01&lt;00:02, 107MB/s]
- 35%|###4      | 119M/343M [00:01&lt;00:02, 106MB/s]
- 38%|###8      | 131M/343M [00:01&lt;00:02, 109MB/s]
- 41%|####1     | 141M/343M [00:01&lt;00:01, 110MB/s]
- 45%|####4     | 153M/343M [00:01&lt;00:01, 114MB/s]
- 48%|####8     | 165M/343M [00:01&lt;00:01, 118MB/s]
- 52%|#####1    | 177M/343M [00:01&lt;00:01, 118MB/s]
- 55%|#####4    | 188M/343M [00:01&lt;00:01, 117MB/s]
- 58%|#####8    | 200M/343M [00:02&lt;00:01, 119MB/s]
- 62%|######1   | 212M/343M [00:02&lt;00:01, 121MB/s]
- 65%|######5   | 224M/343M [00:02&lt;00:01, 88.2MB/s]
- 68%|######8   | 233M/343M [00:02&lt;00:01, 88.4MB/s]
- 71%|#######   | 243M/343M [00:02&lt;00:01, 85.9MB/s]
- 73%|#######3  | 251M/343M [00:02&lt;00:01, 75.5MB/s]
- 76%|#######5  | 260M/343M [00:02&lt;00:01, 79.0MB/s]
- 78%|#######8  | 268M/343M [00:02&lt;00:01, 73.3MB/s]
- 81%|########  | 277M/343M [00:03&lt;00:00, 78.4MB/s]
- 83%|########3 | 286M/343M [00:03&lt;00:00, 81.3MB/s]
- 86%|########6 | 296M/343M [00:03&lt;00:00, 86.9MB/s]
- 89%|########8 | 304M/343M [00:03&lt;00:00, 67.1MB/s]
- 91%|######### | 311M/343M [00:03&lt;00:00, 63.9MB/s]
- 93%|#########2| 318M/343M [00:03&lt;00:00, 64.0MB/s]
- 95%|#########4| 324M/343M [00:03&lt;00:00, 51.8MB/s]
- 96%|#########6| 330M/343M [00:04&lt;00:00, 52.2MB/s]
- 98%|#########7| 336M/343M [00:04&lt;00:00, 48.3MB/s]
- 99%|#########9| 340M/343M [00:04&lt;00:00, 45.9MB/s]
-100%|##########| 343M/343M [00:04&lt;00:00, 81.9MB/s]
+  1%|1         | 4.50M/343M [00:00&lt;00:07, 44.5MB/s]
+  3%|2         | 9.50M/343M [00:00&lt;00:07, 48.8MB/s]
+  4%|4         | 15.0M/343M [00:00&lt;00:06, 51.8MB/s]
+  6%|5         | 20.0M/343M [00:00&lt;00:07, 48.2MB/s]
+  7%|7         | 24.7M/343M [00:00&lt;00:07, 47.5MB/s]
+  9%|8         | 29.6M/343M [00:00&lt;00:06, 48.6MB/s]
+ 10%|#         | 34.3M/343M [00:00&lt;00:06, 46.7MB/s]
+ 11%|#1        | 38.8M/343M [00:00&lt;00:08, 36.8MB/s]
+ 13%|#3        | 45.6M/343M [00:01&lt;00:06, 45.5MB/s]
+ 15%|#4        | 50.4M/343M [00:01&lt;00:06, 44.6MB/s]
+ 16%|#6        | 54.9M/343M [00:01&lt;00:06, 43.9MB/s]
+ 17%|#7        | 59.6M/343M [00:01&lt;00:06, 45.0MB/s]
+ 19%|#8        | 64.0M/343M [00:01&lt;00:06, 45.3MB/s]
+ 20%|#9        | 68.4M/343M [00:01&lt;00:06, 44.1MB/s]
+ 21%|##1       | 72.8M/343M [00:01&lt;00:06, 44.1MB/s]
+ 22%|##2       | 77.1M/343M [00:01&lt;00:06, 40.7MB/s]
+ 24%|##3       | 81.1M/343M [00:01&lt;00:06, 40.0MB/s]
+ 25%|##5       | 86.9M/343M [00:02&lt;00:05, 45.7MB/s]
+ 27%|##6       | 91.8M/343M [00:02&lt;00:05, 46.3MB/s]
+ 28%|##8       | 96.2M/343M [00:02&lt;00:06, 42.4MB/s]
+ 29%|##9       | 101M/343M [00:02&lt;00:05, 42.8MB/s]
+ 31%|###       | 105M/343M [00:02&lt;00:06, 37.8MB/s]
+ 32%|###2      | 111M/343M [00:02&lt;00:05, 43.4MB/s]
+ 34%|###3      | 116M/343M [00:02&lt;00:05, 46.3MB/s]
+ 35%|###5      | 121M/343M [00:02&lt;00:05, 46.0MB/s]
+ 37%|###6      | 126M/343M [00:02&lt;00:04, 46.6MB/s]
+ 38%|###8      | 132M/343M [00:03&lt;00:04, 49.7MB/s]
+ 40%|###9      | 137M/343M [00:03&lt;00:04, 50.1MB/s]
+ 41%|####1     | 142M/343M [00:03&lt;00:04, 50.7MB/s]
+ 43%|####3     | 148M/343M [00:03&lt;00:03, 52.4MB/s]
+ 45%|####4     | 153M/343M [00:03&lt;00:04, 48.0MB/s]
+ 46%|####5     | 157M/343M [00:03&lt;00:04, 47.2MB/s]
+ 47%|####7     | 162M/343M [00:03&lt;00:04, 44.0MB/s]
+ 49%|####9     | 168M/343M [00:03&lt;00:03, 49.1MB/s]
+ 50%|#####     | 173M/343M [00:03&lt;00:03, 46.9MB/s]
+ 52%|#####1    | 177M/343M [00:04&lt;00:03, 43.5MB/s]
+ 53%|#####3    | 182M/343M [00:04&lt;00:04, 40.0MB/s]
+ 54%|#####4    | 186M/343M [00:04&lt;00:04, 40.0MB/s]
+ 55%|#####5    | 189M/343M [00:04&lt;00:04, 38.6MB/s]
+ 57%|#####7    | 196M/343M [00:04&lt;00:03, 45.5MB/s]
+ 59%|#####8    | 200M/343M [00:04&lt;00:03, 45.7MB/s]
+ 60%|#####9    | 205M/343M [00:04&lt;00:03, 45.8MB/s]
+ 61%|######1   | 209M/343M [00:04&lt;00:03, 46.2MB/s]
+ 62%|######2   | 214M/343M [00:04&lt;00:03, 44.3MB/s]
+ 64%|######3   | 218M/343M [00:05&lt;00:02, 44.7MB/s]
+ 65%|######4   | 222M/343M [00:05&lt;00:02, 42.8MB/s]
+ 66%|######6   | 228M/343M [00:05&lt;00:02, 46.1MB/s]
+ 68%|######7   | 232M/343M [00:05&lt;00:02, 40.5MB/s]
+ 69%|######9   | 238M/343M [00:05&lt;00:02, 44.7MB/s]
+ 71%|#######   | 242M/343M [00:05&lt;00:02, 41.9MB/s]
+ 72%|#######2  | 247M/343M [00:05&lt;00:02, 44.3MB/s]
+ 73%|#######3  | 251M/343M [00:05&lt;00:02, 34.3MB/s]
+ 76%|#######6  | 261M/343M [00:06&lt;00:01, 49.5MB/s]
+ 78%|#######7  | 266M/343M [00:06&lt;00:01, 48.7MB/s]
+ 79%|#######9  | 271M/343M [00:06&lt;00:01, 49.0MB/s]
+ 81%|########  | 276M/343M [00:06&lt;00:01, 37.1MB/s]
+ 82%|########1 | 281M/343M [00:06&lt;00:01, 37.0MB/s]
+ 83%|########3 | 285M/343M [00:06&lt;00:01, 38.7MB/s]
+ 84%|########4 | 289M/343M [00:06&lt;00:01, 35.0MB/s]
+ 85%|########5 | 293M/343M [00:07&lt;00:02, 25.8MB/s]
+ 87%|########6 | 296M/343M [00:07&lt;00:01, 28.3MB/s]
+ 88%|########7 | 301M/343M [00:07&lt;00:01, 31.8MB/s]
+ 89%|########8 | 305M/343M [00:07&lt;00:01, 34.2MB/s]
+ 90%|######### | 309M/343M [00:07&lt;00:00, 37.0MB/s]
+ 91%|#########1| 313M/343M [00:07&lt;00:01, 30.1MB/s]
+ 93%|#########3| 320M/343M [00:07&lt;00:00, 39.9MB/s]
+ 95%|#########4| 324M/343M [00:08&lt;00:00, 40.1MB/s]
+ 96%|#########5| 328M/343M [00:08&lt;00:00, 33.6MB/s]
+ 97%|#########7| 333M/343M [00:08&lt;00:00, 37.2MB/s]
+ 99%|#########8| 338M/343M [00:08&lt;00:00, 39.9MB/s]
+100%|##########| 343M/343M [00:08&lt;00:00, 42.2MB/s]
 Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-brain_mask.nii.gz
 
   0%|          | 0/13243 [00:00&lt;?, ?it/s]
-100%|##########| 12.9k/12.9k [00:00&lt;00:00, 13.1MB/s]
+100%|##########| 12.9k/12.9k [00:00&lt;00:00, 10.2MB/s]
 Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.json
 
   0%|          | 0/3250 [00:00&lt;?, ?it/s]
-100%|##########| 3.17k/3.17k [00:00&lt;00:00, 3.51MB/s]
+100%|##########| 3.17k/3.17k [00:00&lt;00:00, 2.52MB/s]
 Downloading QSIprep/dataset_description.json
 
   0%|          | 0/499 [00:00&lt;?, ?it/s]
-100%|##########| 499/499 [00:00&lt;00:00, 578kB/s]
+100%|##########| 499/499 [00:00&lt;00:00, 401kB/s]
 Downloading HBN/dataset_description.json
 
   0%|          | 0/60 [00:00&lt;?, ?it/s]
-100%|##########| 60.0/60.0 [00:00&lt;00:00, 67.0kB/s]
+100%|##########| 60.0/60.0 [00:00&lt;00:00, 45.9kB/s]
 The following HBN files are available:
 HBN/
+├─dataset_description.json
 ├─derivatives/
 │ └─QSIprep/
 │   ├─dataset_description.json
 │   └─sub-NDARYM277DEA/
 │     └─ses-HBNsiteCBIC/
 │       └─dwi/
+│         ├─sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.json
+│         ├─sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bval
 │         ├─sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
 │         ├─sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-brain_mask.nii.gz
-│         ├─sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bvec
-│         ├─sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bval
-│         └─sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.json
-├─dataset_description.json
+│         └─sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bvec
 └─source-HBN_desc-qsiprep_participants.tsv
 </pre></div>
 </div>
@@ -462,7 +495,7 @@ The latter is achieved by downloading the
 <a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/05-derivatives/02-common-data-types.html">BIDS common derivatives</a>,
 as well as
 <a class="reference external" href="https://github.com/bids-standard/bids-bep016/pull/24/files">inputs required by BEP16</a> and respective further processing.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.012 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.931 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-hbn-download-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/989d84de29634e92c8b873918458040c/plot_HBN_download.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_HBN_download.py</span></code></a></p>

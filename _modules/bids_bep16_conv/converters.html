@@ -46,7 +46,7 @@
   
   
   
-    <title>bids_bep16_conv.converters &#8212; bids_bep16_conv 0.post1+gd779ea4 documentation</title>
+    <title>bids_bep16_conv.converters &#8212; bids_bep16_conv 0.post1+g87913b1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -85,7 +85,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="bids_bep16_conv 0.post1+gd779ea4 documentation"
+        <a href="../../index.html" title="bids_bep16_conv 0.post1+g87913b1 documentation"
            class="md-header-nav__button md-logo">
           
             &nbsp;
@@ -171,7 +171,7 @@
   <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+gd779ea4 documentation</a></li>
+          <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">bids_bep16_conv 0.post1+g87913b1 documentation</a></li>
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Module code</a></li>
       </ul>
     </div>
@@ -184,13 +184,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="bids_bep16_conv 0.post1+gd779ea4 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="bids_bep16_conv 0.post1+g87913b1 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="bids_bep16_conv 0.post1+gd779ea4 documentation">BIDS BEP16 Conversions</a>
+       title="bids_bep16_conv 0.post1+g87913b1 documentation">BIDS BEP16 Conversions</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/PeerHerholz/bids_bep16_conv" title="Go to repository" class="md-source" data-md-source="github">
@@ -285,6 +285,7 @@
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">import</span> <span class="nn">importlib_resources</span>
+<span class="kn">import</span> <span class="nn">dipy</span>
 
 
 <div class="viewcode-block" id="dipy_dti"><a class="viewcode-back" href="../../generated/bids_bep16_conv.converters.dipy_dti.html#bids_bep16_conv.converters.dipy_dti">[docs]</a><span class="k">def</span> <span class="nf">dipy_dti</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="n">bval</span><span class="p">,</span> <span class="n">bvec</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">outdir</span><span class="p">):</span>
@@ -367,9 +368,9 @@
     <span class="k">return</span></div>
 
 
-<div class="viewcode-block" id="dipy_bep16"><a class="viewcode-back" href="../../generated/bids_bep16_conv.converters.dipy_bep16.html#bids_bep16_conv.converters.dipy_bep16">[docs]</a><span class="k">def</span> <span class="nf">dipy_bep16</span><span class="p">(</span><span class="n">dwi_nii_gz</span><span class="p">,</span> <span class="n">bval</span><span class="p">,</span> <span class="n">bvec</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">json_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="dipy_bep16_dti"><a class="viewcode-back" href="../../generated/bids_bep16_conv.converters.dipy_bep16_dti.html#bids_bep16_conv.converters.dipy_bep16_dti">[docs]</a><span class="k">def</span> <span class="nf">dipy_bep16_dti</span><span class="p">(</span><span class="n">dwi_nii_gz</span><span class="p">,</span> <span class="n">bval</span><span class="p">,</span> <span class="n">bvec</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">out_path</span><span class="p">,</span> <span class="n">json_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Restructure DIPY outcomes following BIDS BEP16 conventions.</span>
+<span class="sd">    Restructure DIPY DTI outcomes following BIDS BEP16 conventions.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -395,7 +396,7 @@
 <span class="sd">    is provided by the user and thus, the resulting json metadata sidecar files will only</span>
 <span class="sd">    contain placeholders and need to be filled out manually.</span>
 
-<span class="sd">    &gt;&gt;&gt; dipy_bep16('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',</span>
+<span class="sd">    &gt;&gt;&gt; dipy_bep16_dti('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',</span>
 <span class="sd">                   'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bval',</span>
 <span class="sd">                   'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bvec',</span>
 <span class="sd">                   'bids_root/derivatives/dipy/sub-01/dwi/')</span>
@@ -406,7 +407,7 @@
 <span class="sd">    based on the respectively provided information. It's stored at the top of the respective</span>
 <span class="sd">    derivative directory, ie "dipy".</span>
 
-<span class="sd">    &gt;&gt;&gt; dipy_bep16('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',</span>
+<span class="sd">    &gt;&gt;&gt; dipy_bep16_dti('bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.nii.gz',</span>
 <span class="sd">                   'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bval',</span>
 <span class="sd">                   'bids_root/derivatives/QSIprep/sub-01/dwi/sub-01_desc-preproc_dwi.bvec',</span>
 <span class="sd">                   'bids_root/derivatives/dipy/sub-01/dwi/'</span>
@@ -426,25 +427,25 @@
     <span class="c1"># loop over all files to conduct the respectively required conversion</span>
     <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">file_list</span><span class="p">:</span>
 
+        <span class="c1"># check if json_metadata was provided by the user</span>
+        <span class="c1"># if not, issue a warning and get the template with placeholders</span>
+        <span class="k">if</span> <span class="n">json_metadata</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">'You did not provide a json file containing the metadata '</span>
+                          <span class="s1">'for your analysis. Thus, the json files produced '</span>
+                          <span class="s1">'during the conversion will contain based on the DIPY docs '</span>
+                          <span class="s1">'and you should remember to check them out respectively!'</span><span class="p">)</span>
+            <span class="n">json_metadata</span> <span class="o">=</span> <span class="n">importlib_resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">'data/metadata_templates/BEP16_metadata_template_DIPY_DTI.json'</span><span class="p">)</span>
+
+        <span class="c1"># load the json_metadata file, either provided by the user or the template one</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_metadata</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">user_metadata</span><span class="p">:</span>
+            <span class="n">user_metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">user_metadata</span><span class="p">)</span>
+
         <span class="c1"># the tensor file needs to be treated differently, so we need to check</span>
         <span class="c1"># when it appears and when it does, run the dedicated conversion</span>
         <span class="k">if</span> <span class="n">file</span> <span class="o">==</span> <span class="s1">'tensors.nii.gz'</span><span class="p">:</span>
 
             <span class="c1"># renaming the tensor file following BEP16</span>
             <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">'</span><span class="si">%s</span><span class="s1">_param-tensor_model.nii.gz'</span> <span class="o">%</span> <span class="n">file_name_pattern</span><span class="p">)</span>
-
-            <span class="c1"># check if json_metadata was provided by the user</span>
-            <span class="c1"># if not, issue a warning and get the template with placeholders</span>
-            <span class="k">if</span> <span class="n">json_metadata</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">'You did not provide a json file containing the metadata '</span>
-                              <span class="s1">'for your analysis. Thus, the json files produced '</span>
-                              <span class="s1">'during the conversion will only contain placeholders '</span>
-                              <span class="s1">'and you should remember to fill them out respectively!'</span><span class="p">)</span>
-                <span class="n">json_metadata</span> <span class="o">=</span> <span class="n">importlib_resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">'data/metadata_templates/BEP16_metadata_template.json'</span><span class="p">)</span>
-
-            <span class="c1"># load the json_metadata file, either provided by the user or the template one</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_metadata</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">user_metadata</span><span class="p">:</span>
-                <span class="n">user_metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">user_metadata</span><span class="p">)</span>
 
             <span class="c1"># initialize an empty dictionary for the tensor file's JSON sidecar file</span>
             <span class="n">tensor_model_json</span> <span class="o">=</span> <span class="p">{}</span>
@@ -453,10 +454,12 @@
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"BIDSVersion"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PLEASE ADD"</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"PipelineDescription"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"PipelineDescription"</span><span class="p">]</span>
+            <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"PipelineDescription"</span><span class="p">][</span><span class="s2">"Version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">dipy</span><span class="o">.</span><span class="n">__version__</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"HowToAcknowledge"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PLEASE ADD"</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"SourceDatasetsURLs"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PLEASE ADD"</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"License"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PLEASE ADD"</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"ModelDescription"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"ModelDescription"</span><span class="p">]</span>
+            <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"ModelURL"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"ModelURL"</span><span class="p">]</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"OrientationRepresentation"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"OrientationRepresentation"</span><span class="p">]</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"ReferenceAxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"ReferenceAxes"</span><span class="p">]</span>
             <span class="n">tensor_model_json</span><span class="p">[</span><span class="s2">"Parameters"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"Parameters"</span><span class="p">]</span>
@@ -494,7 +497,55 @@
         <span class="k">else</span><span class="p">:</span>
 
             <span class="c1"># rename the file according to BEP16</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">'</span><span class="si">%s</span><span class="s1">_param-</span><span class="si">%s</span><span class="s1">_mdp.nii.gz'</span> <span class="o">%</span> <span class="p">(</span><span class="n">file_name_pattern</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span></div>
+            <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">'</span><span class="si">%s</span><span class="s1">_param-</span><span class="si">%s</span><span class="s1">_mdp.nii.gz'</span> <span class="o">%</span> <span class="p">(</span><span class="n">file_name_pattern</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+
+            <span class="c1"># initialize an empty dictionary for the param file's JSON sidecar file</span>
+            <span class="n">param_model_json</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="c1"># add required keys and respectively needed information</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"Name"</span><span class="p">]</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"BIDSVersion"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PLEASE ADD"</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"PipelineDescription"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"PipelineDescription"</span><span class="p">]</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"PipelineDescription"</span><span class="p">][</span><span class="s2">"Version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">dipy</span><span class="o">.</span><span class="n">__version__</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"HowToAcknowledge"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PLEASE ADD"</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"SourceDatasetsURLs"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PLEASE ADD"</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"License"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"PLEASE ADD"</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"OrientationRepresentation"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"OrientationRepresentation"</span><span class="p">]</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"ReferenceAxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"ReferenceAxes"</span><span class="p">]</span>
+            <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"AntipodalSymmetry"</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_metadata</span><span class="p">[</span><span class="s2">"AntipodalSymmetry"</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">file</span> <span class="o">==</span> <span class="s1">'rgb.nii.gz'</span><span class="p">:</span>
+                <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"OrientationRepresentation"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"dec"</span>
+
+            <span class="c1"># get and add the sources of the files, for now automatically based on DIPY input</span>
+            <span class="k">if</span> <span class="s1">'derivatives'</span> <span class="ow">in</span> <span class="n">dwi_nii_gz</span><span class="p">:</span>
+                <span class="n">source_pattern_start</span> <span class="o">=</span> <span class="s1">'bids:derivatives:'</span>
+                <span class="n">source_pattern_start</span> <span class="o">+=</span> <span class="n">dwi_nii_gz</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+                <span class="n">source_pattern_dwi</span> <span class="o">=</span> <span class="n">source_pattern_start</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> \
+                    <span class="n">dwi_nii_gz</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="n">dwi_nii_gz</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+
+                <span class="n">source_pattern_bval</span> <span class="o">=</span> <span class="n">source_pattern_start</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> \
+                    <span class="n">bval</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="n">bval</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+
+                <span class="n">source_pattern_bvec</span> <span class="o">=</span> <span class="n">source_pattern_start</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> \
+                    <span class="n">bvec</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="n">bvec</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+
+                <span class="n">source_pattern_mask</span> <span class="o">=</span> <span class="n">source_pattern_start</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> \
+                    <span class="n">mask</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="n">mask</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'derivatives/'</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+
+                <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"sources"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">source_pattern_dwi</span><span class="p">,</span> <span class="n">source_pattern_bval</span><span class="p">,</span>
+                                               <span class="n">source_pattern_bvec</span><span class="p">,</span> <span class="n">source_pattern_mask</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">'The files do not seem to be stored under "derivatives" and thus'</span>
+                              <span class="s1">'the sources can not be automatically derived. Please make sure '</span>
+                              <span class="s1">'to add them manually.'</span><span class="p">)</span>
+                <span class="n">param_model_json</span><span class="p">[</span><span class="s2">"sources"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="c1"># save the dictionary to the required JSON sidecar file for the tensor file</span>
+            <span class="n">param_name</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_path</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'/</span><span class="si">%s</span><span class="s1">_param-</span><span class="si">%s</span><span class="s1">_mdp.json'</span> <span class="o">%</span> <span class="p">(</span><span class="n">file_name_pattern</span><span class="p">,</span> <span class="n">param_name</span><span class="p">)),</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">param_model_json</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
 </pre></div>
 
           </article>

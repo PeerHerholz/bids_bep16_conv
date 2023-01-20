@@ -42,7 +42,7 @@ Reference API
 
    bids_bep16_conv.converters.dipy_dti
    bids_bep16_conv.converters.dipy_csd
-   bids_bep16_conv.converters.dipy_bep16
+   bids_bep16_conv.converters.dipy_bep16_dti
 
 .. _ref_utils:
 
