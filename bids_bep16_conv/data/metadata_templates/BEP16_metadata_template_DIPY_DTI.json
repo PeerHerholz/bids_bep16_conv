@@ -1,0 +1,17 @@
+{
+    "Name": "DIPY DTI",
+    "PipelineDescription": {
+        "Name": "DIPY DTI",
+        "Version": "PLEASE ADD THE VERSION OF SOFTWARE PACKAGE HERE",
+        "CodeURL": "https://dipy.org/documentation/1.6.0./interfaces/reconstruction_flow/#diffusion-tensor-imaging-dti"
+    },
+    "ModelDescription": "Diffusion Tensor",
+    "ModelURL": "https://dipy.org/documentation/1.6.0./reference/dipy.reconst/#dipy.reconst.dti.TensorModel",
+    "OrientationRepresentation": "param",
+    "ReferenceAxes": "xyz",
+    "Parameters": {
+            "FitMethod": "ols",
+            "OutlierRejection": false
+        },
+    "AntipodalSymmetry" : true
+}
