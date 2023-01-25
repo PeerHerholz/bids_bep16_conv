@@ -1,9 +1,10 @@
-===============
+============================
 BIDS BEP-16 Conversion tools
-===============
+============================
 
-.. image:: https://img.shields.io/travis/peerherholz/bids_bep16_conv.svg
-        :target: https://travis-ci.org/peerherholz/bids_bep16_conv
+
+.. image:: https://github.com/PeerHerholz/bids_bep16_conv/actions/workflows/docs.yml/badge.svg
+        :target: https://github.com/PeerHerholz/bids_bep16_conv/actions/workflows/docs.yml
 
 .. image:: https://img.shields.io/pypi/v/bids_bep16_conv.svg
         :target: https://pypi.python.org/pypi/bids_bep16_conv
