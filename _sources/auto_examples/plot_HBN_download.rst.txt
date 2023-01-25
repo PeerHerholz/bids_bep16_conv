@@ -62,7 +62,7 @@ Using the :func:`datasets.get_HBN_qc` function we can obtain and check this file
  .. code-block:: none
 
     Data will be downloaded to bids_bep16_datasets/HBN/source-HBN_desc-qsiprep_participants.tsv
-      0%|          | 0/210607 [00:00<?, ?it/s]     62%|######2   | 128k/206k [00:00<00:00, 1.24MB/s]    100%|##########| 206k/206k [00:00<00:00, 1.94MB/s]
+      0%|          | 0/210607 [00:00<?, ?it/s]     62%|######2   | 128k/206k [00:00<00:00, 1.28MB/s]    100%|##########| 206k/206k [00:00<00:00, 2.01MB/s]
                 subject_id scan_site_id  ... dl_qc_score            site_variant
     0     sub-NDARAA306NT2           RU  ...       0.470    RU_64dir_Most_Common
     1     sub-NDARAA536PTU           SI  ...       0.701      SI_64dir_Obliquity
@@ -119,11 +119,11 @@ Here, we going to get the ``participants`` that have the ``3`` highest scores, t
     2002    sub-NDARYM277DEA
     1151    sub-NDARMV189NXG
     Name: subject_id, dtype: object
-    /usr/share/miniconda/envs/bids_bep16_conv/lib/python3.9/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+    /usr/share/miniconda/envs/bids_bep16_conv/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
       warnings.warn(single_var_warning.format("Vertical", "x"))
-    /usr/share/miniconda/envs/bids_bep16_conv/lib/python3.9/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+    /usr/share/miniconda/envs/bids_bep16_conv/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
       warnings.warn(single_var_warning.format("Vertical", "x"))
-    /usr/share/miniconda/envs/bids_bep16_conv/lib/python3.9/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+    /usr/share/miniconda/envs/bids_bep16_conv/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
       warnings.warn(single_var_warning.format("Vertical", "x"))
 
 
@@ -160,19 +160,19 @@ to our ``Desktop``.
  .. code-block:: none
 
     Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bval
-      0%|          | 0/642 [00:00<?, ?it/s]    100%|##########| 642/642 [00:00<00:00, 543kB/s]
+      0%|          | 0/642 [00:00<?, ?it/s]    100%|##########| 642/642 [00:00<00:00, 476kB/s]
     Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bvec
-      0%|          | 0/4457 [00:00<?, ?it/s]    100%|##########| 4.35k/4.35k [00:00<00:00, 3.48MB/s]
+      0%|          | 0/4457 [00:00<?, ?it/s]    100%|##########| 4.35k/4.35k [00:00<00:00, 3.16MB/s]
     Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
-      0%|          | 0/359208318 [00:00<?, ?it/s]      1%|          | 2.38M/343M [00:00<00:14, 24.7MB/s]      4%|3         | 13.6M/343M [00:00<00:04, 79.0MB/s]      8%|7         | 26.0M/343M [00:00<00:03, 102MB/s]      11%|#1        | 38.4M/343M [00:00<00:02, 113MB/s]     15%|#4        | 50.6M/343M [00:00<00:02, 118MB/s]     19%|#8        | 63.4M/343M [00:00<00:02, 124MB/s]     22%|##1       | 75.2M/343M [00:00<00:02, 124MB/s]     25%|##5       | 87.1M/343M [00:00<00:02, 122MB/s]     29%|##8       | 99.0M/343M [00:00<00:02, 123MB/s]     33%|###2      | 112M/343M [00:01<00:01, 124MB/s]      36%|###6      | 125M/343M [00:01<00:01, 128MB/s]     40%|####      | 137M/343M [00:01<00:01, 130MB/s]     44%|####3     | 150M/343M [00:01<00:01, 129MB/s]     47%|####7     | 162M/343M [00:01<00:01, 129MB/s]     51%|#####     | 174M/343M [00:01<00:01, 130MB/s]     55%|#####4    | 187M/343M [00:01<00:01, 129MB/s]     58%|#####8    | 200M/343M [00:01<00:01, 130MB/s]     62%|######1   | 212M/343M [00:01<00:01, 126MB/s]     66%|######5   | 225M/343M [00:01<00:00, 128MB/s]     69%|######9   | 237M/343M [00:02<00:00, 129MB/s]     73%|#######2  | 250M/343M [00:02<00:00, 129MB/s]     77%|#######6  | 262M/343M [00:02<00:00, 130MB/s]     80%|########  | 275M/343M [00:02<00:00, 129MB/s]     84%|########3 | 287M/343M [00:02<00:00, 128MB/s]     87%|########7 | 299M/343M [00:02<00:00, 127MB/s]     91%|######### | 311M/343M [00:02<00:00, 124MB/s]     94%|#########4| 323M/343M [00:02<00:00, 112MB/s]     98%|#########7| 334M/343M [00:02<00:00, 112MB/s]    100%|##########| 343M/343M [00:02<00:00, 121MB/s]
+      0%|          | 0/359208318 [00:00<?, ?it/s]      2%|1         | 5.25M/343M [00:00<00:06, 55.0MB/s]      3%|3         | 11.5M/343M [00:00<00:05, 60.6MB/s]      5%|5         | 17.3M/343M [00:00<00:07, 47.7MB/s]      7%|6         | 22.5M/343M [00:00<00:06, 49.4MB/s]      9%|8         | 29.2M/343M [00:00<00:05, 55.9MB/s]     11%|#         | 36.2M/343M [00:00<00:05, 61.0MB/s]     13%|#2        | 44.1M/343M [00:00<00:04, 67.4MB/s]     15%|#5        | 51.8M/343M [00:00<00:04, 71.5MB/s]     17%|#7        | 59.1M/343M [00:00<00:04, 73.0MB/s]     19%|#9        | 66.7M/343M [00:01<00:03, 75.0MB/s]     22%|##1       | 73.9M/343M [00:01<00:03, 70.7MB/s]     24%|##3       | 80.8M/343M [00:01<00:04, 68.5MB/s]     26%|##5       | 87.4M/343M [00:01<00:04, 62.9MB/s]     27%|##7       | 93.6M/343M [00:01<00:04, 62.0MB/s]     29%|##9       | 100M/343M [00:01<00:03, 64.9MB/s]      32%|###1      | 109M/343M [00:01<00:03, 72.4MB/s]     35%|###4      | 119M/343M [00:01<00:02, 81.0MB/s]     37%|###7      | 128M/343M [00:01<00:02, 83.5MB/s]     40%|###9      | 136M/343M [00:02<00:02, 81.0MB/s]     42%|####1     | 144M/343M [00:02<00:02, 80.0MB/s]     45%|####4     | 153M/343M [00:02<00:02, 83.5MB/s]     47%|####7     | 161M/343M [00:02<00:02, 85.0MB/s]     50%|####9     | 171M/343M [00:02<00:02, 88.4MB/s]     52%|#####2    | 180M/343M [00:02<00:01, 90.3MB/s]     55%|#####5    | 188M/343M [00:02<00:01, 88.5MB/s]     58%|#####7    | 197M/343M [00:02<00:01, 86.4MB/s]     60%|#####9    | 205M/343M [00:02<00:01, 86.8MB/s]     62%|######2   | 214M/343M [00:03<00:01, 84.5MB/s]     65%|######4   | 222M/343M [00:03<00:01, 84.8MB/s]     67%|######7   | 230M/343M [00:03<00:01, 83.5MB/s]     69%|######9   | 238M/343M [00:03<00:01, 83.0MB/s]     72%|#######1  | 246M/343M [00:03<00:01, 67.4MB/s]     74%|#######3  | 253M/343M [00:03<00:01, 66.4MB/s]     76%|#######6  | 261M/343M [00:03<00:01, 70.4MB/s]     79%|#######8  | 270M/343M [00:03<00:00, 78.5MB/s]     81%|########1 | 279M/343M [00:03<00:00, 80.8MB/s]     84%|########3 | 287M/343M [00:04<00:00, 76.4MB/s]     86%|########6 | 296M/343M [00:04<00:00, 82.8MB/s]     90%|########9 | 307M/343M [00:04<00:00, 90.3MB/s]     93%|#########2| 317M/343M [00:04<00:00, 95.1MB/s]     96%|#########5| 328M/343M [00:04<00:00, 100MB/s]      98%|#########8| 337M/343M [00:04<00:00, 93.4MB/s]    100%|##########| 343M/343M [00:04<00:00, 78.0MB/s]
     Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-brain_mask.nii.gz
-      0%|          | 0/13243 [00:00<?, ?it/s]    100%|##########| 12.9k/12.9k [00:00<00:00, 9.50MB/s]
+      0%|          | 0/13243 [00:00<?, ?it/s]    100%|##########| 12.9k/12.9k [00:00<00:00, 9.40MB/s]
     Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.json
-      0%|          | 0/3250 [00:00<?, ?it/s]    100%|##########| 3.17k/3.17k [00:00<00:00, 2.38MB/s]
+      0%|          | 0/3250 [00:00<?, ?it/s]    100%|##########| 3.17k/3.17k [00:00<00:00, 2.47MB/s]
     Downloading QSIprep/dataset_description.json
-      0%|          | 0/499 [00:00<?, ?it/s]    100%|##########| 499/499 [00:00<00:00, 411kB/s]
+      0%|          | 0/499 [00:00<?, ?it/s]    100%|##########| 499/499 [00:00<00:00, 395kB/s]
     Downloading HBN/dataset_description.json
-      0%|          | 0/60 [00:00<?, ?it/s]    100%|##########| 60.0/60.0 [00:00<00:00, 49.4kB/s]
+      0%|          | 0/60 [00:00<?, ?it/s]    100%|##########| 60.0/60.0 [00:00<00:00, 58.2kB/s]
     The following HBN files are available:
     HBN/
     ├─dataset_description.json
@@ -208,7 +208,7 @@ as well as
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  10.958 seconds)
+   **Total running time of the script:** ( 0 minutes  13.718 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_HBN_download.py:
