@@ -35,6 +35,13 @@ jobs:
       shell: bash -l {0}
       run: |
         pip install ./
+    - name: Test code
+      shell: bash -l {0}
+      run: |
+        coverage run -m pytest
+        coverage report -m
+        codecov
+        flake8
     - name: Build the docs
       shell: bash -l {0}
       run: |
