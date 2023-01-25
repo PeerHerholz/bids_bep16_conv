@@ -1,6 +1,0 @@
-﻿bids\_bep16\_conv.converters.dipy\_csd
-======================================
-
-.. currentmodule:: bids_bep16_conv.converters
-
-.. autofunction:: dipy_csd
