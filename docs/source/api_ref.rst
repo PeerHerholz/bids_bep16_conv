@@ -28,7 +28,22 @@ Reference API
 
 .. _ref_converters:
 
-:mod:`bids_bep16_conv.converters` - Pipeline & Conversion tools
+:mod:`bids_bep16_conv.converters` - Pipeline tools
+---------------------------------------------------------------
+.. automodule:: bids_bep16_conv.processing
+   :no-members:
+   :no-inherited-members:
+
+.. currentmodule:: bids_bep16_conv.processing
+
+.. autosummary::
+   :template: function.rst
+   :toctree: generated/
+
+   bids_bep16_conv.converters.dipy_dti
+   bids_bep16_conv.converters.dipy_csd
+
+:mod:`bids_bep16_conv.converters` - Conversion tools
 ---------------------------------------------------------------
 .. automodule:: bids_bep16_conv.converters
    :no-members:
@@ -40,8 +55,6 @@ Reference API
    :template: function.rst
    :toctree: generated/
 
-   bids_bep16_conv.converters.dipy_dti
-   bids_bep16_conv.converters.dipy_csd
    bids_bep16_conv.converters.dipy_bep16_dti
 
 .. _ref_utils:

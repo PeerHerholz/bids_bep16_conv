@@ -1,7 +1,8 @@
 import argparse
 import os
 from pathlib import Path
-from bids_bep16_conv.converters import dipy_dti, dipy_bep16_dti, dipy_csd
+from bids_bep16_conv.processing import dipy_dti, dipy_csd
+from bids_bep16_conv.converters import dipy_bep16_dti
 from bids_bep16_conv.utils import validate_input_dir, create_dataset_description
 from bids_bep16_conv.datasets import download_HBN
 from bids import BIDSLayout
