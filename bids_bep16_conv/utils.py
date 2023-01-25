@@ -164,7 +164,6 @@ def create_dataset_description(software, analysis, out_dir):
 
     # if mrtrix was used, fill dictionary with respectively needed information
     elif software == 'mrtrix':
-        
         dataset_description["Name"] = "MRTRIX output"
         dataset_description["BIDSVersion"] = "PLEASE ADD"
         dataset_description["PipelineDescription"] = {"Name" : "MRTRIX",

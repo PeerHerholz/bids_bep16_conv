@@ -20,6 +20,7 @@ jobs:
       run: |
         pip install -r requirements-dev.txt
     - name: Install mrtrix
+      uses: s-weigand/setup-conda
       run: |
         conda install -c mrtrix3 mrtrix3
     - name: Install bids_bep16_conv

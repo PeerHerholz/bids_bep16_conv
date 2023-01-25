@@ -26,9 +26,9 @@ Reference API
    bids_bep16_conv.datasets.eval_HBN_qc
    bids_bep16_conv.datasets.download_HBN
 
-.. _ref_converters:
+.. _ref_processing:
 
-:mod:`bids_bep16_conv.converters` - Pipeline tools
+:mod:`bids_bep16_conv.processing` - Pipeline tools
 ---------------------------------------------------------------
 .. automodule:: bids_bep16_conv.processing
    :no-members:
