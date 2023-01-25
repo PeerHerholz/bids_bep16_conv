@@ -40,8 +40,9 @@ Reference API
    :template: function.rst
    :toctree: generated/
 
-   bids_bep16_conv.converters.dipy_dti
-   bids_bep16_conv.converters.dipy_csd
+   bids_bep16_conv.processing.dipy_dti
+   bids_bep16_conv.processing.dipy_csd
+   bids_bep16_conv.processing.mrtrix_dti
 
 :mod:`bids_bep16_conv.converters` - Conversion tools
 ---------------------------------------------------------------
