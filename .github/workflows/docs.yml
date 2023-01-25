@@ -20,7 +20,7 @@ jobs:
       with:
           activate-environment: bids_bep16_conv
           mamba-version: "*"
-          channels: conda-forge, defaults, mrtrix3
+          channels: conda-forge, defaults
           channel-priority: true
           python-version: ${{ matrix.python-version }}
 
@@ -31,7 +31,7 @@ jobs:
     - name: Install mrtrix
       shell: bash -l {0}
       run: |
-        conda install mrtrix3
+        conda install -C mrtrix3 mrtrix3
     - name: Install bids_bep16_conv
       shell: bash -l {0}
       run: |
