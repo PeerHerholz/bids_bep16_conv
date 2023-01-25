@@ -8,11 +8,16 @@ on:
 jobs:
   build-docs:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v2
+
     - uses: conda-incubator/setup-miniconda@v2
-        with:
+      with:
           activate-environment: bids_bep16_conv
+          mamba-version: "*"
+          channels: conda-forge, defaults, mrtrix3
+          channel-priority: true
           python-version: 3.8
 
     - name: Install dependencies
@@ -22,7 +27,7 @@ jobs:
     - name: Install mrtrix
       shell: bash -l {0}
       run: |
-        conda install -c mrtrix3 mrtrix3
+        conda install mrtrix3
     - name: Install bids_bep16_conv
       shell: bash -l {0}
       run: |
