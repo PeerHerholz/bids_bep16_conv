@@ -4,6 +4,8 @@ from pathlib import Path
 import json
 import importlib_resources
 from shutil import copy
+import dipy
+import mrtrix3
 
 
 def validate_input_dir(exec_env, bids_dir, participant_label):
@@ -133,7 +135,7 @@ def create_dataset_description(software, analysis, out_dir):
     """
 
     # define the output path under derivatives within BIDS root
-    dataset_description_path = Path(os.path.join(out_dir, software + "_dti"))
+    dataset_description_path = Path(os.path.join(out_dir, software + "_%s" % analysis))
 
     # check if output path exists, if not create it
     if not dataset_description_path.exists():
@@ -144,21 +146,40 @@ def create_dataset_description(software, analysis, out_dir):
 
     # if dipy was used, fill dictionary with respectively needed information
     if software == 'dipy':
-        import dipy
         
         dataset_description["Name"] = "Dipy output"
         dataset_description["BIDSVersion"] = "PLEASE ADD"
-        dataset_description["PipelineDescription"] = {"Name" : "Dipy DTI",
+        dataset_description["PipelineDescription"] = {"Name" : "Dipy",
                                                       "Version": dipy.__version__,
-                                                      "CodeURL": "https://dipy.org/documentation/1.6.0./interfaces/reconstruction_flow/#diffusion-tensor-imaging-dti"}
+                                                      "CodeURL": ""}
         dataset_description["HowToAcknowledge"] = "PLEASE ADD"
         dataset_description["SourceDatasetsURLs"] = "PLEASE ADD"
         dataset_description["License"] = "PLEASE ADD"
 
         if analysis == 'DTI':
             dataset_description["PipelineDescription"]["Name"] = "Dipy DTI"
+            dataset_description["PipelineDescription"]["CodeURL"] = "https://dipy.org/documentation/1.6.0./interfaces/reconstruction_flow/#diffusion-tensor-imaging-dti"
         elif analysis == 'CSD':
             dataset_description["PipelineDescription"]["Name"] = "Dipy CSD"
+
+    # if mrtrix was used, fill dictionary with respectively needed information
+    elif software == 'mrtrix':
+        
+        dataset_description["Name"] = "MRTRIX output"
+        dataset_description["BIDSVersion"] = "PLEASE ADD"
+        dataset_description["PipelineDescription"] = {"Name" : "MRTRIX",
+                                                      "Version": mrtrix3.__version__,
+                                                      "CodeURL": ""}
+        dataset_description["HowToAcknowledge"] = "PLEASE ADD"
+        dataset_description["SourceDatasetsURLs"] = "PLEASE ADD"
+        dataset_description["License"] = "PLEASE ADD"
+
+        if analysis == 'DTI':
+            dataset_description["PipelineDescription"]["Name"] = "mrtrix dwi2tensor | tensor2metric"
+            dataset_description["PipelineDescription"]["CodeURL"] = ["https://mrtrix.readthedocs.io/en/latest/reference/commands/dwi2tensor.html?highlight=dwi2tensor",
+                                                                     "https://mrtrix.readthedocs.io/en/latest/reference/commands/tensor2metric.html?highlight=tensor2metric"]
+        elif analysis == 'CSD':
+            dataset_description["PipelineDescription"]["Name"] = "mrtrix CSD"
         
     # save the created dictionary as json file in specified output path
     with open(str(str(dataset_description_path) + '/dataset_description.json'), 'w') as outfile:
