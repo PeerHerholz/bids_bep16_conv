@@ -1,0 +1,19 @@
+{
+    "Name": "MRTRIX DTI",
+    "PipelineDescription": {
+        "Name": "MRTRIX DTI",
+        "Version": "PLEASE ADD THE VERSION OF SOFTWARE PACKAGE HERE",
+        "CodeURL": ["https://mrtrix.readthedocs.io/en/latest/reference/commands/dwi2tensor.html?highlight=dwi2tensor",
+                    "https: //mrtrix.readthedocs.io/en/latest/reference/commands/tensor2metric.html?highlight=tensor2metric"
+                    ]
+    },
+    "ModelDescription": "Diffusion Tensor",
+    "ModelURL": "https://github.com/MRtrix3/mrtrix3/blob/master/src/dwi/tensor.h",
+    "OrientationRepresentation": "PLEASE ADD",
+    "ReferenceAxes": "PLEASE ADD",
+    "Parameters": {
+            "FitMethod": "wls",
+            "OutlierRejection": "PLEASE ADD"
+        },
+    "AntipodalSymmetry" : "PLEASE ADD"
+}

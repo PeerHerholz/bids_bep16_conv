@@ -2,7 +2,7 @@ import argparse
 import os
 from pathlib import Path
 from bids_bep16_conv.processing import dipy_dti, dipy_csd, mrtrix_dti
-from bids_bep16_conv.converters import dipy_bep16_dti
+from bids_bep16_conv.converters import dipy_bep16_dti, mrtrix_bep16_dti
 from bids_bep16_conv.utils import validate_input_dir, create_dataset_description
 from bids_bep16_conv.datasets import download_HBN
 from bids import BIDSLayout
@@ -152,7 +152,7 @@ def run_bids_bep16_conv():
                     outpath = str(args.out_dir) + '/dipy/sub-' + subject_label + '/dwi/'
                     if sessions_to_analyze:
                         ses_label = dwi_nii_gz.split('/')[-1].split('_')[1].split('-')[1]
-                        outpath = str(args.out_dir) + '/dipy/sub-' + subject_label + '/ses-' + ses_label + '/dwi/'
+                        outpath = str(args.out_dir) + '/dipy/sub-' + subject_label + '/ses-' + ses_label + '/dwi'
                     # if DTI analysis should be run, setup and run dipy_dti function
                     if args.analysis == "DTI":
                         dipy_dti(dwi_nii_gz, bval, bvec,
@@ -177,6 +177,8 @@ def run_bids_bep16_conv():
                                    mask, outpath.replace('mrtrix', 'mrtrix_dti'))
                         # create the respective dataset_description.json file for the run analysis
                         create_dataset_description("mrtrix", "DTI", args.out_dir)
+                        mrtrix_bep16_dti(dwi_nii_gz, bval, bvec,
+                                         mask, outpath.replace('mrtrix', 'mrtrix_dti'), json_metadata=args.metadata)
     # if download was selected, download the respective dataset
     else:
         if args.download_path is None:
