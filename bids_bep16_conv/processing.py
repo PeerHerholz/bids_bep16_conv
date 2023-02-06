@@ -73,11 +73,12 @@ def dipy_csd(input_files, bval, bvec, mask, outdir):
                  'sub-01_desc-brain_mask.nii.gz',
                  '/home/user/Desktop)
     """
-
+    
     # create the command
     cmd = ["dipy_fit_csd", input_files, bval, bvec, mask,
-           "--out_dir", outdir
+           "--out_dir", outdir, "--extract_pam_values"
            ]
+
     check_call(cmd)
     return
 
@@ -128,7 +129,7 @@ def mrtrix_dti(input_files, bval, bvec, mask, outdir):
 
     # define the file names for the mdp files
     adc_image = tensor_file.replace('param-tensor_model', 'param-md_mdp')
-    fa_image = tensor_file.replace('param-tensor_model', 'param-fs_mdp')
+    fa_image = tensor_file.replace('param-tensor_model', 'param-fa_mdp')
     ad_image = tensor_file.replace('param-tensor_model', 'param-ad_mdp')
     rd_image = tensor_file.replace('param-tensor_model', 'param-rd_mdp')
 
