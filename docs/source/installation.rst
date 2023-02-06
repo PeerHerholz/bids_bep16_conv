@@ -41,7 +41,7 @@ is recommend to utilize the latter to ensure reproducibility. For example, if yo
    As of November 2020, `images older than 6 months will be deleted from Dockerhub
    <https://www.docker.com/pricing/retentionfaq>`_. As this is very problematic for everything
    reproducibility and version control, every version of the ``bids_bep16_conv images`` are additionally
-   uploaded on `OSF <https://osf.io/x4dku/>`_ and can be installed as outlined further below.
+   uploaded on `OSF <https://osf.io/u4g5p/>`_ and can be installed as outlined further below.
 
 After the command finished (it may take a while depending on your internet connection),
 you can run ``bids_bep16_conv`` like this:
@@ -141,8 +141,9 @@ If the data to be preprocessed is also on the HPC, you are ready to run bids_bep
     $ singularity run --cleanenv /my_images/bids_bep16_conv-<version>.simg \
         path/to/your/bids_dataset \
         participant \
-        --participant-label label \
-        --deid defacing_algorithm
+        --participant_label label \
+        --software dipy \
+        --analysis DTI \
 
 .. note::
 
