@@ -315,7 +315,8 @@ Using the <code class="xref py py-func docutils literal notranslate"><span class
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Data will be downloaded to bids_bep16_datasets/HBN/source-HBN_desc-qsiprep_participants.tsv
 
   0%|          | 0/210607 [00:00&lt;?, ?it/s]
-100%|##########| 206k/206k [00:00&lt;00:00, 39.3MB/s]
+ 31%|###1      | 64.0k/206k [00:00&lt;00:00, 503kB/s]
+100%|##########| 206k/206k [00:00&lt;00:00, 1.06MB/s]
             subject_id scan_site_id  ... dl_qc_score            site_variant
 0     sub-NDARAA306NT2           RU  ...       0.470    RU_64dir_Most_Common
 1     sub-NDARAA536PTU           SI  ...       0.701      SI_64dir_Obliquity
@@ -349,11 +350,11 @@ and a <code class="docutils literal notranslate"><span class="pre">raincloud</sp
 2002    sub-NDARYM277DEA
 1151    sub-NDARMV189NXG
 Name: subject_id, dtype: object
-/usr/share/miniconda/envs/bids_bep16_conv/lib/python3.9/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+/usr/share/miniconda/envs/bids_bep16_conv/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
   warnings.warn(single_var_warning.format("Vertical", "x"))
-/usr/share/miniconda/envs/bids_bep16_conv/lib/python3.9/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+/usr/share/miniconda/envs/bids_bep16_conv/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
   warnings.warn(single_var_warning.format("Vertical", "x"))
-/usr/share/miniconda/envs/bids_bep16_conv/lib/python3.9/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
+/usr/share/miniconda/envs/bids_bep16_conv/lib/python3.8/site-packages/seaborn/_core.py:1303: UserWarning: Vertical orientation ignored with only `x` specified.
   warnings.warn(single_var_warning.format("Vertical", "x"))
 </pre></div>
 </div>
@@ -374,79 +375,99 @@ to our <code class="docutils literal notranslate"><span class="pre">Desktop</spa
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bval
 
   0%|          | 0/642 [00:00&lt;?, ?it/s]
-100%|##########| 642/642 [00:00&lt;00:00, 523kB/s]
+100%|##########| 642/642 [00:00&lt;00:00, 230kB/s]
 Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.bvec
 
   0%|          | 0/4457 [00:00&lt;?, ?it/s]
-100%|##########| 4.35k/4.35k [00:00&lt;00:00, 3.44MB/s]
+100%|##########| 4.35k/4.35k [00:00&lt;00:00, 2.66MB/s]
 Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.nii.gz
 
   0%|          | 0/359208318 [00:00&lt;?, ?it/s]
-  1%|1         | 5.00M/343M [00:00&lt;00:06, 52.0MB/s]
-  3%|2         | 10.0M/343M [00:00&lt;00:13, 25.7MB/s]
-  5%|5         | 17.2M/343M [00:00&lt;00:08, 39.5MB/s]
-  6%|6         | 22.1M/343M [00:00&lt;00:10, 31.8MB/s]
-  9%|8         | 29.7M/343M [00:00&lt;00:07, 43.1MB/s]
- 11%|#         | 36.4M/343M [00:00&lt;00:06, 49.9MB/s]
- 12%|#2        | 42.1M/343M [00:01&lt;00:07, 40.6MB/s]
- 14%|#3        | 46.8M/343M [00:01&lt;00:07, 42.6MB/s]
- 16%|#5        | 54.7M/343M [00:01&lt;00:05, 52.3MB/s]
- 18%|#8        | 61.9M/343M [00:01&lt;00:05, 57.9MB/s]
- 20%|#9        | 68.0M/343M [00:01&lt;00:06, 44.7MB/s]
- 22%|##2       | 76.3M/343M [00:01&lt;00:05, 53.9MB/s]
- 25%|##4       | 84.5M/343M [00:01&lt;00:04, 61.5MB/s]
- 27%|##7       | 92.8M/343M [00:01&lt;00:03, 67.7MB/s]
- 30%|##9       | 102M/343M [00:02&lt;00:03, 76.0MB/s]
- 33%|###3      | 113M/343M [00:02&lt;00:02, 86.4MB/s]
- 36%|###5      | 122M/343M [00:02&lt;00:07, 32.8MB/s]
- 37%|###7      | 128M/343M [00:02&lt;00:06, 36.8MB/s]
- 39%|###9      | 135M/343M [00:03&lt;00:06, 32.2MB/s]
- 42%|####1     | 143M/343M [00:03&lt;00:05, 40.7MB/s]
- 44%|####4     | 152M/343M [00:03&lt;00:04, 49.8MB/s]
- 47%|####7     | 161M/343M [00:03&lt;00:03, 58.5MB/s]
- 49%|####9     | 169M/343M [00:03&lt;00:04, 43.4MB/s]
- 51%|#####1    | 175M/343M [00:03&lt;00:03, 46.7MB/s]
- 53%|#####2    | 181M/343M [00:04&lt;00:04, 40.9MB/s]
- 55%|#####5    | 189M/343M [00:04&lt;00:03, 48.8MB/s]
- 57%|#####6    | 194M/343M [00:04&lt;00:04, 35.9MB/s]
- 59%|#####8    | 202M/343M [00:04&lt;00:03, 42.5MB/s]
- 62%|######1   | 212M/343M [00:04&lt;00:02, 55.5MB/s]
- 64%|######4   | 220M/343M [00:04&lt;00:02, 58.8MB/s]
- 66%|######6   | 226M/343M [00:05&lt;00:02, 47.0MB/s]
- 68%|######7   | 232M/343M [00:05&lt;00:02, 47.7MB/s]
- 69%|######9   | 237M/343M [00:05&lt;00:02, 42.6MB/s]
- 72%|#######1  | 245M/343M [00:05&lt;00:02, 49.8MB/s]
- 74%|#######4  | 254M/343M [00:05&lt;00:01, 58.6MB/s]
- 76%|#######6  | 261M/343M [00:05&lt;00:01, 62.0MB/s]
- 78%|#######8  | 268M/343M [00:05&lt;00:01, 65.0MB/s]
- 81%|########  | 276M/343M [00:05&lt;00:00, 70.9MB/s]
- 83%|########2 | 284M/343M [00:06&lt;00:00, 74.6MB/s]
- 85%|########5 | 292M/343M [00:06&lt;00:00, 76.8MB/s]
- 88%|########7 | 301M/343M [00:06&lt;00:00, 81.7MB/s]
- 90%|######### | 309M/343M [00:06&lt;00:00, 58.0MB/s]
- 92%|#########2| 316M/343M [00:06&lt;00:00, 57.8MB/s]
- 94%|#########3| 322M/343M [00:06&lt;00:00, 53.8MB/s]
- 96%|#########5| 328M/343M [00:06&lt;00:00, 43.3MB/s]
- 97%|#########6| 332M/343M [00:07&lt;00:00, 36.1MB/s]
- 98%|#########8| 336M/343M [00:07&lt;00:00, 32.6MB/s]
- 99%|#########9| 340M/343M [00:07&lt;00:00, 32.4MB/s]
-100%|##########| 343M/343M [00:07&lt;00:00, 47.2MB/s]
+  0%|          | 640k/343M [00:00&lt;00:55, 6.48MB/s]
+  1%|          | 2.38M/343M [00:00&lt;00:26, 13.3MB/s]
+  2%|2         | 7.25M/343M [00:00&lt;00:11, 30.3MB/s]
+  4%|3         | 12.3M/343M [00:00&lt;00:08, 38.9MB/s]
+  5%|5         | 17.8M/343M [00:00&lt;00:07, 45.6MB/s]
+  7%|6         | 22.9M/343M [00:00&lt;00:06, 47.9MB/s]
+  8%|8         | 28.2M/343M [00:00&lt;00:06, 50.4MB/s]
+ 10%|9         | 33.5M/343M [00:00&lt;00:06, 51.9MB/s]
+ 11%|#1        | 38.8M/343M [00:00&lt;00:06, 52.9MB/s]
+ 13%|#2        | 43.9M/343M [00:01&lt;00:05, 53.1MB/s]
+ 14%|#4        | 49.1M/343M [00:01&lt;00:05, 53.2MB/s]
+ 16%|#5        | 54.6M/343M [00:01&lt;00:05, 54.4MB/s]
+ 17%|#7        | 59.9M/343M [00:01&lt;00:05, 54.7MB/s]
+ 19%|#9        | 65.1M/343M [00:01&lt;00:05, 54.4MB/s]
+ 21%|##        | 70.4M/343M [00:01&lt;00:05, 54.8MB/s]
+ 22%|##2       | 75.8M/343M [00:01&lt;00:05, 54.9MB/s]
+ 24%|##3       | 81.1M/343M [00:01&lt;00:04, 54.9MB/s]
+ 25%|##5       | 86.3M/343M [00:01&lt;00:04, 54.4MB/s]
+ 27%|##6       | 91.7M/343M [00:01&lt;00:04, 54.9MB/s]
+ 28%|##8       | 97.0M/343M [00:02&lt;00:04, 55.0MB/s]
+ 30%|##9       | 102M/343M [00:02&lt;00:04, 55.0MB/s]
+ 31%|###1      | 108M/343M [00:02&lt;00:04, 55.1MB/s]
+ 33%|###2      | 113M/343M [00:02&lt;00:04, 55.2MB/s]
+ 35%|###4      | 118M/343M [00:02&lt;00:04, 55.2MB/s]
+ 36%|###6      | 124M/343M [00:02&lt;00:04, 55.3MB/s]
+ 38%|###7      | 129M/343M [00:02&lt;00:04, 55.3MB/s]
+ 39%|###9      | 134M/343M [00:02&lt;00:03, 55.3MB/s]
+ 41%|####      | 139M/343M [00:02&lt;00:03, 55.3MB/s]
+ 42%|####2     | 145M/343M [00:02&lt;00:03, 55.3MB/s]
+ 44%|####3     | 150M/343M [00:03&lt;00:03, 55.4MB/s]
+ 45%|####5     | 155M/343M [00:03&lt;00:03, 55.3MB/s]
+ 47%|####6     | 161M/343M [00:03&lt;00:03, 55.3MB/s]
+ 48%|####8     | 166M/343M [00:03&lt;00:03, 55.4MB/s]
+ 50%|#####     | 171M/343M [00:03&lt;00:05, 33.9MB/s]
+ 51%|#####1    | 176M/343M [00:03&lt;00:06, 25.3MB/s]
+ 52%|#####2    | 179M/343M [00:04&lt;00:08, 21.4MB/s]
+ 54%|#####3    | 184M/343M [00:04&lt;00:06, 27.3MB/s]
+ 55%|#####5    | 190M/343M [00:04&lt;00:04, 32.2MB/s]
+ 57%|#####6    | 194M/343M [00:04&lt;00:04, 34.5MB/s]
+ 58%|#####7    | 198M/343M [00:05&lt;00:10, 14.2MB/s]
+ 59%|#####8    | 201M/343M [00:05&lt;00:11, 13.3MB/s]
+ 60%|######    | 206M/343M [00:05&lt;00:07, 18.4MB/s]
+ 62%|######1   | 211M/343M [00:05&lt;00:05, 23.8MB/s]
+ 63%|######3   | 217M/343M [00:05&lt;00:04, 29.2MB/s]
+ 65%|######4   | 221M/343M [00:06&lt;00:04, 27.1MB/s]
+ 66%|######6   | 226M/343M [00:06&lt;00:03, 32.5MB/s]
+ 68%|######7   | 232M/343M [00:06&lt;00:03, 37.4MB/s]
+ 69%|######9   | 237M/343M [00:06&lt;00:02, 41.6MB/s]
+ 71%|#######   | 242M/343M [00:06&lt;00:02, 45.1MB/s]
+ 72%|#######2  | 247M/343M [00:06&lt;00:02, 47.7MB/s]
+ 74%|#######3  | 253M/343M [00:06&lt;00:01, 50.0MB/s]
+ 75%|#######5  | 258M/343M [00:06&lt;00:01, 51.6MB/s]
+ 77%|#######6  | 263M/343M [00:06&lt;00:01, 45.1MB/s]
+ 78%|#######8  | 269M/343M [00:07&lt;00:01, 47.9MB/s]
+ 80%|#######9  | 274M/343M [00:07&lt;00:01, 49.9MB/s]
+ 82%|########1 | 279M/343M [00:07&lt;00:01, 51.3MB/s]
+ 83%|########3 | 285M/343M [00:07&lt;00:01, 52.5MB/s]
+ 85%|########4 | 290M/343M [00:07&lt;00:01, 52.9MB/s]
+ 86%|########6 | 295M/343M [00:07&lt;00:00, 54.2MB/s]
+ 88%|########7 | 300M/343M [00:07&lt;00:01, 42.2MB/s]
+ 89%|########9 | 306M/343M [00:07&lt;00:00, 45.4MB/s]
+ 91%|######### | 311M/343M [00:07&lt;00:00, 47.9MB/s]
+ 92%|#########2| 316M/343M [00:08&lt;00:00, 45.5MB/s]
+ 94%|#########3| 321M/343M [00:08&lt;00:00, 33.1MB/s]
+ 95%|#########4| 325M/343M [00:08&lt;00:00, 36.8MB/s]
+ 97%|#########6| 331M/343M [00:08&lt;00:00, 42.1MB/s]
+ 98%|#########8| 336M/343M [00:08&lt;00:00, 44.5MB/s]
+100%|#########9| 342M/343M [00:08&lt;00:00, 48.2MB/s]
+100%|##########| 343M/343M [00:08&lt;00:00, 41.2MB/s]
 Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-brain_mask.nii.gz
 
   0%|          | 0/13243 [00:00&lt;?, ?it/s]
-100%|##########| 12.9k/12.9k [00:00&lt;00:00, 9.79MB/s]
+100%|##########| 12.9k/12.9k [00:00&lt;00:00, 4.84MB/s]
 Downloading sub-NDARYM277DEA_ses-HBNsiteCBIC_acq-64dir_space-T1w_desc-preproc_dwi.json
 
   0%|          | 0/3250 [00:00&lt;?, ?it/s]
-100%|##########| 3.17k/3.17k [00:00&lt;00:00, 2.43MB/s]
+100%|##########| 3.17k/3.17k [00:00&lt;00:00, 2.15MB/s]
 Downloading QSIprep/dataset_description.json
 
   0%|          | 0/499 [00:00&lt;?, ?it/s]
-100%|##########| 499/499 [00:00&lt;00:00, 403kB/s]
+100%|##########| 499/499 [00:00&lt;00:00, 342kB/s]
 Downloading HBN/dataset_description.json
 
   0%|          | 0/60 [00:00&lt;?, ?it/s]
-100%|##########| 60.0/60.0 [00:00&lt;00:00, 48.3kB/s]
+100%|##########| 60.0/60.0 [00:00&lt;00:00, 36.9kB/s]
 The following HBN files are available:
 HBN/
 ├─dataset_description.json
@@ -473,7 +494,7 @@ The latter is achieved by downloading the
 <a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/05-derivatives/02-common-data-types.html">BIDS common derivatives</a>,
 as well as
 <a class="reference external" href="https://github.com/bids-standard/bids-bep016/pull/24/files">inputs required by BEP16</a> and respective further processing.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.529 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  20.490 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-plot-hbn-download-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/989d84de29634e92c8b873918458040c/plot_HBN_download.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_HBN_download.py</span></code></a></p>
