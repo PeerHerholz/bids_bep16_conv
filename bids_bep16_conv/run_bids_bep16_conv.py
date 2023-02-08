@@ -1,8 +1,8 @@
 import argparse
 import os
 from pathlib import Path
-from bids_bep16_conv.processing import dipy_dti, dipy_csd, mrtrix_dti
-from bids_bep16_conv.converters import dipy_bep16_dti, mrtrix_bep16_dti
+from bids_bep16_conv.processing import dipy_dti, dipy_csd, mrtrix_dti, fsl_dti
+from bids_bep16_conv.converters import dipy_bep16_dti, mrtrix_bep16_dti, fsl_bep16_dti
 from bids_bep16_conv.utils import validate_input_dir, create_dataset_description
 from bids_bep16_conv.datasets import download_HBN
 from bids import BIDSLayout
@@ -31,7 +31,7 @@ def get_parser():
                         'participants can be specified with a space separated list.',
                         nargs="+")
     parser.add_argument('--software', help='Software package to use.',
-                        choices=['dipy', 'mrtrix'])
+                        choices=['dipy', 'mrtrix', 'fsl'])
     parser.add_argument('--analysis', help='Analaysis to run.',
                         choices=['DTI', 'CSD'])
     parser.add_argument('--metadata', help='Analysis-corresponding JSON metadata file. '
@@ -179,6 +179,20 @@ def run_bids_bep16_conv():
                         create_dataset_description("mrtrix", "DTI", args.out_dir)
                         mrtrix_bep16_dti(dwi_nii_gz, bval, bvec,
                                          mask, outpath.replace('mrtrix', 'mrtrix_dti'), json_metadata=args.metadata)
+                # if fsl was selected, run fsl and define output path in derivatives folder respectively
+                elif args.software == "fsl":
+                    outpath = str(args.out_dir) + '/fsl/sub-' + subject_label + '/dwi/'
+                    if sessions_to_analyze:
+                        ses_label = dwi_nii_gz.split('/')[-1].split('_')[1].split('-')[1]
+                        outpath = str(args.out_dir) + '/fsl/sub-' + subject_label + '/ses-' + ses_label + '/dwi/'
+                    # if DTI analysis should be run, setup and run mrtrix_dti function
+                    if args.analysis == "DTI":
+                        fsl_dti(dwi_nii_gz, bval, bvec,
+                                mask, outpath.replace('fsl', 'fsl_dti'), outpath.replace('fsl', 'fsl_dti') + subject_label)
+                        # create the respective dataset_description.json file for the run analysis
+                        create_dataset_description("fsl", "DTI", args.out_dir)
+                        fsl_bep16_dti(dwi_nii_gz, bval, bvec,
+                                      mask, outpath.replace('fsl', 'fsl_dti'), json_metadata=args.metadata)
     # if download was selected, download the respective dataset
     else:
         if args.download_path is None:

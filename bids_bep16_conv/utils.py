@@ -149,36 +149,51 @@ def create_dataset_description(software, analysis, out_dir):
         
         dataset_description["Name"] = "Dipy output"
         dataset_description["BIDSVersion"] = "PLEASE ADD"
-        dataset_description["PipelineDescription"] = {"Name" : "Dipy",
-                                                      "Version": dipy.__version__,
-                                                      "CodeURL": ""}
+        dataset_description["GeneratedBy"] = [{"Name" : "Dipy",
+                                               "Version": dipy.__version__,
+                                               "CodeURL": ""}]
         dataset_description["HowToAcknowledge"] = "PLEASE ADD"
         dataset_description["SourceDatasetsURLs"] = "PLEASE ADD"
         dataset_description["License"] = "PLEASE ADD"
 
         if analysis == 'DTI':
-            dataset_description["PipelineDescription"]["Name"] = "Dipy DTI"
-            dataset_description["PipelineDescription"]["CodeURL"] = "https://dipy.org/documentation/1.6.0./interfaces/reconstruction_flow/#diffusion-tensor-imaging-dti"
+            dataset_description["GeneratedBy"][0]["Name"] = "Dipy DTI"
+            dataset_description["GeneratedBy"][0]["CodeURL"] = "https://dipy.org/documentation/1.6.0./interfaces/reconstruction_flow/#diffusion-tensor-imaging-dti"
         elif analysis == 'CSD':
-            dataset_description["PipelineDescription"]["Name"] = "Dipy CSD"
+            dataset_description["GeneratedBy"][0]["Name"] = "Dipy CSD"
 
     # if mrtrix was used, fill dictionary with respectively needed information
     elif software == 'mrtrix':
         dataset_description["Name"] = "MRTRIX output"
         dataset_description["BIDSVersion"] = "PLEASE ADD"
-        dataset_description["PipelineDescription"] = {"Name" : "MRTRIX",
-                                                      "Version": mrtrix3.__version__,
-                                                      "CodeURL": ""}
+        dataset_description["GeneratedBy"] = [{"Name" : "MRTRIX",
+                                               "Version": mrtrix3.__version__,
+                                               "CodeURL": ""}]
         dataset_description["HowToAcknowledge"] = "PLEASE ADD"
         dataset_description["SourceDatasetsURLs"] = "PLEASE ADD"
         dataset_description["License"] = "PLEASE ADD"
 
         if analysis == 'DTI':
-            dataset_description["PipelineDescription"]["Name"] = "mrtrix dwi2tensor | tensor2metric"
-            dataset_description["PipelineDescription"]["CodeURL"] = ["https://mrtrix.readthedocs.io/en/latest/reference/commands/dwi2tensor.html?highlight=dwi2tensor",
-                                                                     "https://mrtrix.readthedocs.io/en/latest/reference/commands/tensor2metric.html?highlight=tensor2metric"]
+            dataset_description["GeneratedBy"][0]["Name"] = "mrtrix dwi2tensor | tensor2metric"
+            dataset_description["GeneratedBy"][0]["CodeURL"] = ["https://mrtrix.readthedocs.io/en/latest/reference/commands/dwi2tensor.html?highlight=dwi2tensor",
+                                                                "https://mrtrix.readthedocs.io/en/latest/reference/commands/tensor2metric.html?highlight=tensor2metric"]
         elif analysis == 'CSD':
-            dataset_description["PipelineDescription"]["Name"] = "mrtrix CSD"
+            dataset_description["GeneratedBy"][0]["Name"] = "mrtrix CSD"
+
+    # if fsl was used, fill dictionary with respectively needed information
+    elif software == 'fsl':
+        dataset_description["Name"] = "FSL output"
+        dataset_description["BIDSVersion"] = "PLEASE ADD"
+        dataset_description["GeneratedBy"] = [{"Name" : "FSL",
+                                               "Version": '6.0.3',
+                                               "CodeURL": ""}]
+        dataset_description["HowToAcknowledge"] = "PLEASE ADD"
+        dataset_description["SourceDatasetsURLs"] = "PLEASE ADD"
+        dataset_description["License"] = "PLEASE ADD"
+
+        if analysis == 'DTI':
+            dataset_description["GeneratedBy"][0]["Name"] = "FSL's dtifit"
+            dataset_description["GeneratedBy"][0]["CodeURL"] = "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FDT/UserGuide?highlight=%28dtifit%29#DTIFIT"
         
     # save the created dictionary as json file in specified output path
     with open(str(str(dataset_description_path) + '/dataset_description.json'), 'w') as outfile:

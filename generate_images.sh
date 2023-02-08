@@ -9,6 +9,7 @@ generate_docker() {
              --base neurodebian:stretch-non-free \
              --pkg-manager apt \
              --arg DEBIAN_FRONTEND=noninteractive \
+             --fsl version=6.0.3 \
              --miniconda \
                version=latest \
                conda_install="python=3.8" \

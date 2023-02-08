@@ -1,0 +1,17 @@
+{
+    "Name": "FSL DTI",
+    "GeneratedBy": [{
+        "Name": "FSL dtifit",
+        "Version": "PLEASE ADD THE VERSION OF SOFTWARE PACKAGE HERE",
+        "CodeURL": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FDT/UserGuide#DTIFIT"
+    }],
+    "ModelDescription": "Diffusion Tensor",
+    "ModelURL": "https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FDT/UserGuide#DTIFIT",
+    "OrientationRepresentation": "param",
+    "ReferenceAxes": "xyz",
+    "Parameters": {
+            "FitMethod": "ols",
+            "OutlierRejection": false
+        },
+    "AntipodalSymmetry" : true
+}

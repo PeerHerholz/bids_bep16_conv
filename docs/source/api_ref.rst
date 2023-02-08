@@ -43,6 +43,7 @@ Reference API
    bids_bep16_conv.processing.dipy_dti
    bids_bep16_conv.processing.dipy_csd
    bids_bep16_conv.processing.mrtrix_dti
+   bids_bep16_conv.processing.fsl_dti
 
 :mod:`bids_bep16_conv.converters` - Conversion tools
 ---------------------------------------------------------------
@@ -57,6 +58,8 @@ Reference API
    :toctree: generated/
 
    bids_bep16_conv.converters.dipy_bep16_dti
+   bids_bep16_conv.converters.mrtrix_bep16_dti
+   bids_bep16_conv.converters.fsl_bep16_dti
 
 .. _ref_utils:
 
