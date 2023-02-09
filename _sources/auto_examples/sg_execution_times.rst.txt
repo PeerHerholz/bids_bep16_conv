@@ -5,8 +5,8 @@
 
 Computation times
 =================
-**00:15.832** total execution time for **auto_examples** files:
+**00:57.185** total execution time for **auto_examples** files:
 
 +-------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_examples_plot_HBN_download.py` (``plot_HBN_download.py``) | 00:15.832 | 0.0 MB |
+| :ref:`sphx_glr_auto_examples_plot_HBN_download.py` (``plot_HBN_download.py``) | 00:57.185 | 0.0 MB |
 +-------------------------------------------------------------------------------+-----------+--------+
