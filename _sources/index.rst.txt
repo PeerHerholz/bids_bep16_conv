@@ -1,7 +1,9 @@
+.. image:: _static/bids_bep16_conv_logo.png
+   :align: center
+   :width: 400px
 
-============================
-BIDS BEP-16 Conversion tools
-============================
+.. centered:: A small package to implement conversions between `BIDS <https://bids.neuroimaging.io/>`_ BEP-16 (Diffusion Derivatives) compliant datasets and other/existing software outputs.
+
 
 .. image:: https://github.com/PeerHerholz/bids_bep16_conv/actions/workflows/docs.yml/badge.svg
         :target: https://github.com/PeerHerholz/bids_bep16_conv/actions/workflows/docs.yml
@@ -25,7 +27,7 @@ BIDS BEP-16 Conversion tools
 .. image:: https://img.shields.io/github/license/PeerHerholz/bids_bep16_conv.svg
         :target: https://github.com/PeerHerholz/bids_bep16_conv
 
-A small package to implement conversions between `BIDS <https://bids.neuroimaging.io/>`_ BEP-16 (Diffusion Derivatives) compliant datasets and other/existing software outputs.
+|
 
 Introduction
 ============
